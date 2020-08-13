@@ -1,0 +1,70 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid" id="AppealCalender">
+    <!-- <div class=""> -->
+        <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="calender col-lg-10">
+        <div class="row">
+            <div class="col-lg-4">
+            <button type="button" class="btn btn-lg btn-block button2">Add New Serial Number</button>
+        </div>
+        <div class="col-lg-4"></div>
+            <div class="form-group Search col-lg-4">
+                <input  class="form-control pin-value"  matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...."
+                    required>
+                   
+              </div>
+            </div>
+        <div class="example-container">
+           
+          <mat-table #table [dataSource]="listData" matSort>
+  
+  
+            <ng-container matColumnDef="town">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Product Name </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <span class="mobile-label">Township:</span>
+                {{element.product_name}}
+              </mat-cell>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="notice_mailed_date">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Serial Number</mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <span class="mobile-label">Reassessment Notice Mailed:</span>
+                {{element.serial_number}}
+              </mat-cell>
+            </ng-container>
+  
+  
+            
+  
+  
+            <!-- <ng-container matColumnDef="Pass">
+              <mat-header-cell *matHeaderCellDef class="pass"> </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <button class="btn btn-lg btn-block button1" (click)="SelectButtonClicked(element.calendar_id)">Update
+                </button>
+              </mat-cell>
+            </ng-container> -->
+  
+            <!-- <ng-container matColumnDef="Customer">
+              <mat-header-cell *matHeaderCellDef class="Customer"> </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <button class="btn btn-lg btn-block button1"
+                  (click)="CustomerButtonClicked(element.calendar_id,element.town)">Delete
+                </button>
+              </mat-cell>
+            </ng-container> -->
+  
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+</div>
+    <!-- </div> -->
+  </div>
