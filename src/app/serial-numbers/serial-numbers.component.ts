@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { SerialNumberService } from '../services/serial-number.service';
 import {MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { AddSerialNumberComponent } from './add-serial-number/add-serial-number.component';
 
 @Component({
   selector: 'app-serial-numbers',
@@ -19,7 +21,7 @@ export class SerialNumbersComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  constructor(private router: Router, public service: SerialNumberService) { }
+  constructor(private router: Router, public service: SerialNumberService,private dialog: MatDialog) { }
 
   ngOnInit() {
     this.loadserialNumberlist();
@@ -35,5 +37,13 @@ export class SerialNumbersComponent implements OnInit {
   }
   applyFilter(filtervalue : string){
     this.listData.filter = filtervalue.trim().toLocaleLowerCase();
+  }
+
+  addSerialButtonClicked()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = "100%";
+    this.dialog.open(AddSerialNumberComponent);
   }
 }

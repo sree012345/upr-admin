@@ -11,13 +11,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SerialNumbersComponent } from './serial-numbers/serial-numbers.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add-serial-number.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavBarComponent,
-    SerialNumbersComponent
+    SerialNumbersComponent,
+    AddSerialNumberComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -28,8 +31,10 @@ import { SerialNumbersComponent } from './serial-numbers/serial-numbers.componen
     ReactiveFormsModule,
     MatTableModule,
     HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[AddSerialNumberComponent]
 })
 export class AppModule { }
