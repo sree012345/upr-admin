@@ -13,6 +13,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SerialNumbersComponent } from './serial-numbers/serial-numbers.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add-serial-number.component';
+import { AdminloginService } from './services/Adminlogin.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add
     HttpClientModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [AdminloginService],
   bootstrap: [AppComponent],
   entryComponents:[AddSerialNumberComponent]
 })
