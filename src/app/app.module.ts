@@ -14,16 +14,18 @@ import { SerialNumbersComponent } from './serial-numbers/serial-numbers.componen
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add-serial-number.component';
 import { AdminloginService } from './services/Adminlogin.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-number/update-serial-number.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-  
-    
     NavBarComponent,
     SerialNumbersComponent,
-    AddSerialNumberComponent
+    AddSerialNumberComponent,
+    UpdateSerialNumberComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -36,10 +38,12 @@ import { AdminloginService } from './services/Adminlogin.service';
     HttpClientModule,
     MatTableModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [AdminloginService],
   bootstrap: [AppComponent],
-  entryComponents:[AddSerialNumberComponent]
+  entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent]
 })
 export class AppModule { }

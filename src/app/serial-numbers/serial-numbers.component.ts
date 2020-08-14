@@ -7,6 +7,7 @@ import {MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './add-serial-number/add-serial-number.component';
+import { UpdateSerialNumberComponent } from './update-serial-number/update-serial-number.component';
 
 @Component({
   selector: 'app-serial-numbers',
@@ -17,7 +18,7 @@ export class SerialNumbersComponent implements OnInit {
 
   
   listData: MatTableDataSource<SerialNumber>
-  displayedColumns = ['town', 'notice_mailed_date'];
+  displayedColumns = ['product_name', 'serial_number','Options'];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -45,5 +46,12 @@ export class SerialNumbersComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.width = "100%";
     this.dialog.open(AddSerialNumberComponent);
+  }
+  updateSerialButtonClicked()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = "100%";
+    this.dialog.open(UpdateSerialNumberComponent);
   }
 }
