@@ -1,0 +1,93 @@
+.modal-footer,.modal-header
+{
+  padding:15px 0px !important;
+  justify-content: center;
+}
+
+.modal-content
+{
+  z-index: 999999999999;
+  position: absolute;
+
+  color: black;
+ 
+}
+
+.modelmessage{text-align: center!important;font-size: 20px;}
+button:disabled,
+button[disabled]{
+  cursor: not-allowed;
+  color: #fff!important;
+ background-color: #1b73bb;
+}
+html {
+   
+    -webkit-tap-highlight-color: none;
+}
+.btn
+{
+    margin-top: 0px !important;
+}
+
+.model-title{
+    font-weight: 800 !important;
+    font-size:18px !important;
+}
+.b{
+    margin-top:0px;
+}
+.modal-body {
+    position: relative;
+    flex: -3 2 auto;
+    padding: 20px;
+    color: #5d5d5d;
+    font-family: lato;
+    font-weight: 500;
+    font-size:17px;
+    text-align:center;
+}
+.modal-title{
+    font-size:18px;
+    font-weight: 600;
+    color:#335578;
+}
+.mat-dialog-container{
+    width:25vw;
+}
+.modal-body>p{
+    margin-bottom:0px;
+}
+.adjust{
+    width:30vw;
+}
+@media(max-width:991px){
+    .adjust{
+        width:40vw;
+    }
+}
+@media(max-width:600px){
+    .adjust{
+        width:60vw;
+    }
+}
+@media(max-width:420px){
+    .adjust{
+        width:65vw;
+    }
+}
+.input-icons
+{
+    margin-bottom: 20px;
+}
+.cancel
+{
+    background-color: #be1a1a;
+    color: #ffffff;
+    font-weight: 500;
+}
+.submit
+{
+    background-color: #26a8e0;
+    color: #ffffff;
+    font-weight: 500;
+}
