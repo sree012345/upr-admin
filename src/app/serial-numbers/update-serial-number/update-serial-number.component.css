@@ -91,3 +91,35 @@ html {
     color: #ffffff;
     font-weight: 500;
 }
+.label-name
+{
+    float: left;
+}
+::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+  mat-form-field
+{
+  width: 100%;
+  
+}
+.dateInput
+{
+    display: block !important;
+    width: 100% !important;
+    font-size: 1rem !important;
+    color: #495057 !important;
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem !important;
+    padding: .575rem .75rem !important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.mat-form-field {
+    font-family: none !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-wrapper
+{
+    scroll-padding-bottom: 0em !important;
+}

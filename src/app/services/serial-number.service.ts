@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { addSerialNumber } from '../models/serialNumber-model';
+import { addSerialNumber, SerialNumber } from '../models/serialNumber-model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +33,13 @@ formData=new addSerialNumber();
   }
   filter(filterBy: string){
     this._listners.next(filterBy);
+  }
+
+  deleteSerialNumber(snId)
+  {
+    var snData=new SerialNumber();
+    snData.serial_number_id=snId
+    console.log(this.APIBaseUrl+'admin/delete_serial_number',snData);
+    return this.http.post<any>(this.APIBaseUrl+'admin/delete_serial_number',snData);
   }
 }

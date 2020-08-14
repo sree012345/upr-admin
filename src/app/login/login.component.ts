@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdminloginService } from '../services/Adminlogin.service';
-import { SerialNumber } from '../models/serialNumber-model';
 
 
 @Component({
@@ -10,7 +9,6 @@ import { SerialNumber } from '../models/serialNumber-model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formData=new SerialNumber();
   message="Your email or password is wrong please check..!"
   name:boolean=true;
   constructor(public service:AdminloginService) { }

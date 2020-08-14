@@ -29,6 +29,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { DelectProductComponent } from './product/delect-product/delect-product.component';
+import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-number/delete-serial-number.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { DelectProductComponent } from './product/delect-product/delect-product.
     ProductComponent,
     AddProductComponent,
     UpdateProductComponent,
-    DelectProductComponent
+    DelectProductComponent,
+    DeleteSerialNumberComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -65,6 +67,6 @@ import { DelectProductComponent } from './product/delect-product/delect-product.
   ],
   providers: [AdminloginService],
   bootstrap: [AppComponent],
-  entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent]
+  entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent,DeleteSerialNumberComponent]
 })
 export class AppModule { }

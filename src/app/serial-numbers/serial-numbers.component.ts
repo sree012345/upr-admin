@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './add-serial-number/add-serial-number.component';
 import { UpdateSerialNumberComponent } from './update-serial-number/update-serial-number.component';
+import { DeleteSerialNumberComponent } from './delete-serial-number/delete-serial-number.component';
 
 @Component({
   selector: 'app-serial-numbers',
@@ -56,5 +57,19 @@ export class SerialNumbersComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.width = "100%";
     this.dialog.open(UpdateSerialNumberComponent);
+  }
+
+  DeleteProduct(serial_number_id)
+  {
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = "100%";
+    this.dialog.open(DeleteSerialNumberComponent,{
+      width:"30%",
+      data:{
+        serial_id:serial_number_id
+      }
+    })
   }
 }
