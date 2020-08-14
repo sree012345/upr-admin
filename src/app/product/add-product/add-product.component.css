@@ -51,6 +51,9 @@ html {
     font-weight: 600;
     color:#335578;
 }
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    }
 .mat-dialog-container{
     width:25vw;
 }

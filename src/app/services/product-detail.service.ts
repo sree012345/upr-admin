@@ -24,10 +24,10 @@ export class ProductDetailService {
   addproduct(add:product){
     var prod=new product();
     prod.product_name=add.product_name;
-    prod.company_id=Number(add.company_id);
+    prod.company_id=1;
     prod.product_description=add.product_description;
-    prod.counterfeit_radius=add.counterfeit_radius;
-    prod.activation_req==Boolean(add.activation_req);
+    prod.counterfeit_radius=add.counterfeit_radius.toString();
+    prod.activation_req=Boolean(add.activation_req);
     prod.content_management_req=Boolean(add.content_management_req);
     prod.counterfeit_req=Boolean(add.counterfeit_req)
     prod.forms_req=Boolean(add.forms_req)
@@ -39,9 +39,9 @@ export class ProductDetailService {
     var prod=new product();
     prod.product_id=Number(add.product_id)
     prod.product_name=add.product_name;
-    prod.company_id=Number(add.company_id);
+    prod.company_id=1;
     prod.product_description=add.product_description;
-    prod.counterfeit_radius=add.counterfeit_radius;
+    prod.counterfeit_radius=add.counterfeit_radius.toString();
     prod.activation_req==Boolean(add.activation_req);
     prod.content_management_req=Boolean(add.content_management_req);
     prod.counterfeit_req=Boolean(add.counterfeit_req)

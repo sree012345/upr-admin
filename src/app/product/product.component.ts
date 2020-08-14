@@ -8,6 +8,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DelectProductComponent } from './delect-product/delect-product.component';
+import { product } from '../models/Product-model';
 
 @Component({
   selector: 'app-product',
@@ -51,9 +52,11 @@ export class ProductComponent implements OnInit {
     dialogConfig.width = "100%";
     this.dialog.open(AddProductComponent);
   }
-  updateproduct(product_name)
+  updateproduct(pro:product)
   {
-   this.product_name=product_name
+    this.service.formData = pro;
+    console.log(pro)
+  //  this.product_name=product_name
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
