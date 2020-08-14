@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { SerialNumber } from '../models/serialNumber-model';
 import { Router } from '@angular/router';
 import { SerialNumberService } from '../services/serial-number.service';
 import {MatSort} from '@angular/material/sort';
@@ -17,12 +16,16 @@ import { UpdateSerialNumberComponent } from './update-serial-number/update-seria
 export class SerialNumbersComponent implements OnInit {
 
   
-  listData: MatTableDataSource<SerialNumber>
+  listData: MatTableDataSource<any>
   displayedColumns = ['product_name', 'serial_number','Options'];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  constructor(private router: Router, public service: SerialNumberService,private dialog: MatDialog) { }
+  constructor(private router: Router, public service: SerialNumberService,private dialog: MatDialog) {
+    this.dialog.afterAllClosed.subscribe(()=>{
+      this.loadserialNumberlist();
+    })
+   }
 
   ngOnInit() {
     this.loadserialNumberlist();

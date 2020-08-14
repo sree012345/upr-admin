@@ -16,6 +16,11 @@ import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-number/update-serial-number.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule,MatFormFieldControl } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,7 @@ import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-numb
     NavBarComponent,
     SerialNumbersComponent,
     AddSerialNumberComponent,
-    UpdateSerialNumberComponent
+    UpdateSerialNumberComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -39,7 +44,11 @@ import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-numb
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
