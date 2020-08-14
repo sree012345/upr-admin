@@ -17,7 +17,12 @@ import { AdminloginService } from './services/Adminlogin.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-number/update-serial-number.component';
-
+import { ProductComponent } from './product/product.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { DelectProductComponent } from './product/delect-product/delect-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +30,11 @@ import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-numb
     NavBarComponent,
     SerialNumbersComponent,
     AddSerialNumberComponent,
-    UpdateSerialNumberComponent
+    UpdateSerialNumberComponent,
+    ProductComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    DelectProductComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -40,7 +49,9 @@ import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-numb
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [AdminloginService],
   bootstrap: [AppComponent],

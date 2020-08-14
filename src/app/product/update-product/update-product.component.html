@@ -1,0 +1,42 @@
+<div class="adjust">
+    <div class="modal-header">
+        <h2 class="modal-title" style="text-align: center;">Edit a Product</h2>
+        
+            <span aria-hidden="true" class="close" (click)="cancel()"  aria-label="Close" >&times;</span>
+         
+    </div>
+    
+    <div class="modal-body">
+        <div class="input-icons">
+            <input class="form-control input-field" type="text" 
+              placeholder={{product_name}} readonly
+           >
+          </div>
+        <div class="input-icons">
+            <input class="form-control input-field" type="number" 
+              placeholder="Counterfeit Radius in Miles" 
+           >
+          </div>
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" ><span style="margin-left:8px;">Enable product activation for all serial numbers.</span>
+          </div> 
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" ><span style="margin-left:8px;">Enable counterfeit detection for all serial numbers.</span>
+          </div> 
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" ><span style="margin-left:8px;">Enable product information and content management for all serial numbers.</span>
+          </div> 
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" ><span style="margin-left:8px;">Enable recall management for all serial numbers.</span>
+          </div> 
+    </div>
+    
+    <div class="modal-footer">
+        <button type="button " class="btn btn-block btn-md cancel" data-dismiss="modal" (click)="cancel()"
+            >Cancel</button>
+            <button type="button " class="btn btn-block btn-md submit" data-dismiss="modal"
+            >Submit</button>
+    </div>
+</div>
+
+

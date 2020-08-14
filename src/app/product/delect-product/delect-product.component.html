@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4 class="modal-title">Delete Product</h4>
+
+        <span aria-hidden="true" class="close" (click)="cancel()" aria-label="Close">&times;</span>
+     
+    </div>
+    <div class="modal-body">
+     Do You Really Want To Delete this Product?
+    </div>
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-danger" (click)="cancel()" >Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+    </div>

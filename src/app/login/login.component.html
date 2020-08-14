@@ -28,7 +28,7 @@
     
       <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 d-flex justify-content-center top">
 
-        <button class="btn  button" >Login</button>
+        <button class="btn  button" [disabled]="form.invalid" >Login</button>
         <div *ngIf="!name">{{message}}</div>
     </div>
     <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 d-flex justify-content-center">
