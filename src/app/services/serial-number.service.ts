@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { addSerialNumber } from '../models/serialNumber-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SerialNumberService {
-
+formData=new addSerialNumber();
   constructor(private http:HttpClient) { }
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   

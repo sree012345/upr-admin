@@ -1,0 +1,57 @@
+<div class="adjust">
+    <div class="modal-header">
+        <h2 class="modal-title" style="text-align: center;">Add a New Product</h2>
+        
+            <span aria-hidden="true" class="close" (click)="cancel()"  aria-label="Close" >&times;</span>
+         
+    </div>
+    <form #form="ngForm" (submit)="onsubmit(form)" class="form">
+    <div class="modal-body">
+        <div class="input-icons">
+            <input class="form-control input-field" type="text" 
+              placeholder="Enter Product Name" name="product_name" #product_name="ngModel" [(ngModel)]="service.formData.product_name" required
+           >
+           <div class="text-left text-danger" *ngIf="product_name.invalid"></div>
+          </div>
+          <div class="input-icons">
+            <input class="form-control input-field" type="text" 
+              placeholder="Product Description" name="product_description" #product_description="ngModel" [(ngModel)]="service.formData.product_description" required
+           >
+           <div class="text-left text-danger" *ngIf="product_description.invalid"></div>
+          </div>
+        <div class="input-icons">
+            <input class="form-control input-field" type="number" required
+              placeholder="Counterfeit Radius in Miles" name="counterfeit_radius" #counterfeit_radius="ngModel" [(ngModel)]="service.formData.counterfeit_radius"
+           >
+           <div class="text-left text-danger" *ngIf="counterfeit_radius.invalid"></div>
+          </div>
+         
+          <div class="input-icons">
+  
+    <input class="input-field"  type="checkbox" name="activation_req" #activation_req="ngModel" [(ngModel)]="service.formData.activation_req"><span style="margin-left:8px;">Enable product activation for all serial numbers.</span>
+          </div> 
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" name="counterfeit_req" #counterfeit_req="ngModel" [(ngModel)]="service.formData.counterfeit_req" ><span style="margin-left:8px;">Enable counterfeit detection for all serial numbers.</span>
+          </div> 
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" name="content_management_req" #content_management_req="ngModel" [(ngModel)]="service.formData.content_management_req"><span style="margin-left:8px;">Enable product information and content management for all serial numbers.</span>
+          </div> 
+         
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" name="recall_req" #recall_req="ngModel" [(ngModel)]="service.formData. recall_req" ><span style="margin-left:8px;">Enable recall management for all serial numbers.</span>
+          </div>
+          <div class="input-icons">
+            <input class="input-field"  type="checkbox" name="forms_req" #forms_req="ngModel" [(ngModel)]="service.formData.forms_req"><span style="margin-left:8px;">Enable form management for all serial numbers.</span>
+          </div>  
+    </div>
+
+    <div class="modal-footer">
+        <span class="btn btn-block btn-md cancel" data-dismiss="modal" (click)="cancel()"
+            >Cancel</span>
+            <button type="submit " class="btn btn-block btn-md submit" data-dismiss="modal"
+            >Submit</button>
+        
+    </div>
+</form>
+</div>
+

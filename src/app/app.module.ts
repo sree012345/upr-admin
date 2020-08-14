@@ -13,6 +13,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SerialNumbersComponent } from './serial-numbers/serial-numbers.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add-serial-number.component';
+import { AdminloginService } from './services/Adminlogin.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-number/update-serial-number.component';
@@ -22,6 +23,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 
 
+import { ProductComponent } from './product/product.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { DelectProductComponent } from './product/delect-product/delect-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +37,10 @@ import {MatInputModule} from '@angular/material/input';
     SerialNumbersComponent,
     AddSerialNumberComponent,
     UpdateSerialNumberComponent,
+    ProductComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    DelectProductComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -49,8 +60,10 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [AdminloginService],
   bootstrap: [AppComponent],
   entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent]
 })
