@@ -1,7 +1,7 @@
 .modal-footer,.modal-header
 {
   padding:15px 0px !important;
-  justify-content: center;
+
 }
 
 .modal-content
@@ -40,17 +40,25 @@ html {
     position: relative;
     flex: -3 2 auto;
     padding: 20px;
-    color: #5d5d5d;
-    font-family: lato;
-    font-weight: 500;
-    font-size:17px;
+    color: #999;
+    /* font-family: lato; */
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    font-size:14px;
   
 }
-.modal-title{
-    font-size:18px;
-    font-weight: 600;
-    color:#335578;
+h2{
+    margin: 0px;
 }
+.modal-title{
+    
+    color: #555;
+    font-weight: normal;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+    }
 .mat-dialog-container{
     width:25vw;
 }
@@ -58,7 +66,7 @@ html {
     margin-bottom:0px;
 }
 .adjust{
-    width:30vw;
+    width:40vw;
 }
 @media(max-width:991px){
     .adjust{
@@ -87,7 +95,9 @@ html {
 }
 .submit
 {
-    background-color: #26a8e0;
-    color: #ffffff;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
     font-weight: 500;
+    
 }

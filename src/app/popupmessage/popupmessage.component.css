@@ -1,7 +1,7 @@
 .modal-footer,.modal-header
 {
   padding:15px 0px !important;
-
+  justify-content: center;
 }
 
 .modal-content
@@ -24,14 +24,20 @@ html {
    
     -webkit-tap-highlight-color: none;
 }
-.btn
-{
-    margin-top: 0px !important;
+.search_button{
+    background-color:#335578;
+    color:#fdfdfd;
+    padding:8px 0px;
+    font-size:16px;
 }
-
+.a{
+    background-color:#335578;
+    color:white;
+ 
+}
 .model-title{
     font-weight: 800 !important;
-    font-size:18px !important;
+    font-size:25px !important;
 }
 .b{
     margin-top:0px;
@@ -40,25 +46,17 @@ html {
     position: relative;
     flex: -3 2 auto;
     padding: 20px;
-    color: #999;
-    /* font-family: lato; */
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    font-size:14px;
-  
-}
-h2{
-    margin: 0px;
+    color: #5d5d5d;
+    font-family: lato;
+    font-weight: 500;
+    font-size:17px;
+    text-align:center;
 }
 .modal-title{
-    
-    color: #555;
-    font-weight: normal;
-    font-family: "Open Sans", Arial, sans-serif;
+    font-size:25px;
+    font-weight: 600;
+    color:#335578;
 }
-input.ng-invalid.ng-touched {
-    border: 2px solid red;
-    }
 .mat-dialog-container{
     width:25vw;
 }
@@ -66,7 +64,7 @@ input.ng-invalid.ng-touched {
     margin-bottom:0px;
 }
 .adjust{
-    width:40vw;
+    width:30vw;
 }
 @media(max-width:991px){
     .adjust{
@@ -82,22 +80,4 @@ input.ng-invalid.ng-touched {
     .adjust{
         width:65vw;
     }
-}
-.input-icons
-{
-    margin-bottom: 20px;
-}
-.cancel
-{
-    background-color: #be1a1a;
-    color: #ffffff;
-    font-weight: 500;
-}
-.submit
-{
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    font-weight: 500;
-    
 }
