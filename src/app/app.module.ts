@@ -33,6 +33,7 @@ import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-numb
 import { PopupmessageComponent } from './popupmessage/popupmessage.component';
 
 import { ImportloadComponent } from './importload/importload.component';
+import { AuthenticScanComponent } from './authentic-scan/authentic-scan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +49,14 @@ import { ImportloadComponent } from './importload/importload.component';
     DeleteSerialNumberComponent,
     PopupmessageComponent,
     
-    ImportloadComponent
+    ImportloadComponent,
+    
+    AuthenticScanComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,    
     FormsModule,

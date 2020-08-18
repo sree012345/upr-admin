@@ -63,7 +63,9 @@ console.log(this.visible);
     if (form = null)
       form.resetForm();
     this.service.formData = {
-      product_description:"",
+      is_upc_code:false,
+      is_serial_number_active:false,
+      product_reference_number:'',
       product_id:null,
       product_name:"",
       company_id:null,

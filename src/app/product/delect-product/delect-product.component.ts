@@ -20,6 +20,7 @@ delete(){
 this.service.deleteproduct(this.product_id).subscribe(data => {
   
   console.log(data);
+  this.dialogz.closeAll()
   this.service.filter('Register click');
 
   
