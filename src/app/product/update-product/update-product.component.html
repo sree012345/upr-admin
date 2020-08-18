@@ -17,16 +17,16 @@
         </div>
         <div class="input-icons">
 
-          <input class="input-field"  type="checkbox" [disabled]="true" name="activation_req" #activation_req="ngModel" [(ngModel)]="service.formData.activation_req"><span style="margin-left:8px;">Does each item have a serial number?</span>
+          <input class="input-field"  type="checkbox" [disabled]="true" name="is_serial_number_active" #is_serial_number_active="ngModel" [(ngModel)]="service.formData.is_serial_number_active"><span style="margin-left:8px;">Does each item have a serial number?</span>
                 </div> 
                 <div class="input-icons">
                 
-                  <input class="input-field" [disabled]="true"  type="checkbox" (click)= "toggleVisibility($event)" ><span style="margin-left:8px;" >Does this item have a UPC Code?</span>
+                  <input class="input-field" [disabled]="true"  type="checkbox" (click)= "toggleVisibility($event)" name="is_upc_code" #is_upc_code="ngModel" [(ngModel)]="service.formData.is_upc_code" ><span style="margin-left:8px;" >Does this item have a UPC Code?</span>
                         </div> 
                         <div class="input-icons">
                           <div style="margin-bottom:10px;">Item Reference Number (GS1 / UPC)</div>
-                          <input class="form-control input-field" [disabled]="!visible" type="number" 
-                            placeholder="Enter item Reference Number" readonly
+                          <input class="form-control input-field" [disabled]="!visible" type="string" 
+                            placeholder="Enter item Reference Number" name="product_reference_number" #product_reference_number="ngModel" [(ngModel)]="service.formData.product_reference_number" readonly
                          >
                          
                         </div>    

@@ -35,6 +35,7 @@ import { PopupmessageComponent } from './popupmessage/popupmessage.component';
 import { ImportloadComponent } from './importload/importload.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { AuthenticScanComponent } from './authentic-scan/authentic-scan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,11 +55,13 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
     
     ForgotPasswordComponent,
     
-    SignUpComponent
+    SignUpComponent,
+    AuthenticScanComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,    
     FormsModule,

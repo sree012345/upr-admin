@@ -25,9 +25,11 @@ export class ProductDetailService {
     var prod=new product();
     prod.product_name=add.product_name;
     prod.company_id=1;
-    prod.product_description=add.product_description;
+    prod.activation_req=true
+    prod.is_serial_number_active=Boolean(add.is_serial_number_active);
     prod.counterfeit_radius=add.counterfeit_radius.toString();
-    prod.activation_req=Boolean(add.activation_req);
+    prod.is_upc_code=Boolean(add.is_upc_code);
+    prod.product_reference_number=add.product_reference_number;
     prod.content_management_req=Boolean(add.content_management_req);
     prod.counterfeit_req=Boolean(add.counterfeit_req)
     prod.forms_req=Boolean(add.forms_req)
@@ -38,9 +40,9 @@ export class ProductDetailService {
   updateproduct(add:product,product_id){
     var prod=new product();
     prod.product_id=Number(product_id)
-    prod.product_description=add.product_description;
+    prod.product_name=add.product_name;
     prod.counterfeit_radius=add.counterfeit_radius.toString();
-    prod.activation_req=Boolean(add.activation_req);
+   
     prod.content_management_req=Boolean(add.content_management_req);
     prod.counterfeit_req=Boolean(add.counterfeit_req)
     prod.forms_req=Boolean(add.forms_req)

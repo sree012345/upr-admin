@@ -1,0 +1,62 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <h1>Reporting <span class="pull-right">Reports / <span style="color: #3498db;">Authentic Scans</span></span></h1></div>
+    <hr>
+
+<div class="container">
+    <div class="row col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="home" active><mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-up"></mat-icon>Authentic Scans</a>
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="profile"><mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-down"></mat-icon>Counterfeit Scans</a>
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="messages"><mat-icon fontSet="fontawesome" fontIcon="fa-tags"></mat-icon>Products by Model</a>
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="settings"><mat-icon fontSet="fontawesome" fontIcon="fa-book"></mat-icon>Documentation by Product</a>
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="settings"><mat-icon fontSet="fontawesome" fontIcon="fa-pencil-square-o"></mat-icon>Registrations by Product</a>
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="settings"><mat-icon fontSet="fontawesome" fontIcon="fa-refresh"></mat-icon>Recalls by Product</a>
+                <a class="list-group-item list-group-item-action"  data-toggle="list" href="#" role="tab" aria-controls="settings"><mat-icon fontSet="fontawesome" fontIcon="fa-unlock-alt"></mat-icon>User Security</a>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-8 ">
+        <div class="example-container">
+           
+            <mat-table #table [dataSource]="listData" matSort>
+    
+    
+              <ng-container matColumnDef="product_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Product Name </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <span class="mobile-label">Product Name:</span>
+                  {{element.product_name}}
+                </mat-cell>
+              </ng-container>
+    
+    
+              <ng-container matColumnDef="serial_number">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Serial Number</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <span class="mobile-label">Serial Number:</span>
+                  {{element.serial_number}}
+                </mat-cell>
+              </ng-container>
+    
+              <ng-container matColumnDef="Options">
+                <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <!-- Edit button-->
+                  <button mat-icon-button (click)="updateSerialButtonClicked()">
+                        <mat-icon>launch</mat-icon>
+                    </button>
+  
+                     <!-- Delete button-->
+                    <button mat-icon-button (click)="DeleteProduct(row.serial_number_id)">
+                          <mat-icon>delete_outline</mat-icon>
+                      </button>
+                </mat-cell>
+              </ng-container>
+               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            
+          </div>
+        </div>
+</div>
