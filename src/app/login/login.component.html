@@ -51,7 +51,7 @@
 <div class="container-fluid">
     <div class="row equal-height-columns">
         <div class="col-md-6 col-sm-6 d-none d-sm-block image-block equal-height-column">
-            <img class="img_login" src="http://64htm.com/app/admin/assets/img/bg/img10.jpg">
+            <img class="img_login" src="../../assets/img/background_UPR_683x786.jpg">
 
         </div>
 
@@ -64,23 +64,24 @@
                         <img class="image d-flex justify-content-center s" width="100%" src="../../assets/images/UPR_Logo_Blue.png" alt="">
                     </div>
                     <div class="form-group"> 
+                        
                         <div class= input-icons>             
-                        <span class="material-icons">
-                            markunread
-                            </span>
+                            <span class="material-icons">
+                                mail_outline
+                                </span>
                         <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email ID" required class="form-control" name="email" #email="ngModel" [(ngModel)]="service.formData.email"  >
                     </div>          
-                        <!-- <div class="text-left text-danger" *ngIf="email.invalid && email.touched"><span style="color: skyblue;font-weight: 500;">* Invalid email Address</span></div> -->
+                        <div class="text-left text-danger"><span  *ngIf="email.invalid && email.touched" style="color: skyblue;font-weight: 500;">* Invalid email Address</span></div>
                     </div>
                  
                     <div class="form-group">
                         <div class= input-icons>
                             <span class="material-icons">
-                                markunread
+                                lock
                                 </span>
                         <input type="password"  class="form-control"  placeholder="Password" required type="password" name="password" #password="ngModel" [(ngModel)]="service.formData.password">
                         </div>
-                        <!-- <div class="text-left text-danger" *ngIf="password.invalid && password.touched"></div> -->
+                        <div class="text-left text-danger" ><span *ngIf="password.invalid && password.touched" style="color: skyblue;font-weight: 500;">* Please enter password</span></div>
                         
                     </div>
                     <div class="form-group row mr-t">
@@ -94,7 +95,7 @@
                             </label>
                             <!-- <input type="checkbox"   (click)="showRecoverForm()"> -->
                             <label class="font-14 md-color fnt-18" for="customCheck1">Remember me?</label>
-                            <a href="javascript:void(0)" 
+                            <a href="javascript:void(0)" (click)="ForgotPassword()"
                               class="text-dark font-14 ml-auto lineundr fnt-18">
                               Forgot password?</a>
                           </div>
@@ -102,11 +103,12 @@
                       </div>
                     <div>
               
-                      <button class="btn signinBtn">Sign in</button>
-                      <!-- <div *ngIf="!name">{{message}}</div> -->
+                      <button class="btn signinBtn" [disabled]="form.invalid" type="submit">Sign in</button>
+                       <div *ngIf="!name">{{message}}</div>
                       <div class="col-lg-12 signupsec">
                         <p class="text-center"> Don't have an account? <a href="javascript:void(0)" 
-                            class="text-dark font-14 ml-auto lineundr fnt-18">
+                            class="font-14 ml-auto lineundr fnt-18" (click)="SignUp()">
+                            
                             Sign up today!</a></p>
                       </div>
                       <span class="tpBorder"></span>

@@ -33,6 +33,8 @@ import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-numb
 import { PopupmessageComponent } from './popupmessage/popupmessage.component';
 
 import { ImportloadComponent } from './importload/importload.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,11 @@ import { ImportloadComponent } from './importload/importload.component';
     DeleteSerialNumberComponent,
     PopupmessageComponent,
     
-    ImportloadComponent
+    ImportloadComponent,
+    
+    ForgotPasswordComponent,
+    
+    SignUpComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -73,6 +79,6 @@ import { ImportloadComponent } from './importload/importload.component';
   ],
   providers: [AdminloginService],
   bootstrap: [AppComponent],
-  entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent,DeleteSerialNumberComponent]
+  entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent,DeleteSerialNumberComponent,ForgotPasswordComponent,SignUpComponent]
 })
 export class AppModule { }

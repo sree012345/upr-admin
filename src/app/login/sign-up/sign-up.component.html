@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <h2 class="modal-title">Interested in UPR?</h2>
+    <span aria-hidden="true" class="close" (click)="cancel()" aria-label="Close">&times;</span>
+</div>
+<form #form="ngForm" (submit)="submit(form)" class="form">
+<div class=" row col-lg-12 col-sm-12 modal-body">
+    <div class="col-lg-12 col-sm-12">
+        Please provide your information and we will contact you to get started</div>
+
+    <div class="col-lg-6 col-sm-6 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="First Name" required class="form-control" name="first_name" #first_name="ngModel"  [(ngModel)]="signUpData.first_name">
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="Last Name" required class="form-control" name="last_name" #last_name="ngModel"  [(ngModel)]="signUpData.last_name">
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 form-group">
+        <div class=input-icons>
+            <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                placeholder="Email Address" required class="form-control" name="email" #email="ngModel"  [(ngModel)]="signUpData.email">
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="Telephone Number" required class="form-control"  name="phone" #phone="ngModel"  [(ngModel)]="signUpData.phone">
+        </div>
+    </div>
+    <div class="col-lg-12 col-sm-12 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="Company Name" required class="form-control" name="company_name" #company_name="ngModel"  [(ngModel)]="signUpData.company_name">
+        </div>
+    </div>
+    <div class="col-lg-12 col-sm-12 form-group">
+    <div class="input-icons">
+
+        <input class="input-field" type="checkbox" (click)="toggleVisibility($event)"><span
+            style="margin-left:8px;">Does you have a Company Id?</span>
+    </div>
+</div>
+    <div class="col-lg-12 col-sm-12 form-group">
+    
+    <div class="input-icons">
+        <input class="form-control input-field" [disabled]="!visible" type="text"
+            placeholder="Company Id" name="company_id" #company_id="ngModel"  [(ngModel)]="signUpData.company_id">
+
+    </div>
+    </div>
+
+    <div class="col-lg-12 col-sm-12 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="Street Address" required class="form-control" name="address" #address="ngModel"  [(ngModel)]="signUpData.address">
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="City" required class="form-control" name="city" #city="ngModel"  [(ngModel)]="signUpData.city">
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="State / Province" required class="form-control" name="state_province" #state_province="ngModel"  [(ngModel)]="signUpData.state_province">
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 form-group">
+        <div class=input-icons>
+            <input type="text" placeholder="Zip / Postal Code" required class="form-control" name="postal_code" #postal_code="ngModel"  [(ngModel)]="signUpData.postal_code">
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+
+    <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+    <button type="text" class="btn btn-primary">Submit</button>
+</div>
+</form>

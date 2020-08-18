@@ -89,10 +89,11 @@ border-radius: 42px;;
 .material-icons
 {
     position: absolute;
-    top: 28%;
+    top: 25%;
     left: 12px;
     height: 17px;
     width: 18px;
+    color:#3498db;
 }
 
 .input-icons
