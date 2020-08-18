@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+<h1>Import Product Items <span class="pull-right">Products / <span style="color: #3498db;">Load Items</span></span></h1></div>
+<hr>
+<div  class="container">
+ <label>You may <a  style="color: #3498db;" href=""> manually add product items </a> or import them using the Load Item Template comma delimited file.</label><br>
+ <label>To get started:</label>
+ <ol>
+    <li>Download the <a href="">Load Item Template</a> to your local machine.</li>
+    <li>Enter the Item Name in column A, row 2 under the <span class="cl">  Item Name </span>header.</li>
+    <li>If the Item uses serial numbers, enter Y in column B, row 2 under the <span class="cl">  Use Serial Numbers</span> header.</li>
+    <li>If the Item has a UPC Code associated with it, enter Y in column C, row 2 under the <span class="cl">  Use UPC Codes </span> header.</li>
+    <li>If the Item has a UPC Code associated with it, enter the Item Reference Number assigned to this item in column D, row 2 under the  <span class="cl">Item Reference Number </span>  header. If you do not use UPC Codes for this item, leave this cell blank.</li>
+    <li>If you want to enable the Counterfeit Detection Module for this Item, enter Y in column E, row 2 under the <span class="cl"> Counterfeit Detection</span> header.</li>
+    <li>If the item does have Counterfeit Detection enabled, enter a corresponding radius in miles in column F under the <span class="cl">Counterfeit Radius </span> header. The counterfeit radius value is used to determine how many miles an individual product can move between scans without triggering a possible counterfeit notification.</li>
+    <li>If you want to enable the Content Management Module for this Item, enter Y in column G, row 2 under the <span class="cl"> Content Management </span> header.</li>
+    <li>If you want to enable the Recall Management Module for this Item, enter Y in column H, row 2 under the <span class="cl"> Recall Management </span> header.</li>
+    <li>If you want to enable the Forms Management Module for this Item, enter Y in column I, row 2 under the <span class="cl"> Forms Management </span> header.</li>
+    <li>Repeat these steps for as many items as you want to add, moving down a row in the file for each new item.</li>
+    <li>For more information, visit the <a href="">Documentation </a> page.</li>
+    <li><span class="cl">Save the file in CSV </span> (Comma delimited) format.</li>
+    <li><span class="cl">Click the Select file </span> button below and locate your CSV file.</li>
+    <li><span class="cl">Click the Load New Items </span> button to import your information.</li>
+    </ol>
+    <div class="input-group">
+       <input id="msg" type="text" class="form-control" name="msg" >
+         <button class="button">select file</button>
+      </div> 
+     <div> <button type="button" class="btn btn-primary">Load New Items</button></div>
+    </div>
+<!-- <div class="input-group">
+      <span class="input-group-addon">Text</span>
+      <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+    </div> -->

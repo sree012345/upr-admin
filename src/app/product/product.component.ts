@@ -50,20 +50,22 @@ export class ProductComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = "100%";
-    this.dialog.open(AddProductComponent);
+    this.dialog.open(AddProductComponent,{
+      
+    });
   }
-  updateproduct(pro:product)
+  updateproduct(pro:product,product_id)
   {
     this.service.formData = pro;
     console.log(pro)
-  //  this.product_name=product_name
+  this.product_id=product_id
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = "100%";
     this.dialog.open(UpdateProductComponent,{
       data:{
-        product_name:this.product_name
+        product_id:this.product_id
       }
     });
     

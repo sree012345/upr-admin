@@ -30,6 +30,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { DelectProductComponent } from './product/delect-product/delect-product.component';
 import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-number/delete-serial-number.component';
+import { PopupmessageComponent } from './popupmessage/popupmessage.component';
+
+import { ImportloadComponent } from './importload/importload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,10 @@ import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-numb
     AddProductComponent,
     UpdateProductComponent,
     DelectProductComponent,
-    DeleteSerialNumberComponent
+    DeleteSerialNumberComponent,
+    PopupmessageComponent,
+    
+    ImportloadComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
