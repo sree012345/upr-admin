@@ -17,7 +17,9 @@ export class AddSerialNumberComponent implements OnInit {
   manifatureDate:string='';
   
   addSerialNumers:addSerialNumber=new addSerialNumber();
-  constructor(public service: SerialNumberService,private dialogbox: MatDialogRef<AddSerialNumberComponent>) { }
+  constructor(public service: SerialNumberService,private dialogbox: MatDialogRef<AddSerialNumberComponent>) { 
+    
+  }
 
   ngOnInit(): void {
     this.service.get_productlist().subscribe(data => {

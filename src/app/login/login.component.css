@@ -1,4 +1,4 @@
-.form-control{
+/* .form-control{
     width:100%;
     align-items: center;
     padding-top: 20px;
@@ -58,4 +58,219 @@ border-radius: 42px;;
   padding-right: 45px;
   margin-left:10px;
   margin-right:10px;   
+} */
+
+.form-control{
+    width:100%;
+    align-items: center;
+   
+    display:flex;
+    justify-content: center;
+   
+}
+.img_login
+{
+    width: 100%;
+    height: 100vh;
+}
+.equal-height-column
+{
+    padding: 0px !important;
+}
+.loginSection
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+}
+
+.material-icons
+{
+    position: absolute;
+    top: 28%;
+    left: 12px;
+    height: 17px;
+    width: 18px;
+}
+
+.input-icons
+{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    position: relative;
+}
+.form-control
+{
+    padding: 8px 5px 8px 45px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+}
+.signinBtn
+{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    background: #3498db;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.material-icons {
+    font-size: 20px !important;
+}
+.forgtpsw
+{
+    color: black;
+    float: right;
+}
+
+.checkbox-label {
+    display: block;
+    position: relative;
+    /* border:1px solid black; */
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 24px;
+    height: 20px;
+    width: 20px;
+    clear: both;
+    margin-right: 6px;
+  }
+  
+  .checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+  }
+  .field_invalid{
+      margin-bottom: 0px;
+      font-size:17px;
+      font-weight: 500;
+    color: #f98e2c;
+  }
+  
+  .checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 1px solid #ced4da;
+  }
+  
+  .checkbox-label input:checked ~ .checkbox-custom {
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    border: 1px solid #ced4da;
+  }
+  
+  .checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+   
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity: 1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+  }
+  
+  .checkbox-label input:checked ~ .checkbox-custom::after {
+    transform: rotate(45deg) scale(1.5);
+    opacity: 1;
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 8px;
+    border: solid #191818;
+    border-width: 0 1px 1px 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  
+ 
+  .checkbox-label .checkbox-custom::before {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 10px;
+    width: 0px;
+    height: 0px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  
+  .checkbox-label input:checked ~ .checkbox-custom::before {
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+    opacity: 0;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+  }
+
+  .custom-control{
+    padding-left: 0rem !important;
+  }
+
+  .social-login{
+    color: rgba(0,0,0,.5);
+    padding-top: 60px;
+    border-top: 1px solid #eee;
+    position: relative;
+  }
+  .signupsec
+  {
+      margin-bottom: 30px;
+  }
+  .tpBorder
+  {
+      border-bottom: 1px solid black;
+  }
+
+  .mr-t {
+    margin-bottom: 0.5rem !important;
+    margin-top:1.5rem !important;
+}
+.logo
+{
+    margin-bottom: 70px;
 }

@@ -1,4 +1,4 @@
-<body style="background-color:#ebedec">
+<!-- <body style="background-color:#ebedec">
     
     <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 d-flex justify-content-center">
         <img class="image d-flex justify-content-center s" width="20%" src="../../assets/images/UPR_Logo_Blue.png" alt="">
@@ -35,7 +35,7 @@
      <p style="color:white">Forgot password?</p>
   </div>
 </form>
-      </div>
+      </div>-->
   
 
   <!-- <div class="row " style="text-align:center">
@@ -44,6 +44,81 @@
   </div>
   </div> -->
   
-  <div class="col-md-3 col-lg-4 col-sm-2 "></div>
+  <!--<div class="col-md-3 col-lg-4 col-sm-2 "></div>
   </div>
-</body>
+</body> -->
+
+<div class="container-fluid">
+    <div class="row equal-height-columns">
+        <div class="col-md-6 col-sm-6 d-none d-sm-block image-block equal-height-column">
+            <img class="img_login" src="http://64htm.com/app/admin/assets/img/bg/img10.jpg">
+
+        </div>
+
+        <div class="row col-md-6 col-sm-6 form-block equal-height-column">
+            <div class="col-md-2 col-sm-2"></div>
+            <div class="col-md-8 col-sm-8 loginSection">
+                <div>
+                <form #form="ngForm" (submit)="onSubmit(form)" class="form">
+                    <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 d-flex justify-content-center logo">
+                        <img class="image d-flex justify-content-center s" width="100%" src="../../assets/images/UPR_Logo_Blue.png" alt="">
+                    </div>
+                    <div class="form-group"> 
+                        <div class= input-icons>             
+                        <span class="material-icons">
+                            markunread
+                            </span>
+                        <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email ID" required class="form-control" name="email" #email="ngModel" [(ngModel)]="service.formData.email"  >
+                    </div>          
+                        <!-- <div class="text-left text-danger" *ngIf="email.invalid && email.touched"><span style="color: skyblue;font-weight: 500;">* Invalid email Address</span></div> -->
+                    </div>
+                 
+                    <div class="form-group">
+                        <div class= input-icons>
+                            <span class="material-icons">
+                                markunread
+                                </span>
+                        <input type="password"  class="form-control"  placeholder="Password" required type="password" name="password" #password="ngModel" [(ngModel)]="service.formData.password">
+                        </div>
+                        <!-- <div class="text-left text-danger" *ngIf="password.invalid && password.touched"></div> -->
+                        
+                    </div>
+                    <div class="form-group row mr-t">
+                        <div class="col-md-12">
+                          <div class="custom-control custom-checkbox d-flex mrg-tp">
+                            <label class="checkbox-label">
+                              <input type="checkbox" class="custom-control-input" id="customCheck1" name="Rememberme"
+                                
+                                (change)="toggleVisibility($event)" />
+                              <span class="checkbox-custom rectangular"></span>
+                            </label>
+                            <!-- <input type="checkbox"   (click)="showRecoverForm()"> -->
+                            <label class="font-14 md-color fnt-18" for="customCheck1">Remember me?</label>
+                            <a href="javascript:void(0)" 
+                              class="text-dark font-14 ml-auto lineundr fnt-18">
+                              Forgot password?</a>
+                          </div>
+                        </div>
+                      </div>
+                    <div>
+              
+                      <button class="btn signinBtn">Sign in</button>
+                      <!-- <div *ngIf="!name">{{message}}</div> -->
+                      <div class="col-lg-12 signupsec">
+                        <p class="text-center"> Don't have an account? <a href="javascript:void(0)" 
+                            class="text-dark font-14 ml-auto lineundr fnt-18">
+                            Sign up today!</a></p>
+                      </div>
+                      <span class="tpBorder"></span>
+                      <div class="social-login text-center">
+                        <p>By logging into this website, I confirm that I have read and agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy.</a></p>
+                    </div>
+                  </div>
+                  
+              </form>
+            </div>
+            </div>
+            <div class="col-md-2 col-sm-2"></div>
+        </div>
+    </div>
+</div>

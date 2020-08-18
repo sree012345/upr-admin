@@ -11,6 +11,7 @@ import { AdminloginService } from '../services/Adminlogin.service';
 export class LoginComponent implements OnInit {
   message="Your email or password is wrong please check..!"
   name:boolean=true;
+  remember: any;
   constructor(public service:AdminloginService) { }
 
   ngOnInit(): void {
@@ -30,5 +31,12 @@ export class LoginComponent implements OnInit {
       }
       console.log(res);
     })
+  }
+
+  toggleVisibility(e) {
+    this.remember = e.target.checked;
+    localStorage.setItem("rememberMe", JSON.stringify(this.remember));
+    localStorage.setItem("NewrememberMe", JSON.stringify(this.remember));
+   
   }
 }

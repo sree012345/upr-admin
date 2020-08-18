@@ -61,7 +61,7 @@ export class SerialNumbersComponent implements OnInit {
 
   DeleteProduct(serial_number_id)
   {
-
+    
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
     dialogConfig.width = "100%";
