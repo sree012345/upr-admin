@@ -19,6 +19,6 @@ export class SignUp{
     city:string;
     state_province:string;
     postal_code:string;
-    country:string;
+    country:string; 
     phone:string;
 }

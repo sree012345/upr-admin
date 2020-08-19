@@ -23,4 +23,9 @@ export class AdminloginService {
     console.log(this.APIBaseUrl + 'AdminUser/forgot_password', fp);
     return this.http.post<login[]>(this.APIBaseUrl + 'AdminUser/forgot_password', fp);
   }
+  signUpUser(signUpData)
+  {
+    console.log(this.APIBaseUrl + 'AdminUser/register_admin_user', signUpData);
+    return this.http.post<any>(this.APIBaseUrl + 'AdminUser/register_admin_user', signUpData);
+  }
 }
