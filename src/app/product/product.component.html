@@ -1,4 +1,7 @@
 <app-nav-bar></app-nav-bar>
+<div class="container">
+  <h1>Items <span class="pull-right">Products / <span style="color: #3498db;">Items</span></span></h1></div>
+  <hr>
 <div class="container-fluid" id="AppealCalender">
     <!-- <div class=""> -->
         <div class="row">
@@ -6,16 +9,16 @@
       <div class="calender col-lg-10">
         <div class="row">
             <div class="col-lg-4">
-            <button type="button" class="btn btn-lg btn-block button2" (click)="addproduct()" >Add a New Item</button>
+            <button type="button"  class="btn btn-primary btn1 rounded" (click)="addproduct()" >Add a New Item</button>
         </div>
         <div class="col-lg-4"></div>
-        <div class="form-group Search col-lg-4">
+        <!-- <div class="form-group Search col-lg-4">
           <input  class="form-control pin-value"   (keyup)="applyFilter($event.target.value)" placeholder="Search...."
               required>
              
-        </div>
+        </div> -->
             </div>
-        <div class="example-container">
+        <!-- <div class="example-container">
            
           <mat-table #table [dataSource]="listData" matSort>
   
@@ -73,12 +76,11 @@
             <ng-container matColumnDef="Options">
               <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
               <mat-cell *matCellDef="let row">
-                  <!-- Edit button-->
-                <button mat-icon-button (click)="updateproduct(row,row.product_id)" >
+                    <button mat-icon-button (click)="updateproduct(row,row.product_id)" >
                       <mat-icon>launch</mat-icon>
                   </button>
 
-                   <!-- Delete button-->
+                  
                   <button mat-icon-button (click)="DeleteProduct(row.product_id)">
                         <mat-icon>delete_outline</mat-icon>
                     </button>
@@ -93,6 +95,76 @@
         </div>
       </div>
       <div class="col-lg-1"></div>
-</div>
+</div> -->
     <!-- </div> -->
+    <div class="table-responsive-sm -md -lg -xs">
+    <table mat-table [dataSource]="listData" >
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="product_name">
+        <th mat-header-cell *matHeaderCellDef > Item Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="ref_no">
+        <th mat-header-cell *matHeaderCellDef > Item Ref No </th>
+        <td mat-cell *matCellDef="let element"> {{element.product_reference_number}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="counterfeit_radius">
+        <th mat-header-cell *matHeaderCellDef>Radius in Miles</th>
+        <td mat-cell *matCellDef="let element"> {{element.counterfeit_radius}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Counterfeit">
+        <th mat-header-cell *matHeaderCellDef> Counterfeit Detection </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.counterfeit_req==1"> <mat-icon fontSet="fontawesome" fontIcon="fa-check-square-o"></mat-icon></span>
+          <span *ngIf="element.counterfeit_req==0"  ><mat-icon fontSet="fontawesome" fontIcon="fa-square-o"></mat-icon></span>
+           </td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="content_management_required">
+        <th mat-header-cell *matHeaderCellDef> Content Management </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.content_management_req==1"> <mat-icon fontSet="fontawesome" fontIcon="fa-check-square-o"></mat-icon></span>
+          <span *ngIf="element.content_management_req==0"  ><mat-icon fontSet="fontawesome" fontIcon="fa-square-o"></mat-icon></span>
+           </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="recall_required">
+        <th mat-header-cell *matHeaderCellDef>Recall Management </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.recall_req==1"><mat-icon fontSet="fontawesome" fontIcon="fa-check-square-o"></mat-icon></span>
+          <span *ngIf="element.recall_req==0"  ><mat-icon fontSet="fontawesome" fontIcon="fa-square-o"></mat-icon></span>
+           </td>
+      </ng-container>
+      <ng-container matColumnDef="Forms">
+        <th mat-header-cell *matHeaderCellDef>Forms Management </th>
+        <td mat-cell *matCellDef="let element"> 
+          <span *ngIf="element.content_management_req==1"><mat-icon fontSet="fontawesome" fontIcon="fa-check-square-o"></mat-icon></span>
+          <span *ngIf="element.content_management_req==0"  ><mat-icon fontSet="fontawesome" fontIcon="fa-square-o"></mat-icon></span>
+           </td>
+      </ng-container>
+      <ng-container matColumnDef="Options">
+        <th mat-header-cell *matHeaderCellDef>View/Edit </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <mat-icon-button (click)="updateproduct(row,row.product_id)" >
+            <mat-icon>launch</mat-icon>
+          </mat-icon-button> -->
+          <mat-icon fontSet="fontawesome" class="btn btn-xs btn-default rounded fa fa-pencil" (click)="updateproduct(row,row.product_id)"></mat-icon>
+        
+        <!-- <mat-icon-button (click)="DeleteProduct(row.product_id)">
+              <mat-icon>delete_outline</mat-icon>
+            </mat-icon-button>   -->
+           </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
   </div>
+</div>

@@ -9,6 +9,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DelectProductComponent } from './delect-product/delect-product.component';
 import { product } from '../models/Product-model';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
   selector: 'app-product',
@@ -19,9 +20,10 @@ export class ProductComponent implements OnInit {
   listData: MatTableDataSource<any>
   product_name:any;
   product_id:any;
-  displayedColumns = ['product_name', 'counterfeit_radius','activation_required','counterfeit_required','content_management_required','recall_required','Options'];
+  displayedColumns = ['product_name', 'ref_no',"counterfeit_radius","Counterfeit",'content_management_required','recall_required',"Forms",'Options'];
 
-  constructor(public service:ProductDetailService,private dialog: MatDialog ) {
+  constructor(matIconRegistry: MatIconRegistry,public service:ProductDetailService,private dialog: MatDialog ) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     this.service.listen().subscribe((m:any) =>{
       console.log(m);
       this.loadProduct();
