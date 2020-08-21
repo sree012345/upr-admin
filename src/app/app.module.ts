@@ -31,11 +31,13 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 import { DelectProductComponent } from './product/delect-product/delect-product.component';
 import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-number/delete-serial-number.component';
 import { PopupmessageComponent } from './popupmessage/popupmessage.component';
-
+import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
+ 
 import { ImportloadComponent } from './importload/importload.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { AuthenticScanComponent } from './authentic-scan/authentic-scan.component';
+import { Navbar1Component } from './navbar1/navbar1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +58,8 @@ import { AuthenticScanComponent } from './authentic-scan/authentic-scan.componen
     ForgotPasswordComponent,
     
     SignUpComponent,
-    AuthenticScanComponent
+    AuthenticScanComponent,
+    Navbar1Component
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -78,7 +81,8 @@ import { AuthenticScanComponent } from './authentic-scan/authentic-scan.componen
     MatNativeDateModule,
     MatInputModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgMaterialMultilevelMenuModule
   ],
   providers: [AdminloginService],
   bootstrap: [AppComponent],

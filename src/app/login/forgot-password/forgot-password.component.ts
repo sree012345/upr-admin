@@ -9,12 +9,13 @@ import { AdminloginService } from 'src/app/services/Adminlogin.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  inValidForgotPassword: boolean;
+  
 
   constructor(public service:AdminloginService,public dialogz:MatDialog) { }
   emailId:string='';
   message:string='';
   validForgotPassword:boolean=false;
+  inValidForgotPassword: boolean;
   ngOnInit(): void {
   }
   submit(form: NgForm){
