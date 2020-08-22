@@ -486,7 +486,7 @@ button, input {
 @media (min-width: 576px)
 {
 .modal-dialog {
-    max-width: 600px !important;
+    max-width: 650px !important;
     margin: 1.75rem auto;
 }
 }

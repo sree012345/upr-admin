@@ -1,7 +1,6 @@
 export class addSerialNumber{
-    serial_number:number;
+    serial_number:string;
     product_id:number;
-    date_manufactured:string;
 }
 
 export class SerialNumber{

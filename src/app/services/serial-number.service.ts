@@ -27,14 +27,7 @@ formData=new addSerialNumber();
     console.log(this.APIBaseUrl+'admin/add_serial_number',serialNumberDetails);
     return this.http.post<any>(this.APIBaseUrl+'admin/add_serial_number',serialNumberDetails);
   }
-  private _listners = new Subject<any>();
-  listen() : Observable<any> {
-    return this._listners.asObservable();
-  }
-  filter(filterBy: string){
-    this._listners.next(filterBy);
-  }
-
+ 
   deleteSerialNumber(snId)
   {
     var snData=new SerialNumber();
@@ -42,4 +35,12 @@ formData=new addSerialNumber();
     console.log(this.APIBaseUrl+'admin/delete_serial_number',snData);
     return this.http.post<any>(this.APIBaseUrl+'admin/delete_serial_number',snData);
   }
+
+private _listners = new Subject<any>();
+ listen() : Observable<any> {
+   return this._listners.asObservable();
+ }
+ filter(filterBy: string){
+   this._listners.next(filterBy);
+ }
 }

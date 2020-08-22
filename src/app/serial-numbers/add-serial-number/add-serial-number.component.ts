@@ -34,16 +34,14 @@ export class AddSerialNumberComponent implements OnInit {
     this.addSerialNumers=new addSerialNumber();
     this.addSerialNumers.product_id=Number(form.value.product_id);
     this.addSerialNumers.serial_number=form.value.serial_number;
-    this.addSerialNumers.date_manufactured=moment(form.value.manifacture_date).format("MM-DD-YYYY");
     this.service.addSerialNumber(this.addSerialNumers).subscribe(data => {
       var status=data["response_code"];
       if(status==200)
       {
         this.dialogbox.close();
-        this.service.filter('');
+        this.service.filter('Register click');
       }
       
-      this.service.filter('Register click');
     });
   }
 

@@ -31,7 +31,6 @@ import { UpdateProductComponent } from './product/update-product/update-product.
 import { DelectProductComponent } from './product/delect-product/delect-product.component';
 import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-number/delete-serial-number.component';
 import { PopupmessageComponent } from './popupmessage/popupmessage.component';
-import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
  
 import { ImportloadComponent } from './importload/importload.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
@@ -81,8 +80,7 @@ import { Navbar1Component } from './navbar1/navbar1.component';
     MatNativeDateModule,
     MatInputModule,
     MatSortModule,
-    MatPaginatorModule,
-    NgMaterialMultilevelMenuModule
+    MatPaginatorModule
   ],
   providers: [AdminloginService],
   bootstrap: [AppComponent],
