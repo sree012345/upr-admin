@@ -14,6 +14,7 @@ import { SerialNumbersComponent } from './serial-numbers/serial-numbers.componen
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add-serial-number.component';
 import { AdminloginService } from './services/Adminlogin.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-number/update-serial-number.component';
@@ -65,6 +66,7 @@ import { MainComponentComponent } from './main-component/main-component.componen
   imports: [  
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    NgbModule,
     MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,    
