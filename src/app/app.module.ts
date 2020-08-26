@@ -37,6 +37,8 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { AuthenticScanComponent } from './authentic-scan/authentic-scan.component';
 import { Navbar1Component } from './navbar1/navbar1.component';
+import { RecallComponent } from './recall/recall.component';
+import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,9 @@ import { Navbar1Component } from './navbar1/navbar1.component';
     
     SignUpComponent,
     AuthenticScanComponent,
-    Navbar1Component
+    Navbar1Component,
+    RecallComponent,
+    ServiceBulletinComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),

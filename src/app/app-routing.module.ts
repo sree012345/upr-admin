@@ -5,6 +5,8 @@ import { SerialNumbersComponent } from './serial-numbers/serial-numbers.componen
 import { ProductComponent } from './product/product.component';
 import { ImportloadComponent } from './importload/importload.component';
 import { AuthenticScanComponent } from './authentic-scan/authentic-scan.component';
+import { RecallComponent } from './recall/recall.component';
+import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -12,7 +14,9 @@ const routes: Routes = [
   {path:'serialNumber',component:SerialNumbersComponent},
   {path:'productDetails',component:ProductComponent},
   {path:'load',component:ImportloadComponent},
-  {path:'authentic',component:AuthenticScanComponent}
+  {path:'authentic',component:AuthenticScanComponent},
+  {path:'recall',component:RecallComponent},
+  {path:'serviceBulletin',component:ServiceBulletinComponent}
 ];
 
 @NgModule({

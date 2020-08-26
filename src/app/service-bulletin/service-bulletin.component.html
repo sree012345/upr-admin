@@ -1,0 +1,294 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class="container">
+  <h1 class="itemsLeft">Recall Management<span class="pull-right productRight">Modules / <span
+        style="color: #3498db;" class="productRight">Recall Management</span></span></h1>
+</div>
+<hr>
+<div class="container-fluid" id="AppealCalender">
+  <!-- <div class=""> -->
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="calender col-lg-10">
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="importFile">The following list contains all of the existing product service bulletins. You may add additional service bulletins using the button below, or <a href="loadserial.php">import a list product service bulletins.
+              </a></p>
+        </div>
+        <div class="col-lg-4">
+          <button type="button" class="btn btn-primary btn1 rounded" data-toggle="modal" (click)="openModel()"
+             data-target="#openModal1">
+             Add a New Service Bulletin </button>
+        </div>
+        <div class="col-lg-4"></div>
+
+      </div>
+      <div class="form-group1 Search col-lg-3 pull-right">
+        <label class="searchLabel">Search:</label><input type="search" class="form-control input-sm"
+          (keyup)="applyFilter1($event.target.value)" placeholder="" aria-controls="serial">
+      </div>
+      <div class="table-responsive-sm -md -lg -xs">
+        <table mat-table [dataSource]="listData">
+
+
+          <ng-container matColumnDef="product_name">
+            <th mat-header-cell *matHeaderCellDef> Item Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="begin_date">
+            <th mat-header-cell *matHeaderCellDef> Begin Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.begin_date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="end_date">
+            <th mat-header-cell *matHeaderCellDef> End Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.end_date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="first_sn">
+            <th mat-header-cell *matHeaderCellDef>First SN</th>
+            <td mat-cell *matCellDef="let element"> {{element.first_SN}} </td>
+          </ng-container>
+          <ng-container matColumnDef="last_sn">
+            <th mat-header-cell *matHeaderCellDef>Last SN</th>
+            <td mat-cell *matCellDef="let element"> {{element.last_SN}} </td>
+          </ng-container>
+          <ng-container matColumnDef="bulletin_message">
+            <th mat-header-cell *matHeaderCellDef>Service Bulletin Message </th>
+            <td mat-cell *matCellDef="let element"> {{element.service_bulletin_message}} </td>
+          </ng-container>
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Edit </th>
+            <td mat-cell *matCellDef="let element">
+            
+              <mat-icon fontSet="fontawesome" class="btn btn-xs btn-default rounded fa fa-pencil" data-toggle="modal"
+                data-target="#openModal" (click)="updateBulletin(element,element.bulletin_id)"></mat-icon>
+
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>Delete </th>
+            <td mat-cell *matCellDef="let element">
+            
+              <mat-icon fontSet="fontawesome" class="btn btn-xs btn-default rounded fa fa-trash-o" data-toggle="modal"
+                data-target="#openModal2" (click)="deleteBulletin(element.bulletin_id)"></mat-icon>
+
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+      </div>
+    </div>
+
+
+ <!--Add Service Bulletin-->
+ <div id="openModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+ style="display: none;" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+
+     <div class="adjust">
+       <div class="modal-header">
+
+         <h4 class="modal-title" style="text-align: center;">Add a New Recall</h4>
+
+         <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
+
+       </div>
+
+       <form #form1="ngForm" (submit)="addBulletin(form1)" class="form1" autocomplete="off">
+         <div class="modal-body">
+
+           <div class="input-icons">
+             <label class="labelColor" for="Product">Item Name</label>
+             <select class="form-control1 select-name" name="product_id" placeholder="Select Item Name"
+             #product_id="ngModel" [(ngModel)]="service.formData.product_id">
+                 <option disabled [selected]="true" value="">Item Name</option>
+                 <option *ngFor="let option of productist" [value]="option['product_id']">
+                     {{option['product_name']}}</option>
+             </select>
+         </div>
+         <div class="input-icons1">
+            <label class="labelColor" for="sn">Service Bulletin Title</label>
+            <input dobMask class="form-control1" type="text" placeholder="Enter a title" required name="title"
+            #title="ngModel" [(ngModel)]="service.formData.title">
+          </div>
+         <div class="input-icons1">
+            <label class="labelColor" for="date">Begin Date</label>  
+            <mat-form-field>
+                <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
+                #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+        <div class="input-icons1">
+          <label class="labelColor" for="date">End Date</label>  
+          <mat-form-field>              
+              <input class="form-control1 br-rt"  matInput [matDatepicker]="picker1"  name="end_date"
+              #end_date="ngModel" [(ngModel)]="service.formData.end_date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+      </div>
+           <div class="input-icons1">
+             <label class="labelColor" for="sn">First SN</label>
+             <input dobMask class="form-control1" type="text" required name="first_SN"
+             #first_SN="ngModel" [(ngModel)]="service.formData.first_SN">
+           </div>
+           <div class="input-icons1">
+             <label class="labelColor" for="sn">Last SN</label>
+             <input dobMask class="form-control1" type="text"  required name="last_SN"
+             #last_SN="ngModel" [(ngModel)]="service.formData.last_SN">
+           </div>
+           <div class="input-icons1">
+             <label class="labelColor" for="serial number">Service Bulletin Message</label>
+             <input dobMask class="form-control1" type="text" placeholder="Enter a service bulletin message" required name="service_bulletin_message"
+             #service_bulletin_message="ngModel" [(ngModel)]="service.formData.service_bulletin_message">
+           </div>
+           <div class="text-left text-danger mr-top" *ngIf="validBulletin">
+             <div class="successMessages">{{message}}</div>
+           </div>
+           <div class="text-left text-danger mr-top" *ngIf="inValidbulletin">
+             <div class="errorMessages">{{message}}</div>
+           </div>
+         </div>
+
+         <div class="modal-footer">
+
+           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div>
+</div>
+
+<!--END Add Service bulletin-->
+
+
+<!--update Service Bulletin-->
+<div id="openModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+style="display: none;" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+
+    <div class="adjust">
+      <div class="modal-header">
+
+        <h4 class="modal-title" style="text-align: center;">Edit an Existing Service Bulletin</h4>
+
+        <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
+
+      </div>
+
+      <form #form="ngForm" (submit)="UpdateBulletinSubmit(form)" class="form" autocomplete="off">
+        <div class="modal-body">
+
+          <div class="input-icons">
+            <label class="labelColor" for="Product">Item Name</label>
+            <select class="form-control1 select-name" [disabled]="true" name="product_id" placeholder="Select Item Name"
+            #product_id="ngModel" [(ngModel)]="service.formData.product_id">
+                <option disabled [selected]="true" value="">Item Name</option>
+                <option *ngFor="let option of productist" [value]="option['product_id']">
+                    {{option['product_name']}}</option>
+            </select>
+        </div>
+        <div class="input-icons1">
+           <label class="labelColor" for="sn">Service Bulletin Title</label>
+           <input dobMask class="form-control1" type="text" placeholder="Enter a title" required name="title"
+           #title="ngModel" [(ngModel)]="service.formData.title">
+         </div>
+        <div class="input-icons1">
+           <label class="labelColor" for="date">Begin Date</label>  
+           <mat-form-field>
+               <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
+               #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+             </mat-form-field>
+       </div>
+       <div class="input-icons1">
+         <label class="labelColor" for="date">End Date</label>  
+         <mat-form-field>              
+             <input class="form-control1 br-rt"  matInput [matDatepicker]="picker1"  name="end_date"
+             #end_date="ngModel" [(ngModel)]="service.formData.end_date">
+             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+             <mat-datepicker #picker1></mat-datepicker>
+           </mat-form-field>
+     </div>
+          <div class="input-icons1">
+            <label class="labelColor" for="sn">First SN</label>
+            <input dobMask class="form-control1" type="text" required name="first_SN"
+            #first_SN="ngModel" [(ngModel)]="service.formData.first_SN">
+          </div>
+          <div class="input-icons1">
+            <label class="labelColor" for="sn">Last SN</label>
+            <input dobMask class="form-control1" type="text"  required name="last_SN"
+            #last_SN="ngModel" [(ngModel)]="service.formData.last_SN">
+          </div>
+          <div class="input-icons1">
+            <label class="labelColor" for="serial number">Service Bulletin Message</label>
+            <input dobMask class="form-control1" type="text" placeholder="Enter a service bulletin message" required name="service_bulletin_message"
+            #service_bulletin_message="ngModel" [(ngModel)]="service.formData.service_bulletin_message">
+          </div>
+          <div class="text-left text-danger mr-top" *ngIf="validUpdateBulletin">
+            <div class="successMessages">{{message1}}</div>
+          </div>
+          <div class="text-left text-danger mr-top" *ngIf="inValidUpdatebulletin">
+            <div class="errorMessages">{{message1}}</div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--END Update Service bulletin-->
+
+
+<!--Delete Service bulletin-->
+<div id="openModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+style="display: none;" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+
+    <div class="adjust">
+      <div class="modal-header">
+
+        <h4 class="modal-title" style="text-align: center;">Delete an Existing Service Bulletin</h4>
+
+        <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
+
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this service bulletin?</p>
+        <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validDeleteBulletin">
+         <div class="successMessages">{{message2}}</div>
+       </div>
+       <div class="col-lg-12 text-left text-danger mr-top" *ngIf="inValidDeletebulletin">
+         <div class="errorMessages">{{message2}}</div>
+       </div>
+      </div>
+      <div class="modal-footer">
+
+       <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+       <button type="submit" class="btn btn-primary" (click)="bulletinDeleteSubmit()">Submit</button>
+     </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+<!--delete end Service bulletin-->
