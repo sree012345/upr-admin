@@ -14,6 +14,7 @@ import { SerialNumbersComponent } from './serial-numbers/serial-numbers.componen
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddSerialNumberComponent } from './serial-numbers/add-serial-number/add-serial-number.component';
 import { AdminloginService } from './services/Adminlogin.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UpdateSerialNumberComponent } from './serial-numbers/update-serial-number/update-serial-number.component';
@@ -39,6 +40,7 @@ import { AuthenticScanComponent } from './authentic-scan/authentic-scan.componen
 import { Navbar1Component } from './navbar1/navbar1.component';
 import { RecallComponent } from './recall/recall.component';
 import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
+import { MainComponentComponent } from './main-component/main-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,11 +64,13 @@ import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.co
     AuthenticScanComponent,
     Navbar1Component,
     RecallComponent,
-    ServiceBulletinComponent
+    ServiceBulletinComponent,
+    MainComponentComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    NgbModule,
     MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,    

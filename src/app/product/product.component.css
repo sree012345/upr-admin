@@ -139,11 +139,7 @@ font-size:15px;
     }
     
   
-  .apcalender{
-  letter-spacing: 2px;
-  font-size: 42px;
-  
-  }
+
   .heading{
   font-size: 45px;
   
@@ -249,19 +245,7 @@ tr.mat-row, tr.mat-footer-row {
       animation: spin 1s linear infinite;
       z-index: 9999999;
   }
-  .loader1 {
-    position: absolute;
-      top: 10px;
-      right: 8px;
-      border: 5px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 5px solid #3498db;
-      width: 22px;
-      height: 22px;
-      -webkit-animation: spin 1s linear infinite;
-      animation: spin 1s linear infinite;
-      z-index: 9999999;
-  }
+ 
   table {
     border-collapse: collapse;
    
