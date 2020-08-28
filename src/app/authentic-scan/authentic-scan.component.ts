@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatTableDataSource } from '@angular/material/table';
 import { SerialNumberService } from '../services/serial-number.service';
 import { ReportsService } from '../services/reports.service';
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-authentic-scan',
   templateUrl: './authentic-scan.component.html',
@@ -13,7 +14,18 @@ export class AuthenticScanComponent implements OnInit {
   pageSize =3;
   pageOfItems: Array<any>;
 data:MatTableDataSource<any>;
-  page=4;
+pageNo: number;
+
+pageEvents(event: any) {
+  console.log(event.pageIndex);
+  console.log(event.pageSize);
+  if(event.pageIndex > this.pageNo) {
+    // Clicked on next button
+  } else {
+    // Clicked on previous button
+  }
+  // The code that you want to execute on clicking on next and previous buttons will be written here.
+}
   counter:string="Authentic Scans";
   listData1:MatTableDataSource<any>;
   displayedColumns = ['Scan_Date', 'Item_Name','serial_number','Scan_Location','Device_PlatForm',"Device_Browser"];
@@ -23,6 +35,7 @@ data:MatTableDataSource<any>;
     
 
   }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   onChangePage(pageOfItems: Array<any>) {
     // update current page of items
     this.pageOfItems = pageOfItems;
@@ -36,6 +49,7 @@ data:MatTableDataSource<any>;
     this.service.getSerialNumber().subscribe(data => {
      console.log(data);
      this.listData = new MatTableDataSource(data["response_body"]["serial_number"]);
+     this.listData.paginator = this.paginator;
     });
   }
   loaddocument() {

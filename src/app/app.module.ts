@@ -22,17 +22,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule,MatFormFieldControl } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
-
-
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import {MatSortModule} from '@angular/material/sort';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule,MatPaginatorIntl} from '@angular/material/paginator';
 import { UpdateProductComponent } from './product/update-product/update-product.component';
 import { DelectProductComponent } from './product/delect-product/delect-product.component';
 import { DeleteSerialNumberComponent } from './serial-numbers/delete-serial-number/delete-serial-number.component';
 import { PopupmessageComponent } from './popupmessage/popupmessage.component';
- 
 import { ImportloadComponent } from './importload/importload.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
@@ -41,6 +38,8 @@ import { Navbar1Component } from './navbar1/navbar1.component';
 import { RecallComponent } from './recall/recall.component';
 import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
 import { MainComponentComponent } from './main-component/main-component.component';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +64,8 @@ import { MainComponentComponent } from './main-component/main-component.componen
     Navbar1Component,
     RecallComponent,
     ServiceBulletinComponent,
-    MainComponentComponent
+    MainComponentComponent,
+    FooterComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -91,6 +91,7 @@ import { MainComponentComponent } from './main-component/main-component.componen
     MatPaginatorModule
   ],
   providers: [AdminloginService],
+
   bootstrap: [AppComponent],
   entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent,DeleteSerialNumberComponent,ForgotPasswordComponent,SignUpComponent]
 })

@@ -9,9 +9,10 @@ h1 {
     font-size: 13px;
 
 }
+
 hr {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+
   border: 0;
   border-top: 1px solid rgba(0,0,0,.1);
 }
@@ -25,6 +26,7 @@ hr {
 
   padding-right: 0px;
 }
+
 .searchLabel
 {
   display: flex;
@@ -38,6 +40,10 @@ hr {
     color: #fff;
     background-color:#555;
     border-color:#555;
+}
+.content {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 a:hover{
     color: #3498db;
@@ -184,4 +190,16 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
   font-family: 'Glyphicons Halflings';
   opacity: 0.5;
 }
-   
+/* /deep/ .mat-paginator-icon{
+  display:none;
+} */
+.mat-paginator-navigation-previous {
+  opacity: 0 !important;
+  width: 30px;
+  height: 40px;
+  }
+  .mat-paginator-navigation-next {
+  opacity: 0 !important;
+  width: 30px;
+  height: 40px;
+  }
