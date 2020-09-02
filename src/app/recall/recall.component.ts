@@ -56,27 +56,32 @@ export class RecallComponent implements OnInit {
   }
 
   addRecall(form1: NgForm) {
+    console.log(form1.value.begin_date);
     if (form1.value.product_id == "" || form1.value.product_id == undefined) {
       this.inValidRecall = true;
       this.message = "Please select item.";
     }
-    else if (form1.value.begin_date == true || form1.value.begin_date == undefined) {
+    else if (form1.value.title == "" || form1.value.title == undefined) {
+      this.inValidRecall = true;
+      this.message = "Please enter  recal title";
+    }
+    else if (form1.value.begin_date == "" || form1.value.begin_date == undefined) {
       this.inValidRecall = true;
       this.message = "Please enter  begin date.";
     }
-    else if (form1.value.end_date == true || form1.value.end_date == undefined) {
+    else if (form1.value.end_date == "" || form1.value.end_date == undefined) {
       this.inValidRecall = true;
       this.message = "Please enter end date.";
     }
-    else if (form1.value.first_SN == true || form1.value.first_SN == undefined) {
+    else if (form1.value.first_SN == "" || form1.value.first_SN == undefined) {
       this.inValidRecall = true;
       this.message = "Please enter first serial number.";
     }
-    else if (form1.value.last_SN == true || form1.value.last_SN == undefined) {
+    else if (form1.value.last_SN == "" || form1.value.last_SN == undefined) {
       this.inValidRecall = true;
       this.message = "Please enter last serial number.";
     }
-    else if (form1.value.recall_message == true || form1.value.recall_message == undefined) {
+    else if (form1.value.recall_message == "" || form1.value.recall_message == undefined) {
       this.inValidRecall = true;
       this.message = "Please enter recall message.";
     }
@@ -102,6 +107,7 @@ export class RecallComponent implements OnInit {
       form.resetForm();
     this.service.formData = {
       recall_id: null,
+      title:"",
       product_id: null,
       begin_date: "",
       end_date: "",

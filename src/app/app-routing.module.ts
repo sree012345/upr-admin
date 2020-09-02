@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:'main',component:MainComponentComponent},
   {path:'contentManagement',component:ContentManagementComponent}
 
+  
 ];
 
 @NgModule({

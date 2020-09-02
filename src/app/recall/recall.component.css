@@ -69,7 +69,7 @@ font-size:15px;
   
     .mat-row { 
       flex-direction: column;
-      align-items: start;
+      align-items: flex-start;
       padding: 30px 30px 0px;
     }
     .apcalender{
@@ -131,8 +131,8 @@ font-size:15px;
   @media(min-width:768px){
    
     ::ng-deep .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
-      opacity: 0.54 !important;
-      color:white!important;
+      opacity: 1 !important;
+      color:#ccc !important;
     }
     mat-header-cell.mat-sort-header-sorted {
       color:white !important;
@@ -364,7 +364,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .modal-content {
@@ -454,7 +454,7 @@ p {
 .input-icons1
 {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
     position: relative;
 }
 
@@ -471,6 +471,7 @@ p {
   font-weight: 500;
   font-size: 13px;
   color: #999;
+  margin: 0px;
 }
 
 .btn-default {
@@ -489,6 +490,8 @@ p {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
+  margin: 0px !important;
+  font-size: 14px;
 }
 
 .successMessages
@@ -511,6 +514,7 @@ tr.mat-row, tr.mat-footer-row {
 th.mat-header-cell, td.mat-cell, td.mat-footer-cell
 {
   padding: 8px !important;
+  font-size: 13px;
 }
 .mat-icon
 {
@@ -597,4 +601,9 @@ mat-form-field-wrapper
 .br-rt
 {
   border-right: 0px !important;
+}
+
+.mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
+    opacity: 0.54 !important;
+    color: #f70b0b!important;
 }

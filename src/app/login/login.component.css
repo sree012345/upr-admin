@@ -336,7 +336,7 @@ border-radius: 42px;;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .modal-content {
