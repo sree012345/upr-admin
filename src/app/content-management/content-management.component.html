@@ -1,1 +1,308 @@
-<p>content-management works!</p>
+<app-nav-bar></app-nav-bar>
+
+
+<div class="container">
+  <h1 class="itemsLeft">Product Information<span class="pull-right productRight">Modules / <span
+        style="color: #3498db;" class="productRight">Product Information</span></span></h1>
+</div>
+<hr>
+<div class="container-fluid" id="AppealCalender">
+  <!-- <div class=""> -->
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="calender col-lg-10">
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="importFile">The following list contains all of the serial numbers that have been added. You may add
+            additional serial numbers using the button below, or <a href="loadserial.php">import a list of recalls
+              </a></p>
+        </div>
+        <div class="col-lg-4">
+          <button type="button" class="btn btn-primary btn1 rounded" data-toggle="modal" (click)="openModel()"
+             data-target="#openModal1">
+            Add a New Document Or Link </button>
+        </div>
+        <div class="col-lg-4"></div>
+
+      </div>
+      <div class="form-group1 Search col-lg-3 pull-right">
+        <label class="searchLabel">Search:</label><input type="search" class="form-control input-sm"
+           placeholder="" aria-controls="serial">
+      </div>
+      <div class="table-responsive-sm -md -lg -xs">
+        <table mat-table [dataSource]="listData">
+
+
+          <ng-container matColumnDef="product_name">
+            <th mat-header-cell *matHeaderCellDef> Item Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="document_or_link_name">
+            <th mat-header-cell *matHeaderCellDef> Document Or Link Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.document_or_link_name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="begin_date">
+            <th mat-header-cell *matHeaderCellDef> Begin Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.begin_date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="end_date">
+            <th mat-header-cell *matHeaderCellDef> End Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.end_date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="URL">
+            <th mat-header-cell *matHeaderCellDef>URL</th>
+            <td mat-cell *matCellDef="let element"> {{element.URL}} </td>
+          </ng-container>
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>View/Edit </th>
+            <td mat-cell *matCellDef="let element">
+            
+              <mat-icon fontSet="fontawesome" class="btn btn-xs btn-default rounded fa fa-pencil" data-toggle="modal"
+                data-target="#openModal"></mat-icon>
+
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let element">
+            
+              <mat-icon fontSet="fontawesome" class="btn btn-xs btn-default rounded fa fa-trash-o" data-toggle="modal"
+                data-target="#openModal2" (click)="deleteContent(element.document_id)"></mat-icon>
+
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- Add Document -->
+
+    <div id="openModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+    style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="adjust">
+          <div class="modal-header">
+
+            <h4 class="modal-title" style="text-align: center;">Add a New Document Or Link</h4>
+
+            <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
+
+          </div>
+
+          <form #form1="ngForm" (submit)="addContent(form1)" class="form1" autocomplete="off">
+            <div class="modal-body">
+
+              <div class="input-icons">
+                <label class="labelColor" for="Product">Item Name</label>
+                <select class="form-control1 select-name" name="product_id" placeholder="Enter Item Name"
+                #product_id="ngModel" [(ngModel)]="service.formData.product_id">
+                    <option disabled [selected]="true" value="">Item Name</option>
+                    <option *ngFor="let option of contentDetails" [value]="option['product_id']">
+                        {{option['product_name']}}</option>
+                </select>
+            </div>
+            
+            <div class="input-icons1">
+              <label class="labelColor" for="Document">Document Or Link Name</label>
+              <select class="form-control1 select-name" name="document_or_link_name" placeholder="Enter Document Name"
+              #document_or_link_name="ngModel" [(ngModel)]="service.formData.document_or_link_name">
+                  <option disabled [selected]="true" value="">Document Or Link Name</option>
+                  <option *ngFor="let option of contentDetails" [value]="option['document_or_link_name']">
+                      {{option['document_or_link_name']}}</option>
+              </select>
+          </div>
+
+          <div class="input-icons1">
+            <label class="labelColor" for="DocumentUrl">Document URL</label>
+            <select class="form-control1 select-name" name="URL" placeholder="Enter Document URL"
+            #URL="ngModel" [(ngModel)]="service.formData.URL">
+                <option disabled [selected]="true" value="">URL</option>
+                <option *ngFor="let option of contentDetails" [value]="option['URL']">
+                    {{option['URL']}}</option>
+            </select>
+        </div>
+           
+
+            <div class="input-icons1">
+              <label class="labelColor" for="date">Begin Date</label>  
+              <mat-form-field>
+                  
+                  <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
+                  #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          </div>
+          <div class="input-icons1">
+            <label class="labelColor" for="date">End Date</label>  
+            <mat-form-field>
+                
+                <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="end_date"
+                #end_date="ngModel" [(ngModel)]="service.formData.end_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+              <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validContent">
+                <div class="successMessages">{{message}}</div>
+              </div>
+              <div class="col-lg-12 text-left text-danger mr-top" *ngIf="inValidContent">
+                <div class="errorMessages">{{message}}</div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- UPDATE CONTENT -->
+
+   <!--Update Serial Number-->
+ <div id="openModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+ style="display: none;" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+
+     <div class="adjust">
+       <div class="modal-header">
+
+         <h4 class="modal-title" style="text-align: center;">Edit an Existing Document</h4>
+
+         <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
+
+       </div>
+
+       <form #form="ngForm" (submit)="contentUpdate(form)" class="form" autocomplete="off">
+         <div class="modal-body">
+
+           <div class="input-icons">
+             <label class="labelColor" for="Product">Item Name</label>
+             <select class="form-control1 select-name" [disabled]="true"  name="product_id" placeholder="Select Item Name"
+             #product_id="ngModel" [(ngModel)]="service.formData.product_id">
+                 <option disabled [selected]="true" value="">Item Name</option>
+                 <option *ngFor="let option of contentDetails" [value]="option['product_id']">
+                     {{option['product_name']}}</option>
+             </select>
+         </div>
+
+         <div class="input-icons1">
+          <label class="labelColor" for="Product">Document Or Link Name</label>
+          <select class="form-control1 select-name" [disabled]="true"  name="document_or_link_name" placeholder="Enter Document Name"
+          #document_or_link_name="ngModel" [(ngModel)]="service.formData.document_or_link_name">
+              <option disabled [selected]="true" value="">Document Or Link Name</option>
+              <option *ngFor="let option of contentDetails" [value]="option['document_or_link_name']">
+                  {{option['document_or_link_name']}}</option>
+          </select>
+      </div>
+
+      <div class="input-icons1">
+        <label class="labelColor" for="URL">URL</label>
+        <select class="form-control1 select-name" [disabled]="true"  name="URL" placeholder="Enter URL"
+        #URL="ngModel" [(ngModel)]="service.formData.URL">
+            <option disabled [selected]="true" value="">URL</option>
+            <option *ngFor="let option of contentDetails" [value]="option['URL']">
+                {{option['URL']}}</option>
+        </select>
+    </div>
+
+         <div class="input-icons1">
+          <label class="labelColor" for="date">Begin Date</label>  
+          <mat-form-field>
+              
+              <input class="form-control1 br-rt"  matInput [matDatepicker]="picker2"  name="begin_date"
+              #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+      </div>
+      <div class="input-icons1">
+        <label class="labelColor" for="date">End Date</label>  
+        <mat-form-field>
+            
+            <input class="form-control1 br-rt"  matInput [matDatepicker]="picker3"  name="end_date"
+            #end_date="ngModel" [(ngModel)]="service.formData.end_date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+    </div>
+
+           <!-- <div class="input-icons1">
+             <label class="labelColor" for="date">Begin Date</label>
+             <input class="form-control1" type="date" placeholder="dd-mm-yyyy" name="begin_date"
+             #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
+           </div> -->
+           <!-- <div class="input-icons1">
+             <label class="labelColor" for="date">End Date</label>
+             <input class="form-control1" type="date" placeholder="dd-mm-yyyy" name="end_date"
+             #end_date="ngModel" [(ngModel)]="service.formData.end_date">
+           </div> -->
+           <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validUpdateContent">
+             <div class="successMessages">{{message1}}</div>
+           </div>
+           <div class="col-lg-12 text-left text-danger mr-top" *ngIf="inValidUpdateContent">
+             <div class="errorMessages">{{message1}}</div>
+           </div>
+         </div>
+
+         <div class="modal-footer">
+
+           <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+           <button type="submit" class="btn btn-primary">Submit</button>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div>
+</div>
+
+<!--END Update Content-->
+
+ <!--Delete Content-->
+ <div id="openModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+ style="display: none;" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+
+     <div class="adjust">
+       <div class="modal-header">
+
+         <h4 class="modal-title" style="text-align: center;">Delete an Existing Document</h4>
+
+         <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
+
+       </div>
+       <div class="modal-body">
+         <p>Are you sure you want to delete this document?</p>
+         <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validDeleteContent">
+          <div class="successMessages">{{message2}}</div>
+        </div>
+        <div class="col-lg-12 text-left text-danger mr-top" *ngIf="inValidDeleteContent">
+          <div class="errorMessages">{{message2}}</div>
+        </div>
+       </div>
+       <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="Contentdelete()">Submit</button>
+      </div>
+       
+     </div>
+   </div>
+ </div>
+</div>
+
+<!--END Update Content-->
