@@ -34,7 +34,6 @@ import { ImportloadComponent } from './importload/importload.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { AuthenticScanComponent } from './authentic-scan/authentic-scan.component';
-import { Navbar1Component } from './navbar1/navbar1.component';
 import { RecallComponent } from './recall/recall.component';
 import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
 import { MainComponentComponent } from './main-component/main-component.component';
@@ -54,14 +53,10 @@ import { FooterComponent } from './footer/footer.component';
     DelectProductComponent,
     DeleteSerialNumberComponent,
     PopupmessageComponent,
-    
     ImportloadComponent,
-    
     ForgotPasswordComponent,
-    
     SignUpComponent,
     AuthenticScanComponent,
-    Navbar1Component,
     RecallComponent,
     ServiceBulletinComponent,
     MainComponentComponent,
