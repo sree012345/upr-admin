@@ -113,18 +113,27 @@
                   </select>
               </div>
 
-
-                <div class="input-icons1">
-                  <label class="labelColor" for="date">Begin Date</label>
-                  <input class="form-control1" type="date" placeholder="dd-mm-yyyy" name="begin_date"
-                  #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
-
-                </div>
-                <div class="input-icons1">
-                  <label class="labelColor" for="date">End Date</label>
-                  <input class="form-control1" type="date" placeholder="dd-mm-yyyy" name="end_date"
+              <div class="input-icons1">
+                <label class="labelColor" for="date">Begin Date</label>  
+                <mat-form-field>
+                    
+                    <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
+                    #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="input-icons1">
+              <label class="labelColor" for="date">End Date</label>  
+              <mat-form-field>
+                  
+                  <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="end_date"
                   #end_date="ngModel" [(ngModel)]="service.formData.end_date">
-                </div>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          </div>
+      
                 <div class="input-icons1">
                   <label class="labelColor" for="sn">First SN</label>
                   <input dobMask class="form-control1" type="text" required name="first_SN"
@@ -196,20 +205,20 @@
           <label class="labelColor" for="date">Begin Date</label>  
           <mat-form-field>
               
-              <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
+              <input class="form-control1 br-rt"  matInput [matDatepicker]="picker2"  name="begin_date"
               #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
       </div>
       <div class="input-icons1">
         <label class="labelColor" for="date">End Date</label>  
         <mat-form-field>
             
-            <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="end_date"
+            <input class="form-control1 br-rt"  matInput [matDatepicker]="picker3"  name="end_date"
             #end_date="ngModel" [(ngModel)]="service.formData.end_date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #picker3></mat-datepicker>
           </mat-form-field>
     </div>
 

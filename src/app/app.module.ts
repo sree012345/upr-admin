@@ -38,6 +38,7 @@ import { RecallComponent } from './recall/recall.component';
 import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
 import { MainComponentComponent } from './main-component/main-component.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContentManagementComponent } from './content-management/content-management.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FooterComponent } from './footer/footer.component';
     RecallComponent,
     ServiceBulletinComponent,
     MainComponentComponent,
-    FooterComponent
+    FooterComponent,
+    ContentManagementComponent
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
