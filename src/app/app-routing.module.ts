@@ -8,6 +8,7 @@ import { AuthenticScanComponent } from './authentic-scan/authentic-scan.componen
 import { RecallComponent } from './recall/recall.component';
 import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.component';
 import { MainComponentComponent } from './main-component/main-component.component';
+import {ContentManagementComponent} from './content-management/content-management.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path:'authentic',component:AuthenticScanComponent},
   {path:'recall',component:RecallComponent},
   {path:'serviceBulletin',component:ServiceBulletinComponent},
-  {path:'main',component:MainComponentComponent}
+  {path:'main',component:MainComponentComponent},
+  {path:'contentManagement',component:ContentManagementComponent}
+
 ];
 
 @NgModule({
