@@ -30,9 +30,10 @@ export class SerialNumbersComponent implements OnInit {
   productlist: any;
   message: string;
   constructor(private router: Router, public service: SerialNumberService,private dialog: MatDialog) {
-    this.dialog.afterAllClosed.subscribe(()=>{
+    this.service.listen().subscribe((m:any) =>{
+      console.log(m);
       this.loadserialNumberlist();
-    })
+   })
    }
 
   ngOnInit() {

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServiceBulletinService } from '../services/service-bulletin.service';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServiceBulletin } from '../models/serviceBulletin-model';
 import { NgForm } from '@angular/forms';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class ServiceBulletinComponent implements OnInit {
   message2: any;
   inValidDeletebulletin: boolean=false;
   validDeleteBulletin: boolean=false;
-
+  
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(public service: ServiceBulletinService) {
     this.service.listen().subscribe((m: any) => {
       this.loadBulletinList();
@@ -43,6 +45,7 @@ export class ServiceBulletinComponent implements OnInit {
   loadBulletinList() {
     this.service.serviceBulletinList().subscribe(data => {
       this.listData = new MatTableDataSource(data["response_body"]["service_bulletin_details"]);
+      this.listData.sort = this.sort;
       this.bulletinDetails = data["response_body"]["service_bulletin_details"];
       console.log(this.bulletinDetails)
       this.bulletinDetails.forEach(element => {
@@ -176,4 +179,6 @@ export class ServiceBulletinComponent implements OnInit {
     this.service.filter('Register click');
     this.resetForm();
   }
+
+  
 }

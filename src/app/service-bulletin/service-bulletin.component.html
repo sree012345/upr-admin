@@ -29,11 +29,12 @@
           (keyup)="applyFilter1($event.target.value)" placeholder="" aria-controls="serial">
       </div>
       <div class="table-responsive-sm -md -lg -xs">
-        <table mat-table [dataSource]="listData">
+        <table mat-table [dataSource]="listData" matSort
+        matSortActive="initial_appeal_date" matSortDirection="asc" matSortDisableClear>
 
 
           <ng-container matColumnDef="product_name">
-            <th mat-header-cell *matHeaderCellDef> Item Name </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Item Name </th>
             <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
           </ng-container>
           <ng-container matColumnDef="begin_date">
@@ -92,7 +93,7 @@
      <div class="adjust">
        <div class="modal-header">
 
-         <h4 class="modal-title" style="text-align: center;">Add a New Recall</h4>
+         <h4 class="modal-title" style="text-align: center;">Add a New Service Bulletin</h4>
 
          <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
 
@@ -205,19 +206,19 @@ style="display: none;" aria-hidden="true">
         <div class="input-icons1">
            <label class="labelColor" for="date">Begin Date</label>  
            <mat-form-field>
-               <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
+               <input class="form-control1 br-rt"  matInput [matDatepicker]="picker2"  name="begin_date"
                #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
-               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-               <mat-datepicker #picker></mat-datepicker>
+               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+               <mat-datepicker #picker2></mat-datepicker>
              </mat-form-field>
        </div>
        <div class="input-icons1">
          <label class="labelColor" for="date">End Date</label>  
          <mat-form-field>              
-             <input class="form-control1 br-rt"  matInput [matDatepicker]="picker1"  name="end_date"
+             <input class="form-control1 br-rt"  matInput [matDatepicker]="picker3"  name="end_date"
              #end_date="ngModel" [(ngModel)]="service.formData.end_date">
-             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-             <mat-datepicker #picker1></mat-datepicker>
+             <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+             <mat-datepicker #picker3></mat-datepicker>
            </mat-form-field>
      </div>
           <div class="input-icons1">

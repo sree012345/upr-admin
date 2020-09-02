@@ -32,8 +32,8 @@
             PRODUCTS
         </a>
         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-          <li class="dropdown-item"><a href="#">Items</a></li>
-          <li class="dropdown-item"><a href="#">Serial Numbers</a></li>
+          <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Items</a></li>
+          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Serial Numbers</a></li>
           <li class="dropdown-submenu">
             <a class="dropdown-item submenu" tabindex="-1" href="#">Import</a>
             <ul class="dropdown-menu">
@@ -43,8 +43,20 @@
           </li>
         </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">MODULE</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MODULE
+        </a>
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+          <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Reporting</a></li>
+          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Customer Service</a></li>
+          <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Brand Protection</a></li>
+          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Content Management</a></li>
+          <li class="dropdown-item"><a routerLink="../recall" routerLinkActive="active">Recall Management</a></li>
+          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Service Bulletin</a></li>
+          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Form Mangement</a></li>
+          
+        </ul>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">SUPPORT</a>
