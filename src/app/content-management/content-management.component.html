@@ -3,7 +3,7 @@
 
 <div class="container">
   <h1 class="itemsLeft">Product Information<span class="pull-right productRight">Modules / <span
-        style="color: #3498db;" class="productRight">Product Information</span></span></h1>
+        style="color: #3498db;" class="productRight">Content Management</span></span></h1>
 </div>
 <hr>
 <div class="container-fluid" id="AppealCalender">
@@ -27,7 +27,7 @@
       </div>
       <div class="form-group1 Search col-lg-3 pull-right">
         <label class="searchLabel">Search:</label><input type="search" class="form-control input-sm"
-           placeholder="" aria-controls="serial">
+        (keyup)="applyFilter1($event.target.value)" placeholder="" aria-controls="serial">
       </div>
       <div class="table-responsive-sm -md -lg -xs">
         <table mat-table [dataSource]="listData">
@@ -109,24 +109,16 @@
             </div>
             
             <div class="input-icons1">
-              <label class="labelColor" for="Document">Document Or Link Name</label>
-              <select class="form-control1 select-name" name="document_or_link_name" placeholder="Enter Document Name"
+              <label class="labelColor" for="sn">Document Or Link Name</label>
+              <input dobMask class="form-control1" type="text" required name="document_or_link_name"
               #document_or_link_name="ngModel" [(ngModel)]="service.formData.document_or_link_name">
-                  <option disabled [selected]="true" value="">Document Or Link Name</option>
-                  <option *ngFor="let option of contentDetails" [value]="option['document_or_link_name']">
-                      {{option['document_or_link_name']}}</option>
-              </select>
-          </div>
+            </div>
 
-          <div class="input-icons1">
-            <label class="labelColor" for="DocumentUrl">Document URL</label>
-            <select class="form-control1 select-name" name="URL" placeholder="Enter Document URL"
-            #URL="ngModel" [(ngModel)]="service.formData.URL">
-                <option disabled [selected]="true" value="">URL</option>
-                <option *ngFor="let option of contentDetails" [value]="option['URL']">
-                    {{option['URL']}}</option>
-            </select>
-        </div>
+            <div class="input-icons1">
+              <label class="labelColor" for="sn">URL</label>
+              <input dobMask class="form-control1" type="text" required name="URL"
+              #URL="ngModel" [(ngModel)]="service.formData.URL">
+            </div>
            
 
             <div class="input-icons1">
@@ -200,24 +192,16 @@
          </div>
 
          <div class="input-icons1">
-          <label class="labelColor" for="Product">Document Or Link Name</label>
-          <select class="form-control1 select-name" [disabled]="true"  name="document_or_link_name" placeholder="Enter Document Name"
+          <label class="labelColor" for="sn">Document Or Link Name</label>
+          <input dobMask class="form-control1" type="text" required name="document_or_link_name"
           #document_or_link_name="ngModel" [(ngModel)]="service.formData.document_or_link_name">
-              <option disabled [selected]="true" value="">Document Or Link Name</option>
-              <option *ngFor="let option of contentDetails" [value]="option['document_or_link_name']">
-                  {{option['document_or_link_name']}}</option>
-          </select>
-      </div>
+        </div>
 
-      <div class="input-icons1">
-        <label class="labelColor" for="URL">URL</label>
-        <select class="form-control1 select-name" [disabled]="true"  name="URL" placeholder="Enter URL"
-        #URL="ngModel" [(ngModel)]="service.formData.URL">
-            <option disabled [selected]="true" value="">URL</option>
-            <option *ngFor="let option of contentDetails" [value]="option['URL']">
-                {{option['URL']}}</option>
-        </select>
-    </div>
+        <div class="input-icons1">
+          <label class="labelColor" for="sn">URL</label>
+          <input dobMask class="form-control1" type="text" required name="URL"
+          #URL="ngModel" [(ngModel)]="service.formData.URL">
+        </div>
 
          <div class="input-icons1">
           <label class="labelColor" for="date">Begin Date</label>  

@@ -28,7 +28,6 @@ export class ContentManagementService {
   addcontentdetails(add: addContentManagement) {
     var content = new addContentManagement();
     content.product_id=Number(add.product_id);
-    content.product_name=add.product_name;
     content.document_or_link_name=add.document_or_link_name;
     content.begin_date=add.begin_date;
     content.end_date=add.end_date;
@@ -41,7 +40,6 @@ export class ContentManagementService {
   {
     var content = new addContentManagement();
     content.document_id=Number(document_id);
-    content.product_name=add.product_name;
     content.document_or_link_name=add.document_or_link_name;
     content.begin_date=add.begin_date;
     content.end_date=add.end_date;

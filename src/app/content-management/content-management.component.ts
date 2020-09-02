@@ -100,7 +100,6 @@ export class ContentManagementComponent implements OnInit {
     this.service.formData = {
       document_id: null,
       product_id: null,
-      product_name:null,
       document_or_link_name:null,
       begin_date: "",
       end_date: "",
@@ -151,6 +150,10 @@ export class ContentManagementComponent implements OnInit {
         this.service.filter('Register click');
       }
     });
+  }
+
+  applyFilter1(filtervalue: string) {
+    this.listData.filter = filtervalue.trim().toLocaleLowerCase();
   }
 
 
