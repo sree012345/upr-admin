@@ -18,6 +18,7 @@ export class RecallServiceService {
   addrecalldetails(add: addRecall) {
     var recall = new addRecall();
     recall.product_id=Number(add.product_id);
+    recall.title=add.title;
     recall.begin_date=add.begin_date;
     recall.end_date=add.end_date;
     recall.first_SN=add.first_SN;
@@ -42,6 +43,7 @@ export class RecallServiceService {
   {
     var recall = new addRecall();
     recall.recall_id=Number(recall_id);
+    recall.title=add.title;
     recall.begin_date=add.begin_date;
     recall.end_date=add.end_date;
     recall.first_SN=add.first_SN;

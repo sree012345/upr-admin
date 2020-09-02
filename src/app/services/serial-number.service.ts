@@ -18,8 +18,8 @@ formData=new addSerialNumber();
   }
   get_productlist()
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_products_serialnumbers',{company_id:1});
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products_serialnumbers',{company_id:1});
   }
 
   addSerialNumber(serialNumberDetails)

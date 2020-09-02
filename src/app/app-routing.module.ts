@@ -18,7 +18,8 @@ const routes: Routes = [
   {path:'authentic',component:AuthenticScanComponent},
   {path:'recall',component:RecallComponent},
   {path:'serviceBulletin',component:ServiceBulletinComponent},
-  {path:'main',component:MainComponentComponent}
+  {path:'main',component:MainComponentComponent},
+  
 ];
 
 @NgModule({

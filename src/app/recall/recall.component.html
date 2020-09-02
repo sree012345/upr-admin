@@ -6,7 +6,7 @@
         style="color: #3498db;" class="productRight">Recall Management</span></span></h1>
 </div>
 <hr>
-<div class="container-fluid" id="AppealCalender">
+<div class="container-fluid">
   <!-- <div class=""> -->
   <div class="row">
     <div class="col-lg-1"></div>
@@ -112,11 +112,14 @@
                           {{option['product_name']}}</option>
                   </select>
               </div>
-
+              <div class="input-icons1">
+                <label class="labelColor" for="sn">Service Recall Title</label>
+                <input dobMask class="form-control1" type="text" placeholder="Enter a title" required name="title"
+                #title="ngModel" [(ngModel)]="service.formData.title">
+              </div>
               <div class="input-icons1">
                 <label class="labelColor" for="date">Begin Date</label>  
                 <mat-form-field>
-                    
                     <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="begin_date"
                     #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -125,15 +128,14 @@
             </div>
             <div class="input-icons1">
               <label class="labelColor" for="date">End Date</label>  
-              <mat-form-field>
-                  
-                  <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="end_date"
+              <mat-form-field>              
+                  <input class="form-control1 br-rt"  matInput [matDatepicker]="picker1"  name="end_date"
                   #end_date="ngModel" [(ngModel)]="service.formData.end_date">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
           </div>
-      
+
                 <div class="input-icons1">
                   <label class="labelColor" for="sn">First SN</label>
                   <input dobMask class="form-control1" type="text" required name="first_SN"
@@ -202,22 +204,25 @@
              </select>
          </div>
          <div class="input-icons1">
+          <label class="labelColor" for="sn">Service Recall Title</label>
+          <input dobMask class="form-control1" type="text" placeholder="Enter a title" required name="title"
+          #title="ngModel" [(ngModel)]="service.formData.title">
+        </div>
+         <div class="input-icons1">
           <label class="labelColor" for="date">Begin Date</label>  
           <mat-form-field>
-              
               <input class="form-control1 br-rt"  matInput [matDatepicker]="picker2"  name="begin_date"
               #begin_date="ngModel" [(ngModel)]="service.formData.begin_date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
       </div>
       <div class="input-icons1">
         <label class="labelColor" for="date">End Date</label>  
-        <mat-form-field>
-            
+        <mat-form-field>              
             <input class="form-control1 br-rt"  matInput [matDatepicker]="picker3"  name="end_date"
             #end_date="ngModel" [(ngModel)]="service.formData.end_date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
             <mat-datepicker #picker3></mat-datepicker>
           </mat-form-field>
     </div>

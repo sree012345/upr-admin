@@ -62,7 +62,7 @@ import { ContentManagementComponent } from './content-management/content-managem
     ServiceBulletinComponent,
     MainComponentComponent,
     FooterComponent,
-    ContentManagementComponent
+    ContentManagementComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
