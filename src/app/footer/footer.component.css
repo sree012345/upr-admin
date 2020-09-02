@@ -1,0 +1,30 @@
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .footer-default .footer {
+    color: #dadada;
+    background: #585f69;
+    padding: 20px 0 30px;
+    font-size: 15px;
+  }
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+ .Copyright {
+    font-size: 12px;
+    padding: 11px 0 7px;
+    background: #3e4753;
+}
+.color{
+    margin-left:10px;
+    margin-right:10px;
+    color:white;
+}
+a {
+    color: #007bff;
+    font-size:14px;
+}

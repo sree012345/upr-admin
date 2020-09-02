@@ -10,6 +10,12 @@ h1 {
 
 }
 
+hr {
+  margin-top: 1rem;
+
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
 .form-control{
   border-radius:0.0rem;
   padding:0rem;
@@ -20,6 +26,7 @@ h1 {
 
   padding-right: 0px;
 }
+
 .searchLabel
 {
   display: flex;
@@ -33,6 +40,10 @@ h1 {
     color: #fff;
     background-color:#555;
     border-color:#555;
+}
+.content {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 a:hover{
     color: #3498db;
@@ -118,7 +129,7 @@ th{
       th.mat-header-cell {
         text-align: left;
         color:black;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.6;
     }
     .mat-body, .mat-body-1, .mat-typography {
@@ -179,4 +190,16 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
   font-family: 'Glyphicons Halflings';
   opacity: 0.5;
 }
-   
+/* /deep/ .mat-paginator-icon{
+  display:none;
+} */
+.mat-paginator-navigation-previous {
+  opacity: 0 !important;
+  width: 30px;
+  height: 40px;
+  }
+  .mat-paginator-navigation-next {
+  opacity: 0 !important;
+  width: 30px;
+  height: 40px;
+  }
