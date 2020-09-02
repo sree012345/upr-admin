@@ -45,10 +45,9 @@ pageEvents(event: any) {
     this.pageOfItems = pageOfItems;
 }  
   ngOnInit(): void {
-    this.loadserialNumberlist();
+    
     this.loaddocument();
     this.authenticScan();
-    this.counterfeitScanList();
   }
 authenticScan()
 {
@@ -104,7 +103,7 @@ counterfeitScanList()
     console.log(s)
     if(s=="Profile"){
     this.counter="Counterfeit Scans"
-   console.log(this.counter)
+    this.counterfeitScanList();
   }
   if(s=="home"){
     
@@ -117,6 +116,7 @@ counterfeitScanList()
   if(s=="serial_number")
   {
     this.counter="Serial Numbers"
+    this.loadserialNumberlist();
   }
 }
   applyFilter1(filtervalue : string){
