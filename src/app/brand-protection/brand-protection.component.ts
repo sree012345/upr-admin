@@ -20,6 +20,8 @@ export class BrandProtectionComponent implements OnInit {
   inValidAddBrand:boolean=false;
   validUpdateBrand:boolean=false;
   invalidUpdateBrand:boolean=false;
+  visit:boolean=false;
+  visible:boolean=false;
 
   listData: MatTableDataSource<any>
   displayedColumns = ['product_name', 'location_detection', 'radius_in_miles', 'edit',];
@@ -46,6 +48,7 @@ export class BrandProtectionComponent implements OnInit {
   }
 
   addBrand(form1: NgForm) {
+    this.validAddBrand=false;
     console.log("working");
  
     if (form1.value.product_id == "" || form1.value.product_id == undefined) {
@@ -102,6 +105,16 @@ export class BrandProtectionComponent implements OnInit {
     });
   }
 
+  toggleVisibility1(e){
+    this.visit=e.target.checked;
+    console.log(this.visit);
+      }
+
+toggleVisibility2(e){
+  this.visible=e.target.checked;
+  console.log(this.visible);
+  } 
+
  
 
   resetForm(form?: NgForm) {
@@ -123,6 +136,8 @@ export class BrandProtectionComponent implements OnInit {
 
   openBrand(){
     this.resetForm();
+    this.validAddBrand=false;
+    this.inValidAddBrand=false;
   }
 
 }

@@ -92,13 +92,14 @@
                           {{option['product_name']}}</option>
                   </select>
               </div>
-                <div class="input-icons1">
-                 <input class="input-field" type="checkbox" name="location_detection" #location_detection="ngModel" [(ngModel)]="service.formData.location_detection">
-                 <span style="margin-left:8px;" class="labelColor">Does this item use location detection?</span>
-                </div>
+
+              <div class="input-icons1">
+                <input class="input-field" (click)= "toggleVisibility1($event)"  type="checkbox" name="location_detection" #location_detection="ngModel" [(ngModel)]="service.formData.location_detection" ><span style="margin-left:8px;">Does This Item Use Location Detection?</span>
+              </div> 
+
                 <div class="input-icons1">
                     <div class="labelColor">Location Radius</div>
-                    <input class="form-control1" type="text" placeholder="Location Radius" name="radius_in_miles" #radisu_in_miles="ngModel"
+                    <input class="form-control1" type="text" placeholder="Location Radius" name="radius_in_miles" #radisu_in_miles="ngModel" [disabled]="!visit"
                      [(ngModel)]="service.formData.radius_in_miles" required>
                     <!-- <div class="text-left text-danger" *ngIf="product_name.invalid"></div> -->
                 </div>
@@ -149,14 +150,13 @@
                         {{option['product_name']}}</option>
                 </select>
             </div>
-              <div class="input-icons1">
-                <input class="input-field" type="checkbox" name="location_detection" #location_detection="ngModel" [(ngModel)]="service.formData.location_detection"><span
-                   style="margin-left:8px;" class="labelColor">Does this item use location detection?</span>
-               </div>
+            <div class="input-icons1">
+              <input class="input-field" (click)= "toggleVisibility2($event)"  type="checkbox" name="location_detection" #location_detection="ngModel" [(ngModel)]="service.formData.location_detection" ><span style="margin-left:8px;">Does This Item Use Location Detection?</span>
+            </div> 
                
                <div class="input-icons1">
                 <div class="labelColor">Location Radius</div>
-                <input class="form-control1" type="text" placeholder="Location Radius" name="radius_in_miles"
+                <input class="form-control1" type="text" placeholder="Location Radius" name="radius_in_miles" [disabled]="!visible"
                    #radius_in_miles="ngModel" [(ngModel)]="service.formData.radius_in_miles" required>
                 <!-- <div class="text-left text-danger" *ngIf="product_name.invalid"></div> -->
             </div>
