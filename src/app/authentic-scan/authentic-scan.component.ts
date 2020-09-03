@@ -5,6 +5,7 @@ import { SerialNumberService } from '../services/serial-number.service';
 import { ReportsService } from '../services/reports.service';
 import { MatPaginator } from '@angular/material/paginator';
 import * as moment from 'moment';
+import { ContentManagementService } from '../services/content-management.service';
 @Component({
   selector: 'app-authentic-scan',
   templateUrl: './authentic-scan.component.html',
@@ -15,11 +16,12 @@ export class AuthenticScanComponent implements OnInit {
   authenticRegisterdList: MatTableDataSource<any>
   counterfietScanList: MatTableDataSource<any>
   serialNumberList: MatTableDataSource<any>
-  listData: MatTableDataSource<any>
+  documentList: MatTableDataSource<any>
   pageSize =3;
   pageOfItems: Array<any>;
 data:MatTableDataSource<any>;
 pageNo: number;
+  contentDetails: any;
 
 pageEvents(event: any) {
   console.log(event.pageIndex);
@@ -33,8 +35,9 @@ pageEvents(event: any) {
 }
   counter:string="Authentic Scans";
   displayedColumns = ['Scan_Date', 'Item_Name','serial_number','Scan_Location','Device_PlatForm',"Device_Browser"];
-  displaydata=['Item_Name','Serial_Number']
-  constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService) { 
+  displaydata=['Item_Name','Serial_Number'];
+  documentdata=['Item_Name','Document','url','Begin_Date','End_Date']
+  constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService,public service2: ContentManagementService) { 
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     
 
@@ -45,8 +48,6 @@ pageEvents(event: any) {
     this.pageOfItems = pageOfItems;
 }  
   ngOnInit(): void {
-    
-    this.loaddocument();
     this.authenticScan();
   }
 authenticScan()
@@ -89,6 +90,23 @@ counterfeitScanList()
    });
 }
 
+documentationList()
+{
+  this.service2.contentList().subscribe(data => {
+    this.documentList = new MatTableDataSource(data["response_body"]["All_Documents_Details"]);
+    this.contentDetails = data["response_body"]["All_Documents_Details"];
+    this.contentDetails.forEach(element => {
+      if (element.begin_date != null) {
+        let MailedDate = moment.utc(element.begin_date).format("MM-DD-YYYY");
+        element.begin_date = MailedDate;
+      }
+      if (element.end_date != null) {
+        let LastAppealDate = moment.utc(element.end_date).format("MM-DD-YYYY");
+        element.end_date = LastAppealDate;
+      }
+    });
+  });
+}
 
 
   loaddocument() {
@@ -109,9 +127,9 @@ counterfeitScanList()
     
     this.counter="Authentic Scans"
   }
-  if(s=="setting"){
-    this.counter="Serial Numbers"
-    console.log(this.counter)
+  if(s=="documents"){
+    this.counter="Documentation by Item"
+    this.documentationList();
   }
   if(s=="serial_number")
   {
@@ -120,7 +138,7 @@ counterfeitScanList()
   }
 }
   applyFilter1(filtervalue : string){
-    this.listData.filter = filtervalue.trim().toLocaleLowerCase();
+    this.authenticRegisterdList.filter = filtervalue.trim().toLocaleLowerCase();
   }
   button(s){
     console.log(s)

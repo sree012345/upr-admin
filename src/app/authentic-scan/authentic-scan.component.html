@@ -1,205 +1,202 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
-  <h1 class="itemsLeft">Recall Management<span class="pull-right productRight">Reports / <span
-        style="color: #3498db;" class="productRight">{{counter}}</span></span></h1>
+  <h1 class="itemsLeft">Recall Management<span class="pull-right productRight">Reports / <span style="color: #3498db;"
+        class="productRight">{{counter}}</span></span></h1>
 </div>
 <hr>
-  <div class="container pd-n">
-    <div class="row col-lg-12 col-md-12 col-xs-12 col-sm-12 mr-n pd-top">
-      <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
-        <div class="list-group" id="myList" role="tablist">
-          <a class="list-group-item list-group-item-action active" data-toggle="list" href="#authentic_scan"
-            (click)="document('home')" role="tab" aria-controls="home">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-up"></mat-icon>Authentic Scans
-          </a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#counterfeit_scan"
-            (click)="document('Profile')" role="tab" aria-controls="profile">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-down"></mat-icon>Counterfeit Scans
-          </a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#serial_number" role="tab"
+<div class="container pd-n">
+  <div class="row col-lg-12 col-md-12 col-xs-12 col-sm-12 mr-n pd-top">
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+      <div class="list-group" id="myList" role="tablist">
+        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#authentic_scan"
+          (click)="document('home')" role="tab" aria-controls="home">
+          <mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-up"></mat-icon>Authentic Scans
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#counterfeit_scan"
+          (click)="document('Profile')" role="tab" aria-controls="profile">
+          <mat-icon fontSet="fontawesome" fontIcon="fa-thumbs-down"></mat-icon>Counterfeit Scans
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#serial_number" role="tab"
           (click)="document('serial_number')" aria-controls="messages">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-tags"></mat-icon>Serial Number by Item
-          </a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings"
-            (click)="document('setting')" role="tab" aria-controls="settings">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-book"></mat-icon>Documentation by Item
-          </a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#register" role="tab"
-            aria-controls="register">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-pencil-square-o"></mat-icon>Registrations by Item
-          </a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"
-            aria-controls="settings">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-refresh"></mat-icon>Recalls by Item
-          </a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"
-            aria-controls="settings">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-unlock-alt"></mat-icon>User Security
-          </a>
-        </div>
+          <mat-icon fontSet="fontawesome" fontIcon="fa-tags"></mat-icon>Serial Number by Item
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#documents"
+          (click)="document('documents')" role="tab" aria-controls="documents">
+          <mat-icon fontSet="fontawesome" fontIcon="fa-book"></mat-icon>Documentation by Item
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#register" role="tab"
+          aria-controls="register">
+          <mat-icon fontSet="fontawesome" fontIcon="fa-pencil-square-o"></mat-icon>Registrations by Item
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"
+          aria-controls="settings">
+          <mat-icon fontSet="fontawesome" fontIcon="fa-refresh"></mat-icon>Recalls by Item
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"
+          aria-controls="settings">
+          <mat-icon fontSet="fontawesome" fontIcon="fa-unlock-alt"></mat-icon>User Security
+        </a>
       </div>
-      <div class="col-lg-9 col-md-9 ">
-        <div class="tab-content">
+    </div>
+    <div class="col-lg-9 col-md-9 ">
+      <div class="tab-content">
 
-          <!-----------------------Authenticate Product-------------------------->
-          <div class="tab-pane active" id="authentic_scan" role="tabpanel">
-           
-            <div class="form-group1 Search col-lg-4 pull-right">
-              <label class="searchLabel">Search:</label><input type="search" class="form-control input-sm" (keyup)="applyFilter1($event.target.value)" placeholder="" aria-controls="serial">
-            </div>
+        <!-----------------------Authenticate Product-------------------------->
+        <div class="tab-pane active" id="authentic_scan" role="tabpanel">
 
-            <div class="tableview table-responsive-sm -md -lg -xs">
-              <table class="col-lg-12 col-md-12" mat-table [dataSource]="authenticRegisterdList">
-                <ng-container matColumnDef="Scan_Date">
-                  <th mat-header-cell *matHeaderCellDef style="width:120px"> Scan Date<mat-icon fontSet="fontawesome">
-                    </mat-icon>
-                  </th>
-                  <td mat-cell *matCellDef="let element"> {{element.date_scanned}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Item_Name">
-                  <th mat-header-cell *matHeaderCellDef style="width:111px"> Item Name</th>
-                  <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
-                </ng-container>
-                <ng-container matColumnDef="serial_number">
-                  <th mat-header-cell *matHeaderCellDef style="width:128px"> Serial Number</th>
-                  <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Scan_Location">
-                  <th mat-header-cell *matHeaderCellDef style="width:128px">Scan Location</th>
-                  <td mat-cell *matCellDef="let element"> {{element.address}} {{element.city}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Device_PlatForm">
-                  <th mat-header-cell *matHeaderCellDef style="width:149px">Device Platform</th>
-                  <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Device_Browser">
-                  <th mat-header-cell *matHeaderCellDef style="width:149px">Device Browser</th>
-                  <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
-              </table>
-              <mat-paginator [pageSizeOptions]="[2]" [pageSize]="pageSize" [pageIndex]="pageNo" showprevbutton
-                (page)="pageEvents($event)">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">Next</a>
-                    </li>
-                  </ul>
-                </nav>
-              </mat-paginator>
-            </div>
-          </div>
-            <!-----------------------Authenticate Product-------------------------->
-              <!-----------------------Couterfiet Product-------------------------->
-          <div class="tab-pane " id="counterfeit_scan" role="tabpanel">
-            <div class="table-responsive-sm -md -lg -xs">
-              <table class="col-lg-12 col-md-12" mat-table [dataSource]="counterfietScanList">
-                <ng-container matColumnDef="Scan_Date">
-                  <th mat-header-cell *matHeaderCellDef style="width:120px"> Scan Date<mat-icon fontSet="fontawesome">
-                    </mat-icon>
-                  </th>
-                  <td mat-cell *matCellDef="let element"> {{element.date_scanned}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Item_Name">
-                  <th mat-header-cell *matHeaderCellDef style="width:130px"> Item Name</th>
-                  <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
-                </ng-container>
-                <ng-container matColumnDef="serial_number">
-                  <th mat-header-cell *matHeaderCellDef style="width:140px"> Serial Number</th>
-                  <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Scan_Location">
-                  <th mat-header-cell *matHeaderCellDef style="width:128px">Scan Location</th>
-                  <td mat-cell *matCellDef="let element"> {{element.address}} {{element.city}}</td>
-                </ng-container>
-                <ng-container matColumnDef="Device_PlatForm">
-                  <th mat-header-cell *matHeaderCellDef style="width:149px">Device Platform</th>
-                  <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Device_Browser">
-                  <th mat-header-cell *matHeaderCellDef style="width:149px">Device Browser</th>
-                  <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-              </table>
-            </div>
-
+          <div class="form-group1 Search col-lg-4 pull-right">
+            <label class="searchLabel">Search:</label><input type="search" class="form-control input-sm"
+              (keyup)="applyFilter1($event.target.value)" placeholder="" aria-controls="serial">
           </div>
 
-            <!-----------------------Couterfiet Product-------------------------->
-              <!-----------------------Serial Number-------------------------->
-          <div class="tab-pane " id="serial_number" role="tabpanel">
-            <div class="table-responsive-sm -md -lg -xs">
-              <table class="col-lg-12 col-md-12" mat-table [dataSource]="serialNumberList">
-
-
-                <ng-container matColumnDef="Item_Name">
-                  <th mat-header-cell *matHeaderCellDef>Item Name<mat-icon fontSet="fontawesome">
-                    </mat-icon>
-                  </th>
-                  <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Serial_Number">
-                  <th mat-header-cell *matHeaderCellDef>Serial Number</th>
-                  <td mat-cell *matCellDef="let element">{{element.serial_number}} </td>
-                </ng-container>                
-                <tr mat-header-row *matHeaderRowDef="displaydata"></tr>
-                <tr mat-row *matRowDef="let row; columns: displaydata"></tr>
-              </table>
-            </div>
+          <div class="tableview table-responsive-sm -md -lg -xs">
+            <table class="col-lg-12 col-md-12" mat-table [dataSource]="authenticRegisterdList">
+              <ng-container matColumnDef="Scan_Date">
+                <th mat-header-cell *matHeaderCellDef style="width:120px"> Scan Date<mat-icon fontSet="fontawesome">
+                  </mat-icon>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.date_scanned}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Item_Name">
+                <th mat-header-cell *matHeaderCellDef style="width:111px"> Item Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="serial_number">
+                <th mat-header-cell *matHeaderCellDef style="width:128px"> Serial Number</th>
+                <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Scan_Location">
+                <th mat-header-cell *matHeaderCellDef style="width:128px">Scan Location</th>
+                <td mat-cell *matCellDef="let element"> {{element.address}} {{element.city}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Device_PlatForm">
+                <th mat-header-cell *matHeaderCellDef style="width:149px">Device Platform</th>
+                <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Device_Browser">
+                <th mat-header-cell *matHeaderCellDef style="width:149px">Device Browser</th>
+                <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let element; columns: displayedColumns"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[2]" [pageSize]="pageSize" [pageIndex]="pageNo" showprevbutton
+              (page)="pageEvents($event)">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </mat-paginator>
           </div>
-
-            <!-----------------------Serial Number-------------------------->
-          <!-- <div class="tab-pane " id="settings" role="tabpanel">
-  <div class="table-responsive-sm -md -lg -xs">
-      <table class="col-lg-12 col-md-12" mat-table [dataSource]="listData1">
-
-        
-        <ng-container matColumnDef="Item_Name" >
-          <th mat-header-cell *matHeaderCellDef style="width:120px">Item Name<mat-icon fontSet="fontawesome" ></mat-icon>  </th>
-          <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
-        </ng-container>
-        <ng-container matColumnDef="Document">
-          <th mat-header-cell *matHeaderCellDef style="width:230px" >Serial Number</th>
-          <td mat-cell *matCellDef="let element">{{element.document_or_link_name}} </td>
-        </ng-container>
-        <ng-container matColumnDef="first_name">
-          <th mat-header-cell *matHeaderCellDef style="width:140px">First Name</th>
-          <td mat-cell *matCellDef="let element">{{element.URL}}</td>
-        </ng-container>
-        <ng-container matColumnDef="last_name">
-          <th mat-header-cell *matHeaderCellDef style="width:140px">Last Name</th>
-          <td mat-cell *matCellDef="let element"> </td>
-        </ng-container>
-        <ng-container matColumnDef="Phone">
-          <th mat-header-cell *matHeaderCellDef style="width:128px">Phone</th>
-          <td mat-cell *matCellDef="let element">  </td>
-        </ng-container>
-        <ng-container matColumnDef="End_Date">
-          <th mat-header-cell *matHeaderCellDef style="width:149px">End Date</th>
-          <td mat-cell *matCellDef="let element"> </td>
-        </ng-container>
-        <ng-container matColumnDef="End_Date">
-          <th mat-header-cell *matHeaderCellDef style="width:149px">End Date</th>
-          <td mat-cell *matCellDef="let element"> </td>
-        </ng-container>
-       <tr  mat-header-row *matHeaderRowDef="displaydata"></tr>
-        <tr  mat-row *matRowDef="let row; columns: displaydata"></tr>
-      </table>
-</div>
-</div> -->
         </div>
+        <!-----------------------Authenticate Product-------------------------->
+        <!-----------------------Couterfiet Product-------------------------->
+        <div class="tab-pane " id="counterfeit_scan" role="tabpanel">
+          <div class="table-responsive-sm -md -lg -xs">
+            <table class="col-lg-12 col-md-12" mat-table [dataSource]="counterfietScanList">
+              <ng-container matColumnDef="Scan_Date">
+                <th mat-header-cell *matHeaderCellDef style="width:120px"> Scan Date<mat-icon fontSet="fontawesome">
+                  </mat-icon>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.date_scanned}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Item_Name">
+                <th mat-header-cell *matHeaderCellDef style="width:130px"> Item Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="serial_number">
+                <th mat-header-cell *matHeaderCellDef style="width:140px"> Serial Number</th>
+                <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Scan_Location">
+                <th mat-header-cell *matHeaderCellDef style="width:128px">Scan Location</th>
+                <td mat-cell *matCellDef="let element"> {{element.address}} {{element.city}}</td>
+              </ng-container>
+              <ng-container matColumnDef="Device_PlatForm">
+                <th mat-header-cell *matHeaderCellDef style="width:149px">Device Platform</th>
+                <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Device_Browser">
+                <th mat-header-cell *matHeaderCellDef style="width:149px">Device Browser</th>
+                <td mat-cell *matCellDef="let element"> {{element.serial_number}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+
+        </div>
+
+        <!-----------------------Couterfiet Product-------------------------->
+        <!-----------------------Serial Number-------------------------->
+        <div class="tab-pane " id="serial_number" role="tabpanel">
+          <div class="table-responsive-sm -md -lg -xs">
+            <table class="col-lg-12 col-md-12" mat-table [dataSource]="serialNumberList">
+
+
+              <ng-container matColumnDef="Item_Name">
+                <th mat-header-cell *matHeaderCellDef>Item Name<mat-icon fontSet="fontawesome">
+                  </mat-icon>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Serial_Number">
+                <th mat-header-cell *matHeaderCellDef>Serial Number</th>
+                <td mat-cell *matCellDef="let element">{{element.serial_number}} </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displaydata"></tr>
+              <tr mat-row *matRowDef="let row; columns: displaydata"></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-----------------------END Serial Number-------------------------->
+        <!-----------------------END Document Data-------------------------->
+        <div class="tab-pane " id="documents" role="tabpanel">
+          <div class="table-responsive-sm -md -lg -xs">
+            <table class="col-lg-12 col-md-12" mat-table [dataSource]="documentList">
+
+
+              <ng-container matColumnDef="Item_Name">
+                <th mat-header-cell *matHeaderCellDef style="width:120px">Item Name<mat-icon fontSet="fontawesome">
+                  </mat-icon>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Document">
+                <th mat-header-cell *matHeaderCellDef style="width:230px">Document or Link Name</th>
+                <td mat-cell *matCellDef="let element">{{element.document_or_link_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="url">
+                <th mat-header-cell *matHeaderCellDef style="width:140px">URL</th>
+                <td mat-cell *matCellDef="let element">{{element.URL}}</td>
+              </ng-container>
+              <ng-container matColumnDef="Begin_Date">
+                <th mat-header-cell *matHeaderCellDef style="width:140px">Begin Date</th>
+                <td mat-cell *matCellDef="let element">{{element.begin_date}} </td>
+              </ng-container>
+              <ng-container matColumnDef="End_Date">
+                <th mat-header-cell *matHeaderCellDef style="width:149px">End Date</th>
+                <td mat-cell *matCellDef="let element"> {{element.end_date}}</td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="documentdata"></tr>
+              <tr mat-row *matRowDef="let row; columns: documentdata"></tr>
+            </table>
+          </div>
+        </div>
+        <!-----------------------END Document Data-------------------------->
       </div>
     </div>
   </div>
+</div>
 <!-- <app-footer></app-footer> -->
