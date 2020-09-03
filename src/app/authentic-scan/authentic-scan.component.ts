@@ -36,7 +36,9 @@ pageEvents(event: any) {
   counter:string="Authentic Scans";
   displayedColumns = ['Scan_Date', 'Item_Name','serial_number','Scan_Location','Device_PlatForm',"Device_Browser"];
   displaydata=['Item_Name','Serial_Number'];
-  documentdata=['Item_Name','Document','url','Begin_Date','End_Date']
+  documentdata=['Item_Name','Document','url','Begin_Date','End_Date'];
+  registerdProduct = ['Item_Name','serial_number','first_name','last_name','phone','email',"address"];
+  
   constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService,public service2: ContentManagementService) { 
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     
@@ -108,15 +110,14 @@ documentationList()
   });
 }
 
-
-  loaddocument() {
-    
-    this.service1.document().subscribe(data => {
-     console.log(data);
-    // this.listData1 = new MatTableDataSource(data["response_body"]["All_Documents_Details"]);
-  
-    });
-  }
+registerdAuthentic()
+{
+  this.service1.authenticRegister().subscribe(data => {
+    console.log(data);
+    this.authenticRegisterdList = new MatTableDataSource(data["response_body"]["authentic_product"]);
+   
+   });
+}
   document(s){
     console.log(s)
     if(s=="Profile"){
