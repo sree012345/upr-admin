@@ -112,7 +112,11 @@
                           {{option['product_name']}}</option>
                   </select>
               </div>
-
+              <div class="input-icons1">
+                <label class="labelColor" for="sn">Recall Title</label>
+                <input dobMask class="form-control1" type="text" placeholder="Enter a title" required name="title"
+                #title="ngModel" [(ngModel)]="service.formData.title">
+              </div>
               <div class="input-icons1">
                 <label class="labelColor" for="date">Begin Date</label>  
                 <mat-form-field>
@@ -127,10 +131,10 @@
               <label class="labelColor" for="date">End Date</label>  
               <mat-form-field>
                   
-                  <input class="form-control1 br-rt"  matInput [matDatepicker]="picker"  name="end_date"
+                  <input class="form-control1 br-rt"  matInput [matDatepicker]="picker1"  name="end_date"
                   #end_date="ngModel" [(ngModel)]="service.formData.end_date">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
           </div>
       
@@ -201,6 +205,11 @@
                      {{option['product_name']}}</option>
              </select>
          </div>
+         <div class="input-icons1">
+          <label class="labelColor" for="sn">Recall Title</label>
+          <input dobMask class="form-control1" type="text" placeholder="Enter a title" required name="title"
+          #title="ngModel" [(ngModel)]="service.formData.title">
+        </div>
          <div class="input-icons1">
           <label class="labelColor" for="date">Begin Date</label>  
           <mat-form-field>
