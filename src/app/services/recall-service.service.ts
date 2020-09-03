@@ -41,6 +41,7 @@ export class RecallServiceService {
   }
   updaterecall(add:addRecall,recall_id)
   {
+    console.log(add);
     var recall = new addRecall();
     recall.recall_id=Number(recall_id);
     recall.title=add.title;

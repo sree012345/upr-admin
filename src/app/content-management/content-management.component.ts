@@ -18,6 +18,7 @@ export class ContentManagementComponent implements OnInit {
   message2:string;
   document_id:any;
   docuemnt_id:any;
+  productlist:any;
   validUpdateContent: boolean = false;
   inValidUpdateContent: boolean = false;
   inValidDeleteContent: boolean=false;
@@ -34,6 +35,10 @@ export class ContentManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadContentList();
+    this.service.get_productlist().subscribe(data => {
+      this.productlist = (data["response_body"]["products_details"]);
+      console.log(this.productlist);
+      });
   
   }
   loadContentList() {
@@ -100,7 +105,6 @@ export class ContentManagementComponent implements OnInit {
     this.service.formData = {
       document_id: null,
       product_id: null,
-      product_name:null,
       document_or_link_name:null,
       begin_date: "",
       end_date: "",
@@ -151,6 +155,10 @@ export class ContentManagementComponent implements OnInit {
         this.service.filter('Register click');
       }
     });
+  }
+
+  applyFilter1(filtervalue: string) {
+    this.listData.filter = filtervalue.trim().toLocaleLowerCase();
   }
 
 

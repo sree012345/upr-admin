@@ -86,6 +86,7 @@ export class RecallComponent implements OnInit {
       this.message = "Please enter recall message.";
     }
     else {
+      console.log("working response");
       this.inValidRecall = false;
       this.service.addrecalldetails(form1.value).subscribe(data => {
         var status = data["response_code"];
@@ -126,6 +127,7 @@ export class RecallComponent implements OnInit {
   }
 
   updateRecall(pro: addRecall, recall_id) {
+    console.log(pro);
     this.service.formData = pro;
     this.service.formData.begin_date = new Date(pro.begin_date)
     this.service.formData.end_date = new Date(pro.end_date)

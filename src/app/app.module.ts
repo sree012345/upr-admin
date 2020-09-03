@@ -39,6 +39,7 @@ import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.co
 import { MainComponentComponent } from './main-component/main-component.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentManagementComponent } from './content-management/content-management.component';
+import { BrandProtectionComponent } from './brand-protection/brand-protection.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ContentManagementComponent } from './content-management/content-managem
     MainComponentComponent,
     FooterComponent,
     ContentManagementComponent,
+    BrandProtectionComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),

@@ -72,7 +72,7 @@ export class SerialNumbersComponent implements OnInit {
     }
     else
     {
-      this.inValidAddSerialNumber=false;
+    this.inValidAddSerialNumber=false;
     this.addSerialNumers=new addSerialNumber();
     this.addSerialNumers.product_id=Number(form1.value.product_id);
     this.addSerialNumers.serial_number=form1.value.serial_number;
