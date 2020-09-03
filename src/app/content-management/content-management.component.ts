@@ -59,23 +59,24 @@ export class ContentManagementComponent implements OnInit {
   }
 
   addContent(form1: NgForm) {
+    this.validContent = false;
     if (form1.value.product_id == "" || form1.value.product_id == undefined) {
       this.inValidContent = true;
       this.message = "Please select item.";
     }
-    else if (form1.value.document_or_link_name == true || form1.value.document_or_link_name == undefined) {
+    else if (form1.value.document_or_link_name == "" || form1.value.document_or_link_name == undefined) {
       this.inValidContent = true;
       this.message = "Please enter  document or link name.";
     }
-    else if (form1.value.URL == true || form1.value.URL == undefined) {
+    else if (form1.value.URL == "" || form1.value.URL == undefined) {
       this.inValidContent = true;
       this.message = "Please enter  document URL.";
     }
-    else if (form1.value.begin_date == true || form1.value.begin_date == undefined) {
+    else if (form1.value.begin_date == "" || form1.value.begin_date == undefined) {
       this.inValidContent = true;
       this.message = "Please enter  begin date.";
     }
-    else if (form1.value.end_date == true || form1.value.end_date == undefined) {
+    else if (form1.value.end_date == "" || form1.value.end_date == undefined) {
       this.inValidContent = true;
       this.message = "Please enter end date.";
     }
@@ -97,6 +98,8 @@ export class ContentManagementComponent implements OnInit {
 
   openModel() {
     this.resetForm();
+    this.validContent=false;
+    this.inValidContent=false;
   }
 
   resetForm(form?: NgForm) {
@@ -118,6 +121,8 @@ export class ContentManagementComponent implements OnInit {
   }
 
   updateContent(pro: addContentManagement,document_id) {
+    this.inValidUpdateContent=false;
+    this.validUpdateContent=false;
     this.service.formData = pro;
     this.service.formData.document_or_link_name = pro.document_or_link_name
     this.service.formData.begin_date = new Date(pro.begin_date)
