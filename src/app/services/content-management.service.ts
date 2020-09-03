@@ -15,6 +15,11 @@ export class ContentManagementService {
     console.log(this.APIBaseUrl + 'admin/get_all_documents', { company_id: 1 });
     return this.http.post<any>(this.APIBaseUrl + 'admin/get_all_documents', { company_id: 1 });
   }
+  get_productlist()
+  {
+    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+  }
 
   private _listners = new Subject<any>();
   listen(): Observable<any> {

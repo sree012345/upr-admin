@@ -39,7 +39,7 @@ export class ServiceBulletinComponent implements OnInit {
   ngOnInit(): void {
     this.loadBulletinList();
     this.service.get_productlist().subscribe(data => {
-      this.productist = (data["response_body"]["products_details"]);
+    this.productist = (data["response_body"]["products_details"]);
     });
   }
   loadBulletinList() {
