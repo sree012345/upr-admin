@@ -14,6 +14,11 @@ export class ReportsService {
     console.log(this.APIBaseUrl+'admin/view_scaned_authentic_products',{company_id:1});
     return this.http.post<any>(this.APIBaseUrl+'admin/view_scaned_authentic_products',{company_id:1});
   }
+  authenticRegister()
+  {
+    console.log(this.APIBaseUrl+'admin/view_authentic_products_registration',{company_id:1});
+    return this.http.post<any>(this.APIBaseUrl+'admin/view_authentic_products_registration',{company_id:1});
+  }
   counterfeitScan()
   {
     console.log(this.APIBaseUrl+'admin/view_counterfeit_products_registration',{company_id:1});
