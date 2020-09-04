@@ -137,6 +137,11 @@ registerdAuthentic()
     this.counter="Serial Numbers"
     this.loadserialNumberlist();
   }
+  if(s=="registered_product")
+  {
+    this.counter="Registrations by Item"
+    this.loadserialNumberlist();
+  }
 }
   applyFilter1(filtervalue : string){
     this.authenticRegisterdList.filter = filtervalue.trim().toLocaleLowerCase();

@@ -517,3 +517,9 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell
   font-size: 13px;
   
 }
+.importFile
+{
+  font-size: 13px;
+    line-height: 1.6;
+    padding-bottom: 15px;
+}
