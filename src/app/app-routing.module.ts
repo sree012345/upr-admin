@@ -10,6 +10,8 @@ import { ServiceBulletinComponent } from './service-bulletin/service-bulletin.co
 import { MainComponentComponent } from './main-component/main-component.component';
 import {ContentManagementComponent} from './content-management/content-management.component';
 import { BrandProtectionComponent } from './brand-protection/brand-protection.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CustomerServiceComponent } from './customer-service/customer-service.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path:'serviceBulletin',component:ServiceBulletinComponent},
   {path:'main',component:MainComponentComponent},
   {path:'contentManagement',component:ContentManagementComponent},
-  {path:'brandProtection',component:BrandProtectionComponent}
+  {path:'brandProtection',component:BrandProtectionComponent},
+  {path:'contactUs',component:ContactUsComponent},
+  {path:'customerService',component:CustomerServiceComponent}
 
   
 ];

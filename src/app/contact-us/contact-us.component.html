@@ -1,0 +1,105 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+    <h1 class="itemsLeft">Support<span class="pull-right productRight"> <span
+          style="color: #3498db;" class="productRight">ContactUs</span></span></h1>
+  </div>
+  <hr>
+
+  <div class="container-fluid">
+     <div class="row">
+         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+             <div class="row">
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <h3>We Want To Hear From You</h3>
+                            <p class="importFile">Do you have a question or a comment? We would love to hear from you. 
+                                Please complete our contact form below and we will get back to you!</p>
+                                <form #form1="ngForm" (submit)="addRequest(form1)" class="form1">
+                                        <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="input-icons1">
+                                                        <div class="labelColor">First Name</div>
+                                                        <input class="form-control1" type="text" name="first_name" #first_name="ngModel"
+                                                        [(ngModel)]="service.formData.first_name" required>
+                                                    </div>
+                                                    <div class="input-icons1">
+                                                        <div class="labelColor">Last Name</div>
+                                                        <input class="form-control1" type="text" name="last_name" #last_name="ngModel" [(ngModel)]= "service.formData.last_name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="input-icons1">
+                                                        <div class="labelColor">Email Address</div>
+                                                        <input class="form-control1" type="text" name="email" #email="ngModel" [(ngModel)]="service.formData.email" required>
+                                                        
+                                                    </div>
+                                                    <div class="input-icons1">
+                                                        <div class="labelColor">Subject</div>
+                                                        <input class="form-control1" type="text" name="subject" #subject="ngModel" [(ngModel)]="service.formData.subject"  required>
+                                                     </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="input-icons1">
+                                                        <div class="labelColor">Message</div>
+                                                        <input class="form-control2" type="text" name="comments" #comments="ngModel" [(ngModel)]="service.formData.comments"  required>
+                                                      
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validDetails">
+                                                    <div class="successMessages">{{message}}</div>
+                                                  
+                                                </div>
+
+                                                  <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidDetails">
+                                                    <div class="errorMessages">{{message}}</div>
+                                                  </div>
+                                                <div class="col-lg-4">
+                                                    <button type="submit" class="btn btn-primary btn1 rounded" data-toggle="modal"
+                                                       data-target="#openModal1">
+                                                      Send Message </button>
+                                                </div>
+                                            </div>
+                                          
+                                       
+                        </form>
+                        </div>
+                       <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div> -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                         
+                            <div>
+                                <h3 class="heading">Contact Us</h3> 
+                                 <span><i class="fa fa-home"></i>&nbsp;<a href="123 Main Street| Chicago,IL 60031">123 Main Street| Chicago,IL 60031</a></span><br>
+                                 <span><i class="fa fa-envelope"></i>&nbsp;<a href="info {at} upr {dot} com">info at upr dot com</a></span><br>
+                                 <span><i class="fa fa-phone"></i>&nbsp;<a href="+1 555 123 45657">+1 555 123 45657</a></span><br>
+                                 <span><i class="fa fa-globe"></i>&nbsp;<a href="upr.com">upr.com</a></span><br>
+                            </div>
+                             <br>
+
+                            <div>
+                                <h3 class="heading">Contact With Us</h3>
+                                <span><i class="fa fa-facebook"></i>&nbsp;&nbsp;<a href="Like Us On Facebook">Like Us On Facebook</a></span><br>
+                                <span><i class="fa fa-twitter"></i>&nbsp;<a href="Follow Us On Twitter">Follow Us On Twitter</a></span>&nbsp;
+                            </div>
+                            <br>
+                           
+                                
+                                <div class="input-icons1">
+                                    <h3 class="heading">Join Our Mailing List</h3>
+                                    <input class="form-control1" type="text" placeholder="Email Address" required>
+                                    
+                                </div>
+                                    <button type="button" class="btn btn-primary btn1 rounded" data-toggle="modal"
+                                       data-target="#openModal1">
+                                      Subscribe </button>
+                             </div>
+                    </div>
+                 </div>
+                 
+             </div>
+         </div>
+     </div>
+  </div>
