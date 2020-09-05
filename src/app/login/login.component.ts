@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
       this.message="Please enter your password."
     }
     else{
+      this.message="";
       this.inValidLogin=false;
       this.service.adminlogin(form.value).subscribe((res) => {
         this.validLogin=true;
@@ -60,7 +61,7 @@ export class LoginComponent implements OnInit {
         console.log(status)
         if(status==200){
            
-        this.message=res["response_message"]
+        this.message="";
         this.router.navigateByUrl('productDetails');
         }else{
           this.validLogin=false;

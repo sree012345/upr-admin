@@ -58,6 +58,7 @@ export class ProductComponent implements OnInit {
   }
   addproduct(form1:NgForm)
   {
+    this.validAddProduct=false;
     if(form1.value.product_name=="" || form1.value.product_name==undefined)
     {
       this.inValidAddProduct=true;
@@ -73,7 +74,7 @@ export class ProductComponent implements OnInit {
       this.inValidAddProduct=true;
       this.message="Please enter counterfeit radius.";
     }
-    else {
+    else {      
       this.inValidAddProduct=false;
       this.service.addproduct(form1.value).subscribe(data => {
         var status = data["response_code"];
@@ -82,6 +83,7 @@ export class ProductComponent implements OnInit {
               this.validAddProduct=true;
               this.message=data["response_message"];
               this.service.filter('Register click');
+              this.resetForm();
             }        
     })
    }

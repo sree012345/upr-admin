@@ -266,7 +266,7 @@ border-radius: 42px;;
 
   .social-login{
     color: #555;
-    padding-top: 60px;
+    padding-top: 50px;
     border-top: 1px solid #eee;
     position: relative;
   }
@@ -285,7 +285,7 @@ border-radius: 42px;;
 }
 .logo
 {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 
@@ -564,4 +564,8 @@ h2{
 .mr-top
 {
   margin-top: 10px;
+}
+.loginError
+{
+  height: 20px;
 }
