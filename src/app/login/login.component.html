@@ -99,10 +99,10 @@
                           </div>
                         </div>
                       </div>
-                      <div class="text-left text-danger" *ngIf="validLogin">
+                      <!-- <div class="text-left text-danger">
                         <div class="successMessages">{{message}}</div>
-                        </div>
-                        <div class="text-left text-danger" *ngIf="inValidLogin">
+                        </div> -->
+                        <div class="text-left text-danger loginError">
                             <div class="errorMessages">{{message}}</div>
                         </div>
                     <div>
@@ -147,7 +147,7 @@
                     <div class= input-icons>             
                      
                     <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email Address"  name="email_id" #email_id="ngModel" [ngModel]="emailId"
-                    required class="form-control1"   >
+                    required class="form-control1"   autocomplete="off" >
                 </div>               
                 </div>
                 

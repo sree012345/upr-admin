@@ -6,6 +6,7 @@ import { ReportsService } from '../services/reports.service';
 import { MatPaginator } from '@angular/material/paginator';
 import * as moment from 'moment';
 import { ContentManagementService } from '../services/content-management.service';
+import { RecallServiceService } from '../services/recall-service.service';
 @Component({
   selector: 'app-authentic-scan',
   templateUrl: './authentic-scan.component.html',
@@ -17,11 +18,13 @@ export class AuthenticScanComponent implements OnInit {
   counterfietScanList: MatTableDataSource<any>
   serialNumberList: MatTableDataSource<any>
   documentList: MatTableDataSource<any>
+  recallDetailsList: MatTableDataSource<any>
   pageSize =3;
   pageOfItems: Array<any>;
 data:MatTableDataSource<any>;
 pageNo: number;
   contentDetails: any;
+  recallDetails: any;
 
 pageEvents(event: any) {
   console.log(event.pageIndex);
@@ -39,7 +42,7 @@ pageEvents(event: any) {
   documentdata=['Item_Name','Document','url','Begin_Date','End_Date'];
   registerdProduct = ['Item_Name','serial_number','first_name','last_name','phone','email',"address"];
   
-  constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService,public service2: ContentManagementService) { 
+  constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService,public service2: ContentManagementService,public service3: RecallServiceService) { 
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     
 
@@ -114,9 +117,27 @@ registerdAuthentic()
 {
   this.service1.authenticRegister().subscribe(data => {
     console.log(data);
-    this.authenticRegisterdList = new MatTableDataSource(data["response_body"]["authentic_product"]);
+    this.authenticRegisterdList = new MatTableDataSource(data["response_body"]["authentic_registered_product"]);
    
    });
+}
+recallList()
+{
+  this.service3.recallList().subscribe(data => {
+    this.recallDetailsList = new MatTableDataSource(data["response_body"]["recall_details"]);
+    this.recallDetails = data["response_body"]["recall_details"];
+
+    this.recallDetails.forEach(element => {
+      if (element.begin_date != null) {
+        let MailedDate = moment.utc(element.begin_date).format("MM-DD-YYYY");
+        element.begin_date = MailedDate;
+      }
+      if (element.end_date != null) {
+        let LastAppealDate = moment.utc(element.end_date).format("MM-DD-YYYY");
+        element.end_date = LastAppealDate;
+      }
+    });
+  });
 }
   document(s){
     console.log(s)
@@ -127,6 +148,7 @@ registerdAuthentic()
   if(s=="home"){
     
     this.counter="Authentic Scans"
+    this.authenticScan();
   }
   if(s=="documents"){
     this.counter="Documentation by Item"
@@ -140,7 +162,7 @@ registerdAuthentic()
   if(s=="registered_product")
   {
     this.counter="Registrations by Item"
-    this.loadserialNumberlist();
+    this.registerdAuthentic();
   }
 }
   applyFilter1(filtervalue : string){
