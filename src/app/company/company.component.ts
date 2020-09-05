@@ -78,7 +78,6 @@ export class CompanyComponent implements OnInit {
         var status = data["response_code"];
         if (status == 200) {
           this.validAddCompany = true;
-          this.companyList= data(["response_body"]);
           this.message = data["response_message"];
           this.service.filter('Register click');
           this.resetForm();
@@ -99,7 +98,8 @@ export class CompanyComponent implements OnInit {
       company_country:"",
       company_phone:"",
       company_website:"",
-      company_type:""
+      company_type:"",
+      is_active:null
      }
 
   }

@@ -8,5 +8,6 @@ export class company{
     company_phone:string;
     company_website:string;
     company_type:string;
+    is_active:boolean;
 
 }
