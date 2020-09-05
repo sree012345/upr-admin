@@ -1,0 +1,92 @@
+.itemsLeft
+{
+  color: #666;
+  font-size: 22px;
+  margin-top: 8px;
+}
+
+.productRight
+{
+  font-size: 13px;
+  
+}
+.container-fluid{
+    padding-top:25px;
+    padding-bottom:25px;
+  }
+  .header{
+    color: #555;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: normal;
+    font-size:22px;
+  }
+  .para{
+      color:#555;
+      font-size:13px;
+  }
+  .input-icons1
+{
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+}
+
+.labelColor
+{
+  font-weight: 500;
+  font-size: 14px;
+  color: #999;
+  margin: 0px;
+}
+
+.form-control1:focus
+{
+  outline: none !important;
+}
+
+.form-control1
+{
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+
+.footer1{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    margin: 0px !important;
+    font-size: 14px;
+  }
+
+  .btn {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.rounded {
+    border-radius: 4px !important;
+}
+
+.successMessages
+{
+    color: #17b115;
+}
+.errorMessages
+{
+    color: #dc3545;
+}
+

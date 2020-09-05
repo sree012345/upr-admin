@@ -14,6 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(public service:AdminloginService,public dialogz:MatDialog) { }
   emailId:string='';
   message:string='';
+  message1:any;
   validForgotPassword:boolean=false;
   inValidForgotPassword: boolean;
   ngOnInit(): void {
@@ -21,7 +22,7 @@ export class ForgotPasswordComponent implements OnInit {
   submit(form: NgForm){
     if(form.invalid==true){
       console.log(form.invalid)
-      this.message="* Invalid email Address";
+      this.message1="*Please Enter Email Id";
      }
      else{
       this.service.forgotPassword(form.value.email_id).subscribe((res) => {

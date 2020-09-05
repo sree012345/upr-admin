@@ -56,11 +56,8 @@ export class BrandProtectionComponent implements OnInit {
       this.message = "Please enter item.";
       
     }
-    else if (form1.value.location_detection== "" || form1.value.location_detection == undefined) {
-      this.inValidAddBrand = true;
-      this.message = "Please enter location detection";
-    }
-    else if (form1.value.radius_in_miles == "" || form1.value.radius_in_miles == undefined) {
+  
+    else if (form1.value.location_detection==true && (form1.value.radius_in_miles=="" || form1.value.radius_in_miles==undefined)) {
       this.inValidAddBrand = true;
       this.message = "Please enter  radius in miles";
     }
@@ -105,10 +102,10 @@ export class BrandProtectionComponent implements OnInit {
     });
   }
 
-  toggleVisibility1(e){
-    this.visit=e.target.checked;
-    console.log(this.visit);
-      }
+toggleVisibility1(e){
+this.visit=e.target.checked;
+console.log(this.visit);
+}
 
 toggleVisibility2(e){
   this.visible=e.target.checked;
@@ -124,7 +121,7 @@ toggleVisibility2(e){
       brand_id: null,
       product_id: null,
       location_detection:null,
-      radius_in_miles:""
+      radius_in_miles:null
     }
 
   }
