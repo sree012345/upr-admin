@@ -17,7 +17,7 @@
             additional serial numbers using the button below, or <a href="loadserial.php">import a list of recalls
               </a></p>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 addButton">
           <button type="button" class="btn btn-primary btn1 rounded" data-toggle="modal" (click)="openBrand()"
              data-target="#openModal1">
             Add Brand Protection </button>
@@ -99,7 +99,7 @@
 
                 <div class="input-icons1">
                     <div class="labelColor">Location Radius</div>
-                    <input class="form-control1" type="text" placeholder="Location Radius" name="radius_in_miles" #radisu_in_miles="ngModel" [disabled]="!visit"
+                    <input class="form-control1" type="text" placeholder="0" name="radius_in_miles" #radisu_in_miles="ngModel" [disabled]="!visit"
                      [(ngModel)]="service.formData.radius_in_miles" required>
                     <!-- <div class="text-left text-danger" *ngIf="product_name.invalid"></div> -->
                 </div>

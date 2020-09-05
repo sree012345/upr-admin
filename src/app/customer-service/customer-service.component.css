@@ -86,12 +86,12 @@
     /* padding: 10px 0px !important; */
   }
   .modal-header{
-   background-color:#ff8533;
+   background-color: #e68a00;
    height:40px;
    
   }
 .modal-content{
-    border:1px solid #ff8533;
+    border:1px solid  #e68a00;
 }
   .modal-title
 {
@@ -132,7 +132,7 @@
   margin: 0;
   line-height: 1.42857143;
   font-size: 15px;
-  color:#555;
+  color:#444444;
   /* margin-top:11px; */
   margin-left:8%;
   /* text-align:center; */
@@ -192,7 +192,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-.btn:hover{
+.btn1:hover{
     background-color: #ccc;
 }
 .rounded {
@@ -219,6 +219,11 @@
     height:180px;
 
 }
+.form-control1:focus
+{
+  outline: none !important;
+}
+
 
 
 

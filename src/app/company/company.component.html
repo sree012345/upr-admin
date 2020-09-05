@@ -1,0 +1,115 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class="container">
+  <h1 class="itemsLeft">Administration<span class="pull-right productRight"> <span
+        style="color: #3498db;" class="productRight">Add Organization</span></span></h1>
+</div>
+<hr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <h2 class="header">Add A New Organization</h2>
+            <p class="para">Please complete the following form in order to add new companies to Universal Product Registration.</p>
+                <form #form1="ngForm" (submit)="addCompany(form1)" class="form1">
+                <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">Company Name</div>
+                                <input class="form-control1" type="text" name="company_name" #company_name="ngModel" [(ngModel)]="service.formData.company_name"  required>
+                            </div>
+                         </div>
+                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <label class="labelColor" for="Product">Company Type</label>
+                                <select class="form-control1 select-name" name="company_type" 
+                                #company_type="ngModel" [(ngModel)]="service.formData.company_type">
+                                    <option disabled [selected]="true" value="">Company Type</option>
+                                    <option *ngFor="let option of companyList" [value]="option['company_type']">
+                                        {{option['company_type']}}</option>
+                                </select>
+                            </div>
+                         </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="input-icons1">
+                                <div class="labelColor">Street Address</div>
+                                <input class="form-control1" type="text" name="company_address" #company_address="ngModel" [(ngModel)]="service.formData.company_address" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">City</div>
+                                <input class="form-control1" type="text" name="company_city" #company_city="ngModel" [(ngModel)]="service.formData.company_city" required>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <label class="labelColor" for="Product">State/Province</label>
+                                <select class="form-control1 select-name" placeholder="Select Item Name">
+                                    <option>Alabama</option>
+                                    <option>Alaska</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">Zip/Postal code </div>
+                                <input class="form-control1" type="text" name="company_postal_code" #company_postal_code="ngModel" [(ngModel)]="service.formData.company_postal_code" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <label class="labelColor" for="Product">Country</label>
+                                <select class="form-control1 select-name" placeholder="Select Item Name">
+                                    <option>United States</option>
+                                    <option>Canada</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">Website</div>
+                                <input class="form-control1" type="text" name="company_website" #company_website="ngModel" [(ngModel)]="service.formData.company_website" required>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">Telephone</div>
+                                <input class="form-control1" type="text" name="company_phone" #company_phone="ngModel" [(ngModel)]="service.formData.company_phone" required>
+                             </div>
+                        </div>
+        
+
+                        <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCompany">
+                            <div class="successMessages">{{message}}</div>
+                          
+                        </div>
+
+                          <div class="col-lg-12 text-left text-danger mr-top" *ngIf="inValidAddCompany">
+                            <div class="errorMessages">{{message}}</div>
+                          </div>
+                         
+
+                        <div class="col-lg-4">
+                            <div class="footer1">
+                                <input class="input-field" type="checkbox">&nbsp;Is Active
+                              </div>   
+
+                            <button type="submit" class="btn btn-primary btn1 rounded" data-toggle="modal"
+                               data-target="#openModal1">
+                              Submit </button>
+                        </div>
+                    </div>
+                  
+               
+</form>
+        </div>
+
+      
+
+    </div>
+</div>

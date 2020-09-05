@@ -42,6 +42,7 @@ import { ContentManagementComponent } from './content-management/content-managem
 import { BrandProtectionComponent } from './brand-protection/brand-protection.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { CustomerServiceComponent } from './customer-service/customer-service.co
     BrandProtectionComponent,
     ContactUsComponent,
     CustomerServiceComponent,
+    CompanyComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),

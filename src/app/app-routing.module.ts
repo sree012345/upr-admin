@@ -12,6 +12,7 @@ import {ContentManagementComponent} from './content-management/content-managemen
 import { BrandProtectionComponent } from './brand-protection/brand-protection.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
+import { CompanyComponent } from './company/company.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:'contentManagement',component:ContentManagementComponent},
   {path:'brandProtection',component:BrandProtectionComponent},
   {path:'contactUs',component:ContactUsComponent},
-  {path:'customerService',component:CustomerServiceComponent}
+  {path:'customerService',component:CustomerServiceComponent},
+  {path:'company',component:CompanyComponent}
 
   
 ];

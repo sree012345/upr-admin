@@ -308,7 +308,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
     color: #fff;
     background-color: #204d74;
     border-color: #122b40;
-    margin-bottom: 12px;
+    margin-bottom: 12px !important;
 }
 
 
@@ -606,4 +606,13 @@ mat-form-field-wrapper
 .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
     opacity: 0.54 !important;
     color: #f70b0b!important;
+}
+
+.rounded {
+  border-radius: 4px !important;
+}
+
+.addButton{
+  margin-bottom:15px;
+  margin-top:15px;
 }

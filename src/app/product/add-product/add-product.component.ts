@@ -51,7 +51,7 @@ this.dialog.open(PopupmessageComponent, {
   }
   
   }
-  toggleVisibility(e){
+toggleVisibility(e){
 this.visible=e.target.checked;
 console.log(this.visible);
   }
