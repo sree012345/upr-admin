@@ -1,0 +1,163 @@
+.itemsLeft
+{
+  color: #666;
+  font-size: 22px;
+  margin-top: 8px;
+}
+
+.productRight
+{
+  font-size: 13px;
+  
+}
+.container-fluid{
+    padding-top:25px;
+    padding-bottom:25px;
+}
+.monthly-overview{
+    position: relative;
+    padding: 0;
+    margin: 0 0 3em;
+}
+
+.monthly-overview .header {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.header {
+    padding: 0;
+    margin: 0;
+}
+
+.monthly-overview .header {
+    background-color: #f4f4f4;
+}
+
+.monthly-overview{
+    position: relative;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: .3rem;
+    outline: 0;
+    border: 1px solid #ccc;
+    height:420px;
+
+}
+
+.monthly-overview .title{
+    color: #444444;
+    margin-bottom: 0;
+    font-size: 16px;
+    text-decoration:none;
+}
+h4{
+    line-height:24px;
+    font-weight:normal;
+}
+
+.monthly_body {
+    padding: 20px 15px;
+    border-top: none;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.keyvalue-table,td{
+    vertical-align: middle !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.table,tbody,tr,td{
+    padding: 25px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    /* border-top: 1px solid #ddd; */
+}
+
+.keyvalue-table{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+i.icon-sm {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+i.icon-custom {
+    color: #555;
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+    line-height: 30px;
+    margin-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+    border: solid 1px #555;
+    border-radius: 10px;
+}
+
+i.icon-bg-dark-blue {
+    background: #4765a0;
+    color: #fff;
+    border-color: transparent;
+}
+.rounded-2x {
+    border-radius: 10px !important;
+}
+
+i.icon-bg-u {
+    background: #3498db;
+    color: #fff;
+    border-color: transparent;
+}
+
+.icon-bg-red{
+    background: #e74c3c;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+.icon-bg-yellow{
+    background: #f1c40f;
+    color: #fff !important;
+    border-color: transparent !important;
+}
+@media(max-width:767px){
+    i.icon-custom {
+       
+        width: 25px;
+        height: 25px;
+        font-size: 17px;
+        line-height: 25px;
+        margin-bottom: 5px;
+        text-align: center;
+        display: inline-block;
+        border: solid 1px #555;
+        border-radius: 10px;
+    }
+
+    .table,tbody,tr,td{
+        padding: 15px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        
+    }
+
+
+}
+

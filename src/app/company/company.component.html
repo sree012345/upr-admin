@@ -48,6 +48,7 @@
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">State/Province</label>
                                 <select class="form-control1 select-name" name="company_state_province" #company_state_province="ngModel" [(ngModel)]="service.formData.company_state_province" placeholder="Select Item Name">
+                                    <option disabled [selected]="true" value="">State/province</option>
                                     <option [value]="1">Alabama</option>
                                     <option [value]="2">Alaska</option>
                                 </select>
@@ -64,6 +65,7 @@
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">Country</label>
                                 <select class="form-control1 select-name" name="company_country" #company_country="ngModel"  [(ngModel)]="service.formData.company_country">
+                                    <option disabled [selected]="true" value="">Country</option>
                                     <option [value]="1">United States</option>
                                     <option [value]="2">Canada</option>
                                     

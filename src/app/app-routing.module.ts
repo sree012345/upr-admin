@@ -13,6 +13,8 @@ import { BrandProtectionComponent } from './brand-protection/brand-protection.co
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
 import { CompanyComponent } from './company/company.component';
+import { AdminAdduserComponent } from './admin-adduser/admin-adduser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -29,7 +31,9 @@ const routes: Routes = [
   {path:'brandProtection',component:BrandProtectionComponent},
   {path:'contactUs',component:ContactUsComponent},
   {path:'customerService',component:CustomerServiceComponent},
-  {path:'company',component:CompanyComponent}
+  {path:'company',component:CompanyComponent},
+  {path:'adminAdduser',component:AdminAdduserComponent},
+  {path:'dashboard',component:DashboardComponent}
 
   
 ];
