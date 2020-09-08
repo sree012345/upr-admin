@@ -161,3 +161,200 @@ i.icon-bg-u {
 
 }
 
+/* monthly overview */
+.Statistics_table {
+    width: 100%;
+    border: 1px solid #ddd; 
+   
+  }  
+  .tableview{
+    padding-top:5%;
+  }
+
+  th{
+    font-size:15px;
+ }
+
+ .mat-row:nth-child(even){
+    background-color:white;
+    }
+    
+    .mat-row:nth-child(odd){
+    background-color:#f9f9f9;
+    }
+
+    mat-header-cell {
+        flex: 2;
+        
+        display: flex;
+        align-items: center;
+        
+        font-weight: bold;
+        color:black;
+        font-size:17px;
+        
+ }
+
+ mat-header-cell,mat-cell { 
+    display: flex;  
+    justify-content: center; 
+    border: 1px solid rgba(0,0,0,.125);
+    }
+
+    mat-row, mat-footer-row {
+        height: 39px;
+      }
+
+      .Statistics_table {
+        border-collapse: collapse;
+       
+      }
+      .mat-header-cell {
+       
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    .Statistics_table td {
+        border: 1px solid #ddd; 
+        
+      }
+      
+    
+      .Statistics_table[_ngcontent-vmv-c163] th[_ngcontent-vmv-c163] {
+        border: 1px solid #ddd;
+    }
+    
+    .Statistics_table th.mat-header-cell:first-of-type, .Statistics_table td.mat-cell:first-of-type, .Statistics_table td.mat-footer-cell:first-of-type {
+       padding-left:8px;
+    }
+    .Statistics_table th.mat-header-cell, .Statistics_table td.mat-cell, .Statistics_table td.mat-footer-cell {
+      padding-left: 8px;
+    }
+    .Statistics_table th {
+        border: 1px solid #ddd; 
+       
+      }
+      .Statistics_table tr:first-child td {
+        border-top: 0;
+        
+      }
+      .Statistics_table tr td:first-child {
+        border-left: 0;
+      }
+      .Statistics_table tr:last-child td {
+        border-bottom: 0;
+      }
+      .Statistics_table tr td:last-child {
+        border-right: 0;
+      }
+
+      .Statistics_table tr.mat-header-row {
+        height: 0px !important;
+      }
+      
+      .Statistics_table tr.mat-row, .Statistics_table tr.mat-footer-row {
+        height: 0px !important;
+      }
+      
+      .Statistics_table th.mat-header-cell, .Statistics_table td.mat-cell, .Statistics_table td.mat-footer-cell
+      {
+        padding: 8px !important;
+        font-size: 16px;
+        color:#444444;
+        text-decoration:none;
+        font-weight:400;
+      }
+      @media(max-width: 767px) {
+
+        .mobile-label {
+          width: 80px;
+          display: contents;
+          font-weight:500;
+        }
+
+        .Statistics_table th.mat-header-cell, .Statistics_table td.mat-cell, .Statistics_table td.mat-footer-cell
+      {
+        padding: 8px !important;
+        font-size: 10px;
+        color:#444444;
+        text-decoration:none;
+        font-weight: normal;
+      }
+        /* .button1{
+          width:150px !important;
+        } */
+           mat-cell
+        {
+          
+          padding-left: 0px!important;
+        }
+      
+        /* .mat-header-row {
+          display: none;
+        } */
+      
+        .mat-row { 
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 30px 30px 0px;
+        }
+        .apcalender{
+          font-weight:bold;
+          font-size:30px!important;
+        }
+        .content{
+          font-size: 16px!important;
+          margin-top: -10px!important;
+        }
+        
+     }
+
+     /* @media(min-width:768px){
+   
+        ::ng-deep .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
+          opacity: 1 !important;
+          color:#ccc !important;
+        }
+        mat-header-cell.mat-sort-header-sorted {
+          color:white !important;
+        }
+        
+      
+      .apcalender{
+      letter-spacing: 2px;
+      font-size: 42px;
+      
+      }
+      .heading{
+      font-size: 45px;
+      
+      }
+      .content{
+      font-size: 25px;
+      
+      line-height: 1;
+      }
+      
+      } */
+
+      /* @media(min-width:769px){
+        .example-container {
+          display: flex;
+          flex-direction: column;
+         
+          min-width: 300px;
+         
+         
+       
+        }
+       
+        .mat-table {
+          overflow: auto;
+          font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+          color:#333;
+          
+        }
+      } */
+      

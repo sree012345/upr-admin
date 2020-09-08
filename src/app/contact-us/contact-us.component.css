@@ -103,3 +103,7 @@ h3{
 input[type=text]:focus {
   border: 1px solid #ccc;
 }
+
+.fileinput.input-group {
+  display: table;
+}

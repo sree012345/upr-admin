@@ -39,15 +39,15 @@ a:hover{
     font-weight:550; 
 }
 .button{
-    color:grey;
     background-color: white;
     border: 1px solid #ccc;
     border-left:none;
     cursor:pointer;
+    outline:none !important;
 }
 .button:hover{
     color:black;
-background-color:grey;
+    background-color:#ccc;
 }
 .btn-primary {
     margin-top: 10px;
@@ -56,7 +56,100 @@ background-color:grey;
     border-color: #2e6da4;
     display: inline-block;
     padding: 6px 12px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-size: 14px;
     font-weight: 400;
 }
+
+.form-controls
+{
+  display: block;
+  width: 89%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+.form-controls:focus
+{
+  outline: none !important;
+}
+
+.input-group {
+    position: relative;
+    border-collapse: separate;
+}
+
+
+.form-control {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.form-control {
+    display: block;
+    width: 80%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+}
+
+@media(max-width:767px){
+    .form-control {
+        display: block;
+        width: 75%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+    }
+}
+.rounded {
+    border-radius: 4px !important;
+    margin-top:15px;
+    margin-bottom: 15px;
+}
+.btn-default {
+    color: #333;
+    background-color: #ffffff;
+    border-color: #ccc;
+  
+  }
+  .btn-default:focus,.btn-default:active,.btn-default:hover
+{
+  background-color:#ccc !important;
+  border-color: #bbbbbb !important;
+  outline: none !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  margin: 0px !important;
+  font-size: 14px;
+}
+
+.load{
+    margin-top:20px;
+    margin-bottom: 20px;
+    
+}
+
+
+
+
+
+
