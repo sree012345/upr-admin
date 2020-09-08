@@ -107,3 +107,12 @@ input[type=text]:focus {
 .fileinput.input-group {
   display: table;
 }
+.fa{
+  color:#3498db;
+}
+a{
+  color:#555;
+}
+a:hover{
+  color:#3498db;
+}
