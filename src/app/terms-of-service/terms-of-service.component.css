@@ -1,0 +1,17 @@
+h4{
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align:center;
+    font-size:25px;
+    color:#3498db;
+}
+p{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size:20px;
+    text-align: center;
+}
+.container{
+    margin-top:35px;
+    margin-bottom: 35px;
+}

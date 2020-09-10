@@ -92,7 +92,7 @@ export class AdminAdduserComponent implements OnInit {
           this.service.filter('Register click');
           this.resetForm();
         }
-        else(status == 201)
+        else (status == 201)
         console.log("201");
         {
           this.invalidAdduser=true;

@@ -231,4 +231,16 @@
     .productdetails1{
         margin-top:23px;
     }
+    .scanlocation{
+      margin-top:25px;
+    }
+}
+
+.successMessages
+{
+    color: #17b115;
+}
+.errorMessages
+{
+    color: #dc3545;
 }

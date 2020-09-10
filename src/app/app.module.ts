@@ -45,6 +45,11 @@ import { CustomerServiceComponent } from './customer-service/customer-service.co
 import { CompanyComponent } from './company/company.component';
 import { AdminAdduserComponent } from './admin-adduser/admin-adduser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { SerialNumberComponent } from './importload/serial-number/serial-number.component';
+import { ImportRecallComponent } from './importload/import-recall/import-recall.component';
+import { ImportServiceBulletinComponent } from './importload/import-service-bulletin/import-service-bulletin.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +80,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CompanyComponent,
     AdminAdduserComponent,
     DashboardComponent,
+    PrivacyPolicyComponent,
+    TermsOfServiceComponent,
+    SerialNumberComponent,
+    ImportRecallComponent,
+    ImportServiceBulletinComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
