@@ -50,6 +50,8 @@ import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.com
 import { SerialNumberComponent } from './importload/serial-number/serial-number.component';
 import { ImportRecallComponent } from './importload/import-recall/import-recall.component';
 import { ImportServiceBulletinComponent } from './importload/import-service-bulletin/import-service-bulletin.component';
+import { ImportDocumentAndLinkComponent } from './importload/import-document-and-link/import-document-and-link.component';
+import { ImportBrandProtectionComponent } from './importload/import-brand-protection/import-brand-protection.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +87,8 @@ import { ImportServiceBulletinComponent } from './importload/import-service-bull
     SerialNumberComponent,
     ImportRecallComponent,
     ImportServiceBulletinComponent,
+    ImportDocumentAndLinkComponent,
+    ImportBrandProtectionComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),

@@ -1,14 +1,18 @@
+
 <app-nav-bar></app-nav-bar>
 <div class="container">
-<h1>Import Product Serial Numbers <span class="pull-right">Products / <span style="color: #3498db;">Load Serial Numbers</span></span></h1></div>
+<h1>Import Product Information <span class="pull-right">Products / <span style="color: #3498db;">Load Documents and Links</span></span></h1></div>
 <hr>
 <div  class="container">
- <label>You may<a  style="color: #3498db;" href="">  manually add serial numbers  </a> or import them using the Load Serial Numbers Template comma delimited file.</label><br>
+ <label>You may<a  style="color: #3498db;" href="">   manually add product item documents and links   </a> or import them using the Load Documents and Links Template comma delimited file.</label><br>
  <label>To get started:</label>
  <ol>
-    <li>Download the <a href="">Load Serial Number Template</a> to your local machine.</li>
-    <li>Enter the product item in column A, row 2 under the <span class="cl">Item Name</span>header.</li>
-    <li>Enter your product serial numbers beginning in column B, row 2 under the <span class="cl">Serial Number </span>header</li>
+    <li>Download the <a href="">Load Document And Link Template</a> to your local machine.</li>
+    <li>Enter the product item in column A, row 2 under the <span class="cl">Item Name </span>header.</li>
+    <li>For each product item, enter the name of a corresponding product document or link in column B under the <span class="cl">Document Name</span> header.</li>
+    <li>For each product document or link, enter the corresponding URL to the document or link in column C under the <span class="cl">Document URL</span> header.</li>
+    <li>For each product document or link, enter the corresponding begin date in column D under the <span class="cl">Begin Date</span> header.</li>
+    <li>For each product document or link, enter the corresponding end date in column E under the <span class="cl">End Date</span>header.</li>
     <li>For more information, visit the <a href="">Documentation </a> page.</li>
     <li><span class="cl">Save the file in CSV </span> (Comma delimited) format.</li>
     <li><span class="cl">Click the Select file </span> button below and locate your CSV file.</li>
@@ -48,12 +52,12 @@
 </form>
 
 
-<div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddSerial">
+<div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddRecall">
    <div class="successMessages">{{message}}</div>
  
 </div>
 
- <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddSerial">
+ <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddRecall">
    <div class="errorMessages">{{message}}</div>
  </div>
 
@@ -64,4 +68,6 @@
       <span class="input-group-addon">Text</span>
       <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
     </div> -->
+
+
 

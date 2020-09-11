@@ -1,19 +1,21 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
-<h1>Import Product Serial Numbers <span class="pull-right">Products / <span style="color: #3498db;">Load Serial Numbers</span></span></h1></div>
+<h1>Import Brand Protection Rules<span class="pull-right">Products / <span style="color: #3498db;">Load Brand Protection Rules</span></span></h1></div>
 <hr>
 <div  class="container">
- <label>You may<a  style="color: #3498db;" href="">  manually add serial numbers  </a> or import them using the Load Serial Numbers Template comma delimited file.</label><br>
+ <label>You may <a  style="color: #3498db;" href=""> manually add brand protection rules </a> or import them using the Load Brand Protection Rules Template comma delimited file</label><br>
  <label>To get started:</label>
  <ol>
-    <li>Download the <a href="">Load Serial Number Template</a> to your local machine.</li>
-    <li>Enter the product item in column A, row 2 under the <span class="cl">Item Name</span>header.</li>
-    <li>Enter your product serial numbers beginning in column B, row 2 under the <span class="cl">Serial Number </span>header</li>
+    <li>Download the <a href="">Load Brand Protection Template</a> to your local machine.</li>
+    <li>Enter the Item Name in column A, row 2 under the <span class="cl">  Item Name </span>header.</li>
+    <li>If the Item uses location detection, enter Y in column B, row 2 under the <span class="cl">Brand Protection</span> header.</li>
+    <li>If the Item uses location detection, provide a radius value in numeric form using whole numbers only in column C, row 2 under the <span class="cl">Radius</span> header.</li>
+    <li>Repeat these steps for as many items as you want to add, moving down a row in the file for each new item.</li>
     <li>For more information, visit the <a href="">Documentation </a> page.</li>
     <li><span class="cl">Save the file in CSV </span> (Comma delimited) format.</li>
     <li><span class="cl">Click the Select file </span> button below and locate your CSV file.</li>
     <li><span class="cl">Click the Load New Items </span> button to import your information.</li>
-    </ol>
+ </ol>
     <!-- <div class="input-group">
       <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
           <div class="input-icons1">
@@ -48,12 +50,12 @@
 </form>
 
 
-<div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddSerial">
+<div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddBrand">
    <div class="successMessages">{{message}}</div>
  
 </div>
 
- <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddSerial">
+ <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddBrand">
    <div class="errorMessages">{{message}}</div>
  </div>
 
@@ -64,4 +66,3 @@
       <span class="input-group-addon">Text</span>
       <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
     </div> -->
-

@@ -223,8 +223,8 @@ a:hover{
 .fileinput-new.input-group .btn-file {
     border-radius: 0 4px 4px 0;
     color:#555;
+    
 }
-
 .fileinput-new.input-group .btn-file:hover{
     background-color:#ccc ;
 }
