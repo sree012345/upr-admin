@@ -43,12 +43,10 @@
                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">Company Name</label>
-                                <select class="form-control1 select-name" name="company_name" 
-                                #company_type="ngModel" [(ngModel)]="service.formData.company_name">
+                                <select class="form-control1 select-name" name="company_id" 
+                                #company_id="ngModel" [(ngModel)]="service.formData.company_id">
                                     <option disabled [selected]="true" value="">Company Type</option>
-                                    <option [value]="1">Demo Company</option>
-                                    <option [value]="2">Sample Company</option>
-                                    <option [value]="3">Test Industries</option>
+                                    <option [value]="companyId">{{companyName}}</option>
                                 </select>
                             </div>
                         </div>
@@ -90,6 +88,18 @@
                                     <option [value]="1">United States</option>
                                     <option [value]="2">Canada</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">Password</div>
+                                <input class="form-control1" type="text" name="password" #password="ngModel" [(ngModel)]="service.formData.password" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="input-icons1">
+                                <div class="labelColor">Confirm Password</div>
+                                <input class="form-control1" type="text" >
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

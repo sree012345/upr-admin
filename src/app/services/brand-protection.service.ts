@@ -10,9 +10,9 @@ export class BrandProtectionService {
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   constructor(public http: HttpClient) { }
   formData = new addBrandProtection()
-  brandList() {
-    console.log(this.APIBaseUrl + 'admin/get_brand_protection', { company_id: 1 });
-    return this.http.post<any>(this.APIBaseUrl + 'admin/get_brand_protection', { company_id: 1 });
+  brandList(companyId) {
+    console.log(this.APIBaseUrl + 'admin/get_brand_protection', {company_id:companyId});
+    return this.http.post<any>(this.APIBaseUrl + 'admin/get_brand_protection', {company_id:companyId});
   }
   private _listners = new Subject<any>();
   listen(): Observable<any> {
@@ -45,9 +45,9 @@ export class BrandProtectionService {
     return this.http.post<any>(this.APIBaseUrl+'admin/update_brand_protection',brand);
   }
 
-  get_productlist()
+  get_productlist(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_products',companyId);
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',companyId);
   }
 }

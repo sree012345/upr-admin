@@ -10,6 +10,7 @@ import { UpdateSerialNumberComponent } from './update-serial-number/update-seria
 import { DeleteSerialNumberComponent } from './delete-serial-number/delete-serial-number.component';
 import { NgForm } from '@angular/forms';
 import { addSerialNumber } from '../models/serialNumber-model';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-serial-numbers',
@@ -29,6 +30,8 @@ export class SerialNumbersComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   productlist: any;
   message: string;
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   constructor(private router: Router, public service: SerialNumberService,private dialog: MatDialog) {
     this.service.listen().subscribe((m:any) =>{
       console.log(m);
@@ -37,14 +40,16 @@ export class SerialNumbersComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadserialNumberlist();
-    this.service.get_productlist().subscribe(data => {
+    this.service.get_productlist(this.adminUserDetails.company_id).subscribe(data => {
       console.log(data)
       this.productlist = (data["response_body"]["products_details"]);
     });
   }
   loadserialNumberlist() {
-    this.service.getSerialNumber().subscribe(data => {
+    this.service.getSerialNumber(this.adminUserDetails.company_id).subscribe(data => {
      console.log(data);
      this.listData = new MatTableDataSource(data["response_body"]["serial_number"]);
      // this.listData.sort = this.sort;

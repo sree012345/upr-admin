@@ -27,10 +27,10 @@ export class CustomerServiceService {
     return this.http.post<any>(this.APIBaseUrl + 'admin/customer_service', customer);
   }
 
-  get_productlist()
+  get_productlist(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
   }
 
 }

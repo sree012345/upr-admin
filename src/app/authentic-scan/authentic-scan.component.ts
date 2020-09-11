@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import * as moment from 'moment';
 import { ContentManagementService } from '../services/content-management.service';
 import { RecallServiceService } from '../services/recall-service.service';
+import { adminAdduser } from '../models/adminAdduser-model';
 @Component({
   selector: 'app-authentic-scan',
   templateUrl: './authentic-scan.component.html',
@@ -26,6 +27,8 @@ data:MatTableDataSource<any>;
 pageNo: number;
   contentDetails: any;
   recallDetails: any;
+  adminUserDetails:adminAdduser;
+  logedin=localStorage.getItem('loggedinAdminUser');
 
 pageEvents(event: any) {
   console.log(event.pageIndex);
@@ -55,11 +58,13 @@ pageEvents(event: any) {
     this.pageOfItems = pageOfItems;
 }  
   ngOnInit(): void {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.authenticScan();
   }
 authenticScan()
 {
-  this.service1.authenticScan().subscribe(data => {
+  this.service1.authenticScan(this.adminUserDetails.company_id).subscribe(data => {
      console.log(data);
      this.authenticRegisterdList = new MatTableDataSource(data["response_body"]["scanned_authentic_product"]);
      this.authenticRegisterdList.paginator = this.paginator;
@@ -74,7 +79,7 @@ authenticScan()
     });
 }
   loadserialNumberlist() {
-    this.service.getSerialNumber().subscribe(data => {
+    this.service.getSerialNumber(this.adminUserDetails.company_id).subscribe(data => {
      console.log(data);
      this.serialNumberList = new MatTableDataSource(data["response_body"]["serial_number"]);
      this.serialNumberList.paginator = this.paginator;
@@ -83,7 +88,7 @@ authenticScan()
   }
 counterfeitScanList()
 {
-  this.service1.counterfeitScan().subscribe(data => {
+  this.service1.counterfeitScan(this.adminUserDetails.company_id).subscribe(data => {
     console.log(data);
     this.counterfietScanList = new MatTableDataSource(data["response_body"]["counterfeit_product"]);
     let list = data["response_body"]["counterfeit_product"];
@@ -99,7 +104,7 @@ counterfeitScanList()
 
 documentationList()
 {
-  this.service2.contentList().subscribe(data => {
+  this.service2.contentList(this.adminUserDetails.company_id).subscribe(data => {
     this.documentList = new MatTableDataSource(data["response_body"]["All_Documents_Details"]);
     this.contentDetails = data["response_body"]["All_Documents_Details"];
     this.contentDetails.forEach(element => {
@@ -117,7 +122,7 @@ documentationList()
 
 registerdAuthentic()
 {
-  this.service1.authenticRegister().subscribe(data => {
+  this.service1.authenticRegister(this.adminUserDetails.company_id).subscribe(data => {
     console.log(data);
     this.authenticRegisterdList = new MatTableDataSource(data["response_body"]["authentic_registered_product"]);
    
@@ -125,7 +130,7 @@ registerdAuthentic()
 }
 recallList()
 {
-  this.service3.recallList().subscribe(data => {
+  this.service3.recallList(this.adminUserDetails.company_id).subscribe(data => {
     this.recallDetailsList = new MatTableDataSource(data["response_body"]["recall_details"]);
     this.recallDetails = data["response_body"]["recall_details"];
 
@@ -144,7 +149,7 @@ recallList()
 
 userSecurityList()
 {
-  this.service1.usersecurity().subscribe(data => {
+  this.service1.usersecurity(this.adminUserDetails.company_id).subscribe(data => {
     this.usersecurityDetailsList = new MatTableDataSource(data["response_body"]["Registered_User"]);
    });
 }

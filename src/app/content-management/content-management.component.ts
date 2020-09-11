@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 import {ContentManagementService} from '../services/content-management.service'
 import { addContentManagement } from '../models/contentManagement-model';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-content-management',
@@ -23,6 +24,8 @@ export class ContentManagementComponent implements OnInit {
   inValidUpdateContent: boolean = false;
   inValidDeleteContent: boolean=false;
   validDeleteContent: boolean=false;
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   listData: MatTableDataSource<any>
   displayedColumns = ['product_name', 'document_or_link_name', 'begin_date', 'end_date', 'URL','edit', 'delete'];
   contentDetails:any;
@@ -34,15 +37,17 @@ export class ContentManagementComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadContentList();
-    this.service.get_productlist().subscribe(data => {
+    this.service.get_productlist(this.adminUserDetails.company_id).subscribe(data => {
       this.productlist = (data["response_body"]["products_details"]);
       console.log(this.productlist);
       });
   
   }
   loadContentList() {
-    this.service.contentList().subscribe(data => {
+    this.service.contentList(this.adminUserDetails.company_id).subscribe(data => {
       this.listData = new MatTableDataSource(data["response_body"]["All_Documents_Details"]);
       this.contentDetails = data["response_body"]["All_Documents_Details"];
       this.contentDetails.forEach(element => {

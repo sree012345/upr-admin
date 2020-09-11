@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CustomerServiceService} from '../services/customer-service.service';
 import {customerService} from '../models/customerService-model';
 import { NgForm } from '@angular/forms';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-customer-service',
@@ -16,11 +17,14 @@ export class CustomerServiceComponent implements OnInit {
   productdetails:any;
   productrecalldetails:any;
   productbulletindetails:any;
-
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   constructor(public service:CustomerServiceService) { }
 
   ngOnInit(): void {
-      this.service.get_productlist().subscribe(data => {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
+      this.service.get_productlist(this.adminUserDetails.company_id).subscribe(data => {
       this.customerlist = (data["response_body"]["products_details"]);
     });
   }

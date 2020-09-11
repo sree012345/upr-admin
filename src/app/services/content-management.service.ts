@@ -11,14 +11,14 @@ export class ContentManagementService {
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   constructor(public http: HttpClient) { }
   formData=new addContentManagement
-  contentList() {
-    console.log(this.APIBaseUrl + 'admin/get_all_documents', { company_id: 1 });
-    return this.http.post<any>(this.APIBaseUrl + 'admin/get_all_documents', { company_id: 1 });
+  contentList(companyId) {
+    console.log(this.APIBaseUrl + 'admin/get_all_documents', {company_id:companyId});
+    return this.http.post<any>(this.APIBaseUrl + 'admin/get_all_documents', {company_id:companyId});
   }
-  get_productlist()
+  get_productlist(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
   }
 
   private _listners = new Subject<any>();

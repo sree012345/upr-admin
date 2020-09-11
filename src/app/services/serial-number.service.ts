@@ -11,15 +11,15 @@ formData=new addSerialNumber();
   constructor(private http:HttpClient) { }
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   
-  getSerialNumber()
+  getSerialNumber(companyId)
   {    
-    console.log(this.APIBaseUrl+'admin/get_serial_number_list',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_serial_number_list',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_serial_number_list',{ company_id: companyId });
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_serial_number_list',{ company_id: companyId });
   }
-  get_productlist()
+  get_productlist(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products_serialnumbers',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products_serialnumbers',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_products_serialnumbers',{ company_id: companyId });
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products_serialnumbers',{ company_id: companyId });
   }
 
   addSerialNumber(serialNumberDetails)

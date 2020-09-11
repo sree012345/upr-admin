@@ -4,6 +4,7 @@ import {BrandProtectionService} from '../services/brand-protection.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { NgForm } from '@angular/forms';
 import {addBrandProtection} from '../models/brandProtection-model';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-brand-protection',
@@ -22,9 +23,11 @@ export class BrandProtectionComponent implements OnInit {
   invalidUpdateBrand:boolean=false;
   visit:boolean=false;
   visible:boolean=false;
-
+  adminUserDetails:adminAdduser;
+  logedin=localStorage.getItem('loggedinAdminUser');
   listData: MatTableDataSource<any>
   displayedColumns = ['product_name', 'location_detection', 'radius_in_miles', 'edit',];
+  companyId: number;
 
   constructor(matIconRegistry: MatIconRegistry,public service:BrandProtectionService) { 
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
@@ -34,14 +37,17 @@ export class BrandProtectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadbrandList();
-    this.service.get_productlist().subscribe(data => {
+    this.service.get_productlist(this.adminUserDetails.company_id).subscribe(data => {
       this.brandllist = (data["response_body"]["products_details"]);
     });
   }
 
   loadbrandList() {
-    this.service.brandList().subscribe(data => {
+    this.service.brandList(this.adminUserDetails.company_id).subscribe(data => {
       this.listData = new MatTableDataSource(data["response_body"]["get_Brand_Details"]);
       this.brandDetails = data["response_body"]["get_Brand_Details"];
     });
