@@ -27,8 +27,8 @@ export class AdminAdduserService {
     adminUser.last_name=add.last_name;
     adminUser.email=add.email;
     adminUser.phone=add.phone;
-    adminUser.company_name=add.company_name;
-    adminUser.company_id=1;
+    adminUser.company_id=Number(add.company_id);
+    adminUser.password=add.password;
     adminUser.address=add.address;
     adminUser.city=add.city;
     adminUser.state_province=add.state_province;

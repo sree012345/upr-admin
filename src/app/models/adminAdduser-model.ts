@@ -4,6 +4,7 @@ export class adminAdduser{
     email:string;
     phone:string;
     company_name:string;
+    password:string;
     company_id:number;
     address:string;
     city:string;

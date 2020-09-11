@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminAdduserService} from '../services/admin-adduser.service';
 import { NgForm } from '@angular/forms';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-admin-adduser',
@@ -13,10 +14,17 @@ export class AdminAdduserComponent implements OnInit {
   message:any;
   message1:any;
   invalidAdduser1:boolean=false;
-
+  companyName:string;
+  companyId:number;  
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   constructor(public service:AdminAdduserService) { }
 
   ngOnInit(): void {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.companyId= this.adminUserDetails.company_id;
+    this.companyName=this.adminUserDetails.company_name;
+    console.log(this.companyId +"----------"+this.companyName)
   }
 
   addCompany(form1: NgForm) {
@@ -45,9 +53,9 @@ export class AdminAdduserComponent implements OnInit {
       this.message = "Please enter Phone";
       
     }
-    else if (form1.value.company_name== "" || form1.value.company_name== undefined) {
+    else if (form1.value.company_id== "" || form1.value.company_id== undefined) {
       this. invalidAdduser = true;
-      this.message = "Please enter Company Name";
+      this.message = "Please select Company Name";
       
     }
     else if (form1.value.address== "" || form1.value.address== undefined) {
@@ -81,7 +89,8 @@ export class AdminAdduserComponent implements OnInit {
    
   
     else {
-      console.log("work response");
+      console.log(form1.value.company_id);
+      debugger
       this.invalidAdduser = false;
       this.service. addAdmiuser(form1.value).subscribe(data => {
         var status = data["response_code"];
@@ -114,6 +123,7 @@ export class AdminAdduserComponent implements OnInit {
       last_name:"",
       email:"",
       company_name:"",
+      password:"",
       company_id:null,
       address:"",
       city:"",

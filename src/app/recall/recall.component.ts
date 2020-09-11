@@ -4,6 +4,7 @@ import { RecallServiceService } from '../services/recall-service.service';
 import * as moment from 'moment';
 import { NgForm } from '@angular/forms';
 import { addRecall } from '../models/Recall-model';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-recall',
@@ -25,6 +26,8 @@ export class RecallComponent implements OnInit {
   inValidDeleteRecall: boolean = false;
   message1: any;
   message2: any;
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   constructor(public service: RecallServiceService) {
     this.service.listen().subscribe((m: any) => {
       this.loadRecallList();
@@ -32,13 +35,15 @@ export class RecallComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadRecallList();
-    this.service.get_productlist().subscribe(data => {
+    this.service.get_productlist( this.adminUserDetails.company_id).subscribe(data => {
       this.recalllist = (data["response_body"]["products_details"]);
     });
   }
   loadRecallList() {
-    this.service.recallList().subscribe(data => {
+    this.service.recallList(this.adminUserDetails.company_id).subscribe(data => {
       this.listData = new MatTableDataSource(data["response_body"]["recall_details"]);
       this.recallDetails = data["response_body"]["recall_details"];
 

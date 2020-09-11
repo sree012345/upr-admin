@@ -10,15 +10,15 @@ export class ServiceBulletinService {
   formData=new ServiceBulletin();
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   constructor(public http: HttpClient) { }
-  get_productlist()
+  get_productlist(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_products',{ company_id: companyId });
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{ company_id: companyId });
   }
-  serviceBulletinList()
+  serviceBulletinList(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_service_bulletins_list',{company_id:1});
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_service_bulletins_list',{company_id:1});
+    console.log(this.APIBaseUrl+'admin/get_all_service_bulletins_list',{ company_id: companyId });
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_service_bulletins_list',{ company_id: companyId });
   }
   private _listners = new Subject<any>();
  listen() : Observable<any> {

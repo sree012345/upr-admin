@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ServiceBulletin } from '../models/serviceBulletin-model';
 import { NgForm } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 
 @Component({
@@ -28,6 +29,8 @@ export class ServiceBulletinComponent implements OnInit {
   message2: any;
   inValidDeletebulletin: boolean=false;
   validDeleteBulletin: boolean=false;
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(public service: ServiceBulletinService) {
@@ -37,13 +40,15 @@ export class ServiceBulletinComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadBulletinList();
-    this.service.get_productlist().subscribe(data => {
+    this.service.get_productlist(this.adminUserDetails.company_id).subscribe(data => {
     this.productist = (data["response_body"]["products_details"]);
     });
   }
   loadBulletinList() {
-    this.service.serviceBulletinList().subscribe(data => {
+    this.service.serviceBulletinList(this.adminUserDetails.company_id).subscribe(data => {
       this.listData = new MatTableDataSource(data["response_body"]["service_bulletin_details"]);
       this.listData.sort = this.sort;
       this.bulletinDetails = data["response_body"]["service_bulletin_details"];

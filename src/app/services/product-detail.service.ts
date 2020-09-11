@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { login } from '../models/Login-model';
 import { Subject, Observable } from 'rxjs';
 import { product } from '../models/Product-model';
+import { company } from '../models/company-model';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,10 +11,9 @@ export class ProductDetailService {
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   constructor(public http:HttpClient) { }
   formData=new product()
-  product(){
-    
-  console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
-  return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:1});
+  product(companyId){    
+  console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
+  return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
     }
   deleteproduct(product_id){
     var prod=new product();
@@ -21,10 +21,10 @@ export class ProductDetailService {
     console.log(this.APIBaseUrl+'admin/delete_product',prod);
     return this.http.post<any>(this.APIBaseUrl+'admin/delete_product',prod);
   }
-  addproduct(add:product){
+  addproduct(add:product,companyId){
     var prod=new product();
     prod.product_name=add.product_name;
-    prod.company_id=1;
+    prod.company_id=companyId;
     prod.activation_req=true;
     prod.is_serial_number_active=Boolean(add.is_serial_number_active);
     if(add.counterfeit_radius==undefined)

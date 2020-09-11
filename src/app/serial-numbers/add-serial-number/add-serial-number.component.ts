@@ -22,10 +22,7 @@ export class AddSerialNumberComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.get_productlist().subscribe(data => {
-      console.log(data)
-      this.productlist = (data["response_body"]["products_details"]);
-    });
+   
   }
 
   addSerialNumberClicked(form: NgForm)

@@ -11,6 +11,7 @@ import { DelectProductComponent } from './delect-product/delect-product.componen
 import { product } from '../models/Product-model';
 import { MatIconRegistry } from '@angular/material/icon';
 import { NgForm } from '@angular/forms';
+import { adminAdduser } from '../models/adminAdduser-model';
 
 @Component({
   selector: 'app-product',
@@ -30,7 +31,8 @@ export class ProductComponent implements OnInit {
   message:string;
   message1:string;
   displayedColumns = ['product_name', 'ref_no',"counterfeit_radius","Counterfeit",'content_management_required','recall_required',"Forms",'Options'];
-
+  adminUserDetails:adminAdduser;  
+  logedin=localStorage.getItem('loggedinAdminUser');
   constructor(matIconRegistry: MatIconRegistry,public service:ProductDetailService,private dialog: MatDialog ) {
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     this.service.listen().subscribe((m:any) =>{
@@ -42,10 +44,12 @@ export class ProductComponent implements OnInit {
   @ViewChild(MatSort, { static:false }) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit(): void {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadProduct();
   }
   loadProduct() {
-    this.service.product().subscribe(data => {
+    this.service.product(this.adminUserDetails.company_id).subscribe(data => {
      console.log(data);
      this.listData = new MatTableDataSource(data["response_body"]["products_details"]);
      this.listData.sort = this.sort;
@@ -76,7 +80,7 @@ export class ProductComponent implements OnInit {
     }
     else {      
       this.inValidAddProduct=false;
-      this.service.addproduct(form1.value).subscribe(data => {
+      this.service.addproduct(form1.value,this.adminUserDetails.company_id).subscribe(data => {
         var status = data["response_code"];
             console.log(status)
             if(status==200){
