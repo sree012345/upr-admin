@@ -34,7 +34,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+  toggleVisibility(e) {
+    this.remember = e.target.checked;
+    localStorage.setItem("rememberMe", JSON.stringify(this.remember));
+   
+  }
   onSubmit(form: NgForm){
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(form.value.email=="" || form.value.email== undefined)
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
       this.inValidLogin=true;
       this.message="Please enter your password."
     }
-    else{
+    else{ 
       this.message="";
       this.inValidLogin=false;
       this.service.adminlogin(form.value).subscribe((res) => {
@@ -60,9 +64,9 @@ export class LoginComponent implements OnInit {
         var status = res["response_code"];
         console.log(status)
         if(status==200){
-           
-        this.message="";
-        this.router.navigateByUrl('productDetails');
+          localStorage.setItem('loggedinAdminUser', JSON.stringify(res['response_body']));
+          this.message="";
+          this.router.navigateByUrl('productDetails');
         }else{
           this.validLogin=false;
           this.inValidLogin=true;
@@ -73,12 +77,7 @@ export class LoginComponent implements OnInit {
     
   }
 
-  toggleVisibility(e) {
-    this.remember = e.target.checked;
-    localStorage.setItem("rememberMe", JSON.stringify(this.remember));
-    localStorage.setItem("NewrememberMe", JSON.stringify(this.remember));
-   
-  }
+  
 
   ForgotPassword(email)
   {

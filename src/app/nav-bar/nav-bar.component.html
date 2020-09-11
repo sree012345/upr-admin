@@ -7,7 +7,7 @@
 			<ul class="navbar-nav ml-auto pull-right">
 				<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
 				<li class="topbar-devider"></li>
-				<li><a href="#"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+				<li><a class="signOut" (click)="logout()"><i class="fa fa-sign-out"></i> Sign Out</a></li>
 			</ul>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,13 +48,13 @@
             MODULE
         </a>
         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-          <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Reporting</a></li>
-          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Customer Service</a></li>
-          <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Brand Protection</a></li>
-          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Content Management</a></li>
+          <li class="dropdown-item"><a routerLink="../reporting" routerLinkActive="active">Reporting</a></li>
+          <li class="dropdown-item"><a routerLink="../customerService" routerLinkActive="active">Customer Service</a></li>
+          <li class="dropdown-item"><a routerLink="../brandProtection" routerLinkActive="active">Brand Protection</a></li>
+          <li class="dropdown-item"><a routerLink="../contentManagement" routerLinkActive="active">Content Management</a></li>
           <li class="dropdown-item"><a routerLink="../recall" routerLinkActive="active">Recall Management</a></li>
-          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Service Bulletin</a></li>
-          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Form Mangement</a></li>
+          <li class="dropdown-item"><a routerLink="../serviceBulletin" routerLinkActive="active">Service Bulletin</a></li>
+          <li class="dropdown-item"><a routerLink="" routerLinkActive="active">Form Mangement</a></li>
           <li class="dropdown-submenu">
             <a class="dropdown-item submenu" tabindex="-1" href="#">Import</a>
             <ul class="dropdown-menu">

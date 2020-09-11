@@ -43,6 +43,20 @@ import { BrandProtectionComponent } from './brand-protection/brand-protection.co
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
 import { CompanyComponent } from './company/company.component';
+import { SendPushNotificationComponent } from './send-push-notification/send-push-notification.component';
+
+import { MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRippleModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { CommonModule } from '@angular/common';
+import { RouterModule} from '@angular/router';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -71,6 +85,7 @@ import { CompanyComponent } from './company/company.component';
     ContactUsComponent,
     CustomerServiceComponent,
     CompanyComponent,
+    SendPushNotificationComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -93,9 +108,21 @@ import { CompanyComponent } from './company/company.component';
     MatNativeDateModule,
     MatInputModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatExpansionModule,
+    MatRippleModule,
+    MatSelectModule,
+    CommonModule,
+    RouterModule,
+    MatRadioModule
   ],
-  providers: [AdminloginService],
+  providers: [],
 
   bootstrap: [AppComponent],
   entryComponents:[AddSerialNumberComponent,UpdateSerialNumberComponent,DeleteSerialNumberComponent,ForgotPasswordComponent,SignUpComponent]
