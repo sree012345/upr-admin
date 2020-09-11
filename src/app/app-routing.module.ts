@@ -13,6 +13,7 @@ import { BrandProtectionComponent } from './brand-protection/brand-protection.co
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
 import { CompanyComponent } from './company/company.component';
+import { SendPushNotificationComponent } from './send-push-notification/send-push-notification.component';
 import { AdminAdduserComponent } from './admin-adduser/admin-adduser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
@@ -30,7 +31,7 @@ const routes: Routes = [
   {path:'serialNumber',component:SerialNumbersComponent},
   {path:'productDetails',component:ProductComponent},
   {path:'load',component:ImportloadComponent},
-  {path:'authentic',component:AuthenticScanComponent},
+  {path:'reporting',component:AuthenticScanComponent},
   {path:'recall',component:RecallComponent},
   {path:'serviceBulletin',component:ServiceBulletinComponent},
   {path:'main',component:MainComponentComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:'contactUs',component:ContactUsComponent},
   {path:'customerService',component:CustomerServiceComponent},
   {path:'company',component:CompanyComponent},
+  {path:'pushNotification',component:SendPushNotificationComponent},
   {path:'adminAdduser',component:AdminAdduserComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'privacyPolicy',component:PrivacyPolicyComponent},

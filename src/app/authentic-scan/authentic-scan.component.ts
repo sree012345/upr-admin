@@ -19,6 +19,7 @@ export class AuthenticScanComponent implements OnInit {
   serialNumberList: MatTableDataSource<any>
   documentList: MatTableDataSource<any>
   recallDetailsList: MatTableDataSource<any>
+  usersecurityDetailsList: MatTableDataSource<any>
   pageSize =3;
   pageOfItems: Array<any>;
 data:MatTableDataSource<any>;
@@ -41,6 +42,7 @@ pageEvents(event: any) {
   displaydata=['Item_Name','Serial_Number'];
   documentdata=['Item_Name','Document','url','Begin_Date','End_Date'];
   registerdProduct = ['Item_Name','serial_number','first_name','last_name','phone','email',"address"];
+  userSecurity = ['first_name','last_name','email',"user_type","active"];
   
   constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService,public service2: ContentManagementService,public service3: RecallServiceService) { 
     matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
@@ -139,6 +141,13 @@ recallList()
     });
   });
 }
+
+userSecurityList()
+{
+  this.service1.usersecurity().subscribe(data => {
+    this.usersecurityDetailsList = new MatTableDataSource(data["response_body"]["Registered_User"]);
+   });
+}
   document(s){
     console.log(s)
     if(s=="Profile"){
@@ -163,6 +172,11 @@ recallList()
   {
     this.counter="Registrations by Item"
     this.registerdAuthentic();
+  }
+  if(s=="usersecurity")
+  {
+    this.counter="User Security"
+    this.userSecurityList();
   }
 }
   applyFilter1(filtervalue : string){

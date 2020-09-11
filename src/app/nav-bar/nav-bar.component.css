@@ -271,3 +271,6 @@
 {
     flex-direction: inherit;
 }
+.signOut{
+    cursor: pointer;
+}
