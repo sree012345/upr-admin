@@ -14,17 +14,14 @@
     padding-top:25px;
     padding-bottom:25px;
 }
-.monthly-overview{
-    position: relative;
-    padding: 0;
-    margin: 0 0 3em;
-}
+
 
 .monthly-overview .header {
     padding: 12px 15px;
     border: 1px solid #ddd;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
+    background-color: #f4f4f4;
 }
 
 .header {
@@ -32,9 +29,6 @@
     margin: 0;
 }
 
-.monthly-overview .header {
-    background-color: #f4f4f4;
-}
 
 .monthly-overview{
     position: relative;
@@ -49,15 +43,19 @@
     border-radius: .3rem;
     outline: 0;
     border: 1px solid #ccc;
-    height:420px;
-
+    padding: 0;
+    margin: 0 0 3em;
+    
 }
+    
+
 
 .monthly-overview .title{
-    color: #444444;
+    color: #555;
     margin-bottom: 0;
     font-size: 16px;
     text-decoration:none;
+    font-family: 'Open Sans', 'Trebuchet MS', arial, sans-serif;
 }
 h4{
     line-height:24px;
@@ -69,20 +67,23 @@ h4{
     border-top: none;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
+    font-size:13px;
+    font-family: 'Open Sans', 'Trebuchet MS', arial, sans-serif;
 }
 
 .keyvalue-table,td{
     vertical-align: middle !important;
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
+    /* padding-top: 20px !important;
+    padding-bottom: 20px !important; */
     border-top: none;
     border-bottom: 1px solid #ddd;
 }
 
 .table,tbody,tr,td{
-    padding: 25px;
+    /* padding: 25px; */
     line-height: 1.42857143;
     vertical-align: top;
+    padding:9px;
     /* border-top: 1px solid #ddd; */
 }
 
@@ -185,10 +186,8 @@ i.icon-bg-u {
 
     mat-header-cell {
         flex: 2;
-        
         display: flex;
         align-items: center;
-        
         font-weight: bold;
         color:black;
         font-size:17px;
@@ -311,50 +310,12 @@ i.icon-bg-u {
         
      }
 
-     /* @media(min-width:768px){
-   
-        ::ng-deep .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
-          opacity: 1 !important;
-          color:#ccc !important;
-        }
-        mat-header-cell.mat-sort-header-sorted {
-          color:white !important;
-        }
-        
-      
-      .apcalender{
-      letter-spacing: 2px;
-      font-size: 42px;
-      
-      }
-      .heading{
-      font-size: 45px;
-      
-      }
-      .content{
-      font-size: 25px;
-      
-      line-height: 1;
-      }
-      
-      } */
 
-      /* @media(min-width:769px){
-        .example-container {
-          display: flex;
-          flex-direction: column;
-         
-          min-width: 300px;
-         
-         
-       
-        }
-       
-        .mat-table {
-          overflow: auto;
-          font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-          color:#333;
-          
-        }
-      } */
       
+      .monthly_body_month{
+        height: 330px;
+      }
+      .monthly_body_scan{
+        height:330px;
+      }
+    
