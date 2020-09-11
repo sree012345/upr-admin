@@ -21,18 +21,19 @@ export class CompanyService {
   }
 
   addCompanyDetails(add:company){
-    var companydeatails=new company();
-    companydeatails.company_name=add.company_name;
-    companydeatails.company_address=add.company_address;
-    companydeatails.company_city=add.company_city;
-    companydeatails.company_state_province=add.company_state_province;
-    companydeatails.company_postal_code=add.company_postal_code;
-    companydeatails.company_country=add.company_country;
-    companydeatails.company_phone=add.company_phone;
-    companydeatails.company_website=add.company_website;
-    companydeatails.company_type=add.company_type;
-    console.log(this.APIBaseUrl + 'admin/add_company',companydeatails);
-    return this.http.post<any>(this.APIBaseUrl + 'admin/add_company',companydeatails);
+    var companydetails=new company();
+    companydetails.company_name=add.company_name;
+    companydetails.company_address=add.company_address;
+    companydetails.company_city=add.company_city;
+    companydetails.company_state_province=add.company_state_province;
+    companydetails.company_postal_code=add.company_postal_code;
+    companydetails.company_country=add.company_country;
+    companydetails.company_phone=add.company_phone;
+    companydetails.company_website=add.company_website;
+    companydetails.company_type=add.company_type;
+    companydetails.is_active=Boolean(add.is_active);
+    console.log(this.APIBaseUrl + 'admin/add_company',companydetails);
+    return this.http.post<any>(this.APIBaseUrl + 'admin/add_company',companydetails);
   }
 }
 

@@ -26,8 +26,8 @@
                                 <select class="form-control1 select-name" name="company_type" 
                                 #company_type="ngModel" [(ngModel)]="service.formData.company_type">
                                     <option disabled [selected]="true" value="">Company Type</option>
-                                    <option *ngFor="let option of companyList" [value]="option['company_type']">
-                                        {{option['company_type']}}</option>
+                                    <option [value]="1">
+                                        Manufacturar</option>
                                 </select>
                             </div>
                          </div>
@@ -47,9 +47,10 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">State/Province</label>
-                                <select class="form-control1 select-name" placeholder="Select Item Name">
-                                    <option>Alabama</option>
-                                    <option>Alaska</option>
+                                <select class="form-control1 select-name" name="company_state_province" #company_state_province="ngModel" [(ngModel)]="service.formData.company_state_province" placeholder="Select Item Name">
+                                    <option disabled [selected]="true" value="">State/province</option>
+                                    <option [value]="1">Alabama</option>
+                                    <option [value]="2">Alaska</option>
                                 </select>
                             </div>
                         </div>
@@ -63,9 +64,11 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">Country</label>
-                                <select class="form-control1 select-name" placeholder="Select Item Name">
-                                    <option>United States</option>
-                                    <option>Canada</option>
+                                <select class="form-control1 select-name" name="company_country" #company_country="ngModel"  [(ngModel)]="service.formData.company_country">
+                                    <option disabled [selected]="true" value="">Country</option>
+                                    <option [value]="1">United States</option>
+                                    <option [value]="2">Canada</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -82,11 +85,9 @@
                                 <input class="form-control1" type="text" name="company_phone" #company_phone="ngModel" [(ngModel)]="service.formData.company_phone" required>
                              </div>
                         </div>
-        
 
-                        <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCompany">
+                       <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCompany">
                             <div class="successMessages">{{message}}</div>
-                          
                         </div>
 
                           <div class="col-lg-12 text-left text-danger mr-top" *ngIf="inValidAddCompany">
@@ -94,10 +95,16 @@
                           </div>
                          
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
+
+                            <div class="input-icons1">
+                                <input type="file" class="custom-file-input" id="inputGroupFileAddon01"  aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFileAddon01">Upload File</label>
+                            </div>
+
                             <div class="footer1">
-                                <input class="input-field" type="checkbox">&nbsp;Is Active
-                              </div>   
+                                <input class="input-field" type="checkbox" name="is_active" #is_active="ngModel" [(ngModel)]="service.formData.is_active">&nbsp;Is Active
+                            </div>   
 
                             <button type="submit" class="btn btn-primary btn1 rounded" data-toggle="modal"
                                data-target="#openModal1">
@@ -105,8 +112,7 @@
                         </div>
                     </div>
                   
-               
-</form>
+               </form>
         </div>
 
       

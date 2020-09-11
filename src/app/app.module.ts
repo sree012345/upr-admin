@@ -57,6 +57,13 @@ import {MatSelectModule} from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { RouterModule} from '@angular/router';
 import {MatRadioModule} from '@angular/material/radio';
+import { AdminAdduserComponent } from './admin-adduser/admin-adduser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { SerialNumberComponent } from './importload/serial-number/serial-number.component';
+import { ImportRecallComponent } from './importload/import-recall/import-recall.component';
+import { ImportServiceBulletinComponent } from './importload/import-service-bulletin/import-service-bulletin.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +93,13 @@ import {MatRadioModule} from '@angular/material/radio';
     CustomerServiceComponent,
     CompanyComponent,
     SendPushNotificationComponent,
+    AdminAdduserComponent,
+    DashboardComponent,
+    PrivacyPolicyComponent,
+    TermsOfServiceComponent,
+    SerialNumberComponent,
+    ImportRecallComponent,
+    ImportServiceBulletinComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),

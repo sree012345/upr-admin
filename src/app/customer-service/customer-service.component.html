@@ -16,32 +16,49 @@
                   <div class="modal-header">
                    <h4 class="modal-title"><i class="fa fa-file-text"></i> &nbsp;Enter Product Information</h4>
                  </div>
-                  <form #form1="ngForm" class="form1">
+                  <form #form1="ngForm" (submit)="addCustomer(form1)" class="form1">
                     <div class="modal-body">
                         <div class="input-icons1">
-                            <div class="labelColor">Company Name</div>
-                            <input class="form-control1" type="text" placeholder="Enter Company Name"  required>
+                            <label class="labelColor" for="Product">Company Name</label>
+                            <select class="form-control1 select-name" name="company_id" #company_id="ngModel" [(ngModel)]="service.formData.product_id">
+                                <option disabled [selected]="true" value="">Company Name</option>
+                                <option [value]="1">1</option>
+                                <option [value]="2">2</option>
+                                <option [value]="3">3</option>
+                            </select>
                         </div>
                     
-                        <div class="input-icons1">
-                            <div class="labelColor">Item Name</div>
-                            <input class="form-control1" type="text" placeholder="Enter Item Name"  required>
+                        <div class="input-icons">
+                            <label class="labelColor" for="Product">Item Name</label>
+                            <select class="form-control1 select-name" name="product_id" #product_id="ngModel" [(ngModel)]="service.formData.product_id">
+                                <option disabled [selected]="true" value="">Item Name</option>
+                                <option *ngFor="let option of customerlist" [value]="option['product_id']">
+                                    {{option['product_name']}}</option>
+                            </select>
                         </div>
 
                         <div class="input-icons1">
                             <div class="labelColor">Serial Number</div>
-                            <input class="form-control1" type="text" placeholder="Enter Serial Number"  required>
+                            <input class="form-control1" type="text" name="serial_number" #serial_number="ngModel" [(ngModel)]="service.formData.serial_number" placeholder="Enter Serial Number"  required>
                         </div>
 
                       </div>
       
                       <div class="modal-footer">
               
-                      <button type="button" class="btn btn-default btn1" data-dismiss="modal">Cancel</button>
-                      <button type="text" class="btn btn-danger">Submit</button>
+                      <button type="button" class="btn btn-default btn1" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
+                      <button type="submit" class="btn btn-danger">Submit</button>
                   </div>
                   </form>
                 </div>
+
+                <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCustomer">
+                    <div class="successMessages">{{message}}</div>
+                  </div>
+                  <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddCustomer">
+                    <div class="errorMessages">{{message}}</div>
+                  </div>
+
               </div>
        <!-- Product Details -->
 
@@ -64,7 +81,7 @@
                     
                    </div>
                </div>
-               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 scanlocation">
                 <div class="product-content">
                     <div class="modal-header1">
                      <h4 class="product-title">Scan Location</h4>
