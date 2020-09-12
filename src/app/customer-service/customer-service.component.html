@@ -2,8 +2,8 @@
 
 
 <div class="container">
-  <h1 class="itemsLeft">Customer Service<span class="pull-right productRight">Modules / <span
-        style="color: #3498db;" class="productRight">Customer Service</span></span></h1>
+    <h1 class="itemsLeft">Customer Service<span class="pull-right productRight">Modules / <span style="color: #3498db;"
+                class="productRight">Customer Service</span></span></h1>
 </div>
 <hr>
 <div class="container-fluid">
@@ -13,150 +13,161 @@
             <div class="modal-content">
 
                 <div class="adjust">
-                  <div class="modal-header">
-                   <h4 class="modal-title"><i class="fa fa-file-text"></i> &nbsp;Enter Product Information</h4>
-                 </div>
-                  <form #form1="ngForm" (submit)="addCustomer(form1)" class="form1">
-                    <div class="modal-body">
-                        <div class="input-icons1">
-                            <label class="labelColor" for="Product">Company Name</label>
-                            <select class="form-control1 select-name" name="company_id" #company_id="ngModel" [(ngModel)]="service.formData.product_id">
-                                <option disabled [selected]="true" value="">Company Name</option>
-                                <option [value]="1">1</option>
-                                <option [value]="2">2</option>
-                                <option [value]="3">3</option>
-                            </select>
-                        </div>
-                    
-                        <div class="input-icons">
-                            <label class="labelColor" for="Product">Item Name</label>
-                            <select class="form-control1 select-name" name="product_id" #product_id="ngModel" [(ngModel)]="service.formData.product_id">
-                                <option disabled [selected]="true" value="">Item Name</option>
-                                <option *ngFor="let option of customerlist" [value]="option['product_id']">
-                                    {{option['product_name']}}</option>
-                            </select>
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-file-text"></i> &nbsp;Enter Product Information</h4>
+                    </div>
+                    <form #form1="ngForm" (submit)="addCustomer(form1)" class="form1">
+                        <div class="modal-body">
+                            <div class="input-icons1">
+                                <label class="labelColor" for="Product">Company Name</label>
+                                <select class="form-control1 select-name" name="company_id" #company_id="ngModel"
+                                    [(ngModel)]="service.formData.company_id">
+                                    <option disabled [selected]="true" value="">Company Name</option>
+                                    <option [value]="companyId">{{companyName}}</option>
+                                </select>
+                            </div>
+
+                            <div class="input-icons">
+                                <label class="labelColor" for="Product">Item Name</label>
+                                <select class="form-control1 select-name" name="product_id" #product_id="ngModel"
+                                    [(ngModel)]="service.formData.product_id">
+                                    <option disabled [selected]="true" value="">Item Name</option>
+                                    <option *ngFor="let option of customerlist" [value]="option['product_id']">
+                                        {{option['product_name']}}</option>
+                                </select>
+                            </div>
+
+                            <div class="input-icons1">
+                                <div class="labelColor">Serial Number</div>
+                                <input class="form-control1" type="text" name="serial_number" #serial_number="ngModel"
+                                    [(ngModel)]="service.formData.serial_number" placeholder="Enter Serial Number"
+                                    required>
+                            </div>
+
                         </div>
 
-                        <div class="input-icons1">
-                            <div class="labelColor">Serial Number</div>
-                            <input class="form-control1" type="text" name="serial_number" #serial_number="ngModel" [(ngModel)]="service.formData.serial_number" placeholder="Enter Serial Number"  required>
-                        </div>
+                        <div class="modal-footer">
 
-                      </div>
-      
-                      <div class="modal-footer">
-              
-                      <button type="button" class="btn btn-default btn1" data-dismiss="modal" (click)="CloseModel()">Cancel</button>
-                      <button type="submit" class="btn btn-danger">Submit</button>
-                  </div>
-                  </form>
+                            <button type="button" class="btn btn-default btn1" data-dismiss="modal"
+                                (click)="CloseModel()">Cancel</button>
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCustomer">
                     <div class="successMessages">{{message}}</div>
-                  </div>
-                  <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddCustomer">
-                    <div class="errorMessages">{{message}}</div>
-                  </div>
-
-              </div>
-       <!-- Product Details -->
-
-      
-           <div class="row productdetails">
-               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                   <div class="product-content">
-                       <div class="modal-header1">
-                        <h4 class="product-title">Product Details</h4>
-                      </div>
-                      <div class="modal-header2">
-                        <h4 class="sample">Sample Company</h4>
-                        <p class="para">
-                            <span> Iten Name: Item A</span><br><br>
-                            <span> Serial Number: 1434</span><br><br>
-                            <span> Website:<a href>Sample company.com</a></span><br><br>
-                            <span><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;This Product Is Authentic</span>
-                        </p>
-                      </div>
-                    
-                   </div>
-               </div>
-               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 scanlocation">
-                <div class="product-content">
-                    <div class="modal-header1">
-                     <h4 class="product-title">Scan Location</h4>
-                   </div>
-                   
-                 
                 </div>
-               
-            </div>
-           </div>
+                <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddCustomer">
+                    <div class="errorMessages">{{message}}</div>
+                </div>
 
-           <div class="row productdetails">
-               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                        <div class="product-content">
-                            <div class="modal-header1">
-                             <h4 class="product-title">Product Information</h4>
-                           </div>
-                           <div class="modal-header2">
-                             <p class="sample1">The following important documents and links have been provided by Sample Company</p>
-                             <div class="para">
-                                 <p>
-                                     <a href="#" class="btn btn-block btn-default rounded btn1" target="_blank">Installation Guide</a>
-                                 </p>
-                                 <p>
-                                    <a href="#" class="btn btn-block btn-default rounded btn1" target="_blank">Product Warrenty</a>
-                                </p>
-                                <p>
-                                    <a href="#" class="btn btn-block btn-default rounded btn1" target="_blank">Parts Store</a>
-                                </p>
-                            
-                             </div>
-                           </div>
-                         
-                        </div>
-                   </div>
-                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 productdetails1">
+            </div>
+            <!-- Product Details -->
+
+
+            <div class="row productdetails" *ngIf="SectionsDisplay">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="product-content">
                         <div class="modal-header1">
-                         <h4 class="product-title">Recall Information</h4>
-                       </div>
-                       <div class="modal-header2">
-                         <p class="sample1">There are 3 different recalls issued on this product,however the serial number provided is <b>not</b> among the
-                             ones that have been recalled</p>
-                         <div>
-                            <ul>
-                                <li>The nossle can leak under extreme heat.</li>
-                                <li>The handle can dislodge under certain conditions.</li>
-                                <li>The bulb can overheat when left on for long periods of time.</li>
-                            </ul>
-                        
-                         </div>
-                       </div>
+                            <h4 class="product-title">Product Details</h4>
+                        </div>
+                        <div class="content_section">
+                            <h4 >{{productInfoDetails.company_name}}</h4>
+                            <p >
+                                <span> Iten Name: {{productInfoDetails.product_name}}</span><br>
+                                <span> Serial Number: {{productInfoDetails.serial_number}}</span><br>
+                                <span> Website:<a href>{{productInfoDetails.company_website}}</a></span><br><br>
+                                <span *ngIf="productInfoDetails.is_authentic_product==true"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;This Product Is
+                                    Authentic</span>
+                                <span *ngIf="productInfoDetails.is_authentic_product==false"><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;This Product Is
+                                        Counterfeit</span>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 productdetails1">
-                    <div class="product-content1">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 scanlocation" *ngIf="SectionsDisplay">
+                    <div class="product-content">
                         <div class="modal-header1">
-                         <h4 class="product-title">Service Bulletin Information</h4>
-                       </div>
-                       <div class="modal-header2">
-                         <p class="sample1">There are currently no service bulletins for this product</p>
-                        
-                       </div>
+                            <h4 class="product-title">Scan Location</h4>
+                        </div>
+
+
                     </div>
+
                 </div>
-                   </div>
-                
+            </div>
 
-           </div>
-      
+            <div class="row productdetails" *ngIf="SectionsDisplay">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="product-content">
+                                <div class="modal-header1">
+                                    <h4 class="product-title">Product Information</h4>
+                                </div>
+                                <div class="content_section">
+                                    <p class="">{{infoMessage}}</p>
+                                    <div *ngFor="let item of productinformationdetails">
+                                        <p>
+                                            <a href="item.URL" class="btn btn-block btn-default rounded btn1"
+                                                target="_blank">{{item.document_or_link_name}}</a>
+                                        </p>
+                                        <!-- <p>
+                                            <a href="#" class="btn btn-block btn-default rounded btn1"
+                                                target="_blank">Product Warrenty</a>
+                                        </p>
+                                        <p>
+                                            <a href="#" class="btn btn-block btn-default rounded btn1"
+                                                target="_blank">Parts Store</a>
+                                        </p> -->
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 productdetails1" *ngIf="SectionsDisplay">
+                            <div class="product-content">
+                                <div class="modal-header1">
+                                    <h4 class="product-title">Recall Information</h4>
+                                </div>
+                                <div class="content_section" >
+                                    <p >{{recallMessage}}</p>
+                                    <div>
+                                        <ul  >
+                                            <li *ngFor="let element of productrecalldetails">{{element.recall_message}}</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 productdetails1" *ngIf="SectionsDisplay">
+                            <div class="product-content">
+                                <div class="modal-header1">
+                                    <h4 class="product-title">Service Bulletin Information</h4>
+                                </div>
+                                <div class="content_section">
+                                    <p >{{bulletinMessage}}</p>
+                                    <div>
+                                        <ul  >
+                                            <li *ngFor="let element of productbulletindetails">{{element.service_bulletin_message}}</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs=1"></div>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs=1"></div>
     </div>
-</div>
