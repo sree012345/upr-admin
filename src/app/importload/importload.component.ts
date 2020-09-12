@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ImportloadComponent implements OnInit {
 
-  SERVER_URL = "http://34.204.86.142:3002/uprserver/api/v1/import/import_add_brand_protection";
+  SERVER_URL = "http://34.204.86.142:3002/uprserver/api/v1/import/import_product";
     uploadForm: FormGroup; 
     changes:boolean=true;
     validAddBrand:boolean=false;
@@ -42,14 +42,16 @@ export class ImportloadComponent implements OnInit {
     onSubmit() {
       const formData = new FormData();
       formData.append('file_data', this.uploadForm.get('profile').value);
+      formData.append("company_id",'1');
       this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(data =>
         { 
+          
           console.log("submit");
           console.log(data);
           console.log(formData)
           var status = data["response_code"];
           console.log(status);
-        if(status==200){ 
+         if(status==200){ 
          console.log("working");
           this.validAddBrand=true;
           this.invalidAddBrand=false;
