@@ -66,6 +66,8 @@ import { ImportRecallComponent } from './importload/import-recall/import-recall.
 import { ImportServiceBulletinComponent } from './importload/import-service-bulletin/import-service-bulletin.component';
 import { ImportDocumentAndLinkComponent } from './importload/import-document-and-link/import-document-and-link.component';
 import { ImportBrandProtectionComponent } from './importload/import-brand-protection/import-brand-protection.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -104,6 +106,7 @@ import { ImportBrandProtectionComponent } from './importload/import-brand-protec
     ImportServiceBulletinComponent,
     ImportDocumentAndLinkComponent,
     ImportBrandProtectionComponent,
+    SettingsComponent,
   ],
   imports: [  
     MDBBootstrapModule.forRoot(),
@@ -138,7 +141,9 @@ import { ImportBrandProtectionComponent } from './importload/import-brand-protec
     MatSelectModule,
     CommonModule,
     RouterModule,
-    MatRadioModule
+    MatRadioModule,
+    UiSwitchModule
+
   ],
   providers: [],
 
