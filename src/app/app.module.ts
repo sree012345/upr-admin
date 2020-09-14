@@ -67,7 +67,7 @@ import { ImportServiceBulletinComponent } from './importload/import-service-bull
 import { ImportDocumentAndLinkComponent } from './importload/import-document-and-link/import-document-and-link.component';
 import { ImportBrandProtectionComponent } from './importload/import-brand-protection/import-brand-protection.component';
 import { SettingsComponent } from './settings/settings.component';
-import { UiSwitchModule } from 'ngx-ui-switch';
+
 
 @NgModule({
   declarations: [
@@ -142,7 +142,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     CommonModule,
     RouterModule,
     MatRadioModule,
-    UiSwitchModule
+    
 
   ],
   providers: [],
