@@ -40,13 +40,24 @@
                             </div>
                          </div>
 
-                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf=nomarlUserPrivilage>
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">Company Name</label>
                                 <select class="form-control1 select-name" name="company_id" 
                                 #company_id="ngModel" [(ngModel)]="service.formData.company_id">
                                     <option disabled [selected]="true" value="">Company Type</option>
                                     <option [value]="companyId">{{companyName}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf=companyListPrivilage>
+                            <div class="input-icons1">
+                                <label class="labelColor" for="Product">Company Name</label>
+                                <select class="form-control1 select-name" name="company_id" 
+                                #company_id="ngModel" [(ngModel)]="service.formData.company_id">
+                                <option *ngFor="let option of companyList1" [value]="option['company_id']">
+                                    {{option['company_name']}}</option>
                                 </select>
                             </div>
                         </div>
@@ -66,11 +77,13 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">State/Province</label>
-                                <select class="form-control1 select-name" name="state_province" #state_province="ngModel" [(ngModel)]="service.formData.state_province">
+                                <!-- <select class="form-control1 select-name" name="state_province" #state_province="ngModel" [(ngModel)]="service.formData.state_province">
                                     <option disabled [selected]="true" value="">State/Province</option>
                                     <option [value]="1">Alabama</option>
                                     <option [value]="2">Alaska</option>
-                                </select>
+                                </select> -->
+                                <input class="form-control1" type="text" name="state_province" #state_province="ngModel" [(ngModel)]="service.formData.state_province"  required>
+                           
                             </div>
                         </div>
 
@@ -83,11 +96,13 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="input-icons1">
                                 <label class="labelColor" for="Product">Country</label>
-                                <select class="form-control1 select-name" name="country" #country="ngModel" [(ngModel)]="service.formData.country">
+                                <!-- <select class="form-control1 select-name" name="country" #country="ngModel" [(ngModel)]="service.formData.country">
                                     <option disabled [selected]="true" value="">Country</option>
                                     <option [value]="1">United States</option>
                                     <option [value]="2">Canada</option>
-                                </select>
+                                </select> -->
+                                <input class="form-control1" type="text" name="country" #country="ngModel" [(ngModel)]="service.formData.country"  required>
+                           
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -115,21 +130,15 @@
                                 
                             </div>
                         </div>
-                       
-        
-
                         <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddUser">
-                            <div class="successMessages">{{message}}</div>
-                          
+                            <div class="successMessages">{{message}}</div>                          
                         </div>
-
                           <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAdduser">
                             <div class="errorMessages">{{message}}</div>
                           </div>
                           <!-- <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAdduser1">
                             <div class="errorMessages">{{message1}}</div>
                           </div> -->
-
                         <div class="col-lg-4">
                             <div class="footer1">
                                 <input class="input-field" type="checkbox" name="is_active" #is_active="ngModel" [(ngModel)]="service.formData.is_active">&nbsp;Is Active
@@ -139,12 +148,8 @@
                                data-target="#openModal1">
                               Submit </button>
                         </div>
-                    </div>
-                  
+                    </div>      
                </form>
         </div>
-
-      
-
     </div>
 </div>

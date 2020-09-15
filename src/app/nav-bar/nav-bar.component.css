@@ -32,6 +32,7 @@
 .nav-bar_img
 {
     width: 170px;
+    height: 60px;
     z-index: 1;
      margin: 20px 0; 
     position: relative;

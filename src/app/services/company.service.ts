@@ -20,7 +20,7 @@ export class CompanyService {
     this._listners.next(filterBy);
   }
 
-  addCompanyDetails(add:company){
+  addCompanyDetails(add:company,logourl){
     var companydetails=new company();
     companydetails.company_name=add.company_name;
     companydetails.company_address=add.company_address;
@@ -29,6 +29,7 @@ export class CompanyService {
     companydetails.company_postal_code=add.company_postal_code;
     companydetails.company_country=add.company_country;
     companydetails.company_phone=add.company_phone;
+    companydetails.logo_url=logourl;
     companydetails.company_website=add.company_website;
     companydetails.company_type=add.company_type;
     companydetails.is_active=Boolean(add.is_active);

@@ -21,8 +21,11 @@ export class SerialNumberComponent implements OnInit {
   fileName: string;
   file: File;
   filename: string = null;
+  logedin=localStorage.getItem('loggedinAdminUser');
 
   SERVER_URL = "http://34.204.86.142:3002/uprserver/api/v1/import/import_serial_number";
+  adminUserDetails: any;
+  companyId: any;
 
   constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) { }
 
@@ -40,6 +43,8 @@ export class SerialNumberComponent implements OnInit {
  
   }
   onSubmit() {
+    this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+    this.companyId= this.adminUserDetails.company_id;
     const formData = new FormData();
     formData.append('file_data', this.uploadForm.get('profile').value);
     this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(data =>
@@ -59,10 +64,6 @@ export class SerialNumberComponent implements OnInit {
       else{
         console.log("not working");
       }
-     
-    
-          
-  
     })
 
   }

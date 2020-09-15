@@ -15,27 +15,40 @@ export class NavBarComponent implements OnInit {
   userRole:any;
   logedin=localStorage.getItem('loggedinAdminUser');
   CustomerServieUserPrivilage: boolean;
+  devoloperPrivilage: boolean;
+  otherPrivilags: boolean;
+  logoUrl: string;
   constructor( public router: Router) { 
     this.adminUserDetails=JSON.parse(this.logedin|| '{}');
     this.userRole = this.adminUserDetails.user_role;
+    this.logoUrl = this.adminUserDetails.logo_url;
+    
     if(this.userRole==1)
     {
       this.Adminprivilege=true;
+      this.otherPrivilags=true;
     }
     else if(this.userRole==2){
       this.PowerUserPrivilage=true;
       this.Adminprivilege=false;
+      this.otherPrivilags=true;
     }
     else if(this.userRole==3){
       this.PowerUserPrivilage=false;
       this.Adminprivilege=false;
-      this.ReportingUserPrivialge=true
+      this.ReportingUserPrivialge=true;
+      this.otherPrivilags=true;
     }
-    else{
+    else if(this.userRole==4){
       this.PowerUserPrivilage=false;
       this.Adminprivilege=false;
       this.ReportingUserPrivialge=false;
-      this.CustomerServieUserPrivilage=true
+      this.CustomerServieUserPrivilage=true;
+      this.otherPrivilags=true;
+    }
+    else{
+      this.otherPrivilags=false;
+      this.devoloperPrivilage=true;
     }
   }
 

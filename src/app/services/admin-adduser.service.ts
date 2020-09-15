@@ -36,8 +36,12 @@ export class AdminAdduserService {
     adminUser.country=add.country;
     adminUser.user_role=Number(add.user_role);
     adminUser.is_active=Boolean(add.is_active);
-    console.log(this.APIBaseUrl + 'AdminUser/register_admin_user',adminUser,);
+    console.log(this.APIBaseUrl + 'AdminUser/register_admin_user',adminUser);
     return this.http.post<any>(this.APIBaseUrl + 'AdminUser/register_admin_user',adminUser);
   }
-
+  companyList()
+  {
+    console.log(this.APIBaseUrl + 'admin/company_list',null);
+    return this.http.post<any>(this.APIBaseUrl + 'admin/company_list',null);
+  }
 }

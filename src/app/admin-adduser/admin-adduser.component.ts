@@ -18,13 +18,35 @@ export class AdminAdduserComponent implements OnInit {
   companyId:number;  
   adminUserDetails:adminAdduser;  
   logedin=localStorage.getItem('loggedinAdminUser');
+  companyList1: any;
+  userRole: number;
+  companyListPrivilage: boolean;
+  nomarlUserPrivilage: boolean;
   constructor(public service:AdminAdduserService) { }
 
   ngOnInit(): void {
+    this.companylist();
     this.adminUserDetails=JSON.parse(this.logedin|| '{}');
     this.companyId= this.adminUserDetails.company_id;
     this.companyName=this.adminUserDetails.company_name;
+    this.userRole=this.adminUserDetails.user_role;
     console.log(this.companyId +"----------"+this.companyName)
+    if(this.userRole==5)
+    {
+      this.companyListPrivilage=true;
+      this.nomarlUserPrivilage=false;
+    }else {
+      this.companyListPrivilage=false;
+      this.nomarlUserPrivilage=true;
+    }
+  }
+
+
+  companylist()
+  {
+    this.service.companyList().subscribe(data => {
+      this.companyList1 = (data["response_body"]["compynies"]);
+     })
   }
 
   addCompany(form1: NgForm) {
@@ -92,7 +114,7 @@ export class AdminAdduserComponent implements OnInit {
       console.log(form1.value.company_id);
       debugger
       this.invalidAdduser = false;
-      this.service. addAdmiuser(form1.value).subscribe(data => {
+      this.service.addAdmiuser(form1.value).subscribe(data => {
         var status = data["response_code"];
         if (status == 200) {
           this.validAddUser = true;
@@ -132,7 +154,8 @@ export class AdminAdduserComponent implements OnInit {
       country:"",
       phone:"",
       user_role:null,
-      is_active:null
+      is_active:null,
+      logo_url:""
     }
 
   }

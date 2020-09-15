@@ -121,7 +121,7 @@ font-size:15px;
   
   font-weight: bold;
   color:black;
-  font-size:17px;
+  font-size:14px;
   
   }
  
@@ -218,6 +218,7 @@ font-size:15px;
   .btn {
     box-shadow: none;
     border-radius: 0;
+    font-size: 14px;
 }
 .btn-default {
   color: #333;
@@ -252,7 +253,7 @@ tr.mat-row, tr.mat-footer-row {
   }
   .mat-header-cell {
    
-    font-size: 14px;
+    font-size: 13px;
     color: #333;
     font-weight: bold;
 }

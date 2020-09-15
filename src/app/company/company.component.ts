@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CompanyService} from '../services/company.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { company } from '../models/company-model';
 
 @Component({
   selector: 'app-company',
@@ -8,14 +10,32 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./company.component.css']
 })
 export class CompanyComponent implements OnInit {
+  SERVER_URL = "http://34.204.86.142:3002/uprserver/api/v1/admin/logo_Upload";  
   validAddCompany:boolean=false;
   inValidAddCompany:boolean=false;
   message:string;
   companyList:any;
+  uploadForm: FormGroup; 
+  profile:any;
+  filename: string = null;
 
-  constructor(public service:CompanyService) { }
+  constructor(public service:CompanyService,private formBuilder: FormBuilder, private httpClient: HttpClient) { }
+
+  uploadedFile(event) {     
+    if (event.target.files.length > 0) {
+      const file_data = event.target.files[0];
+      this.uploadForm.get('logoImage').setValue(file_data);
+      this.profile=event.target.files;
+      console.log(this.profile);
+      this.filename = event.target.files[0].name;
+      console.log(this.filename);
+    } 
+  }
 
   ngOnInit(): void {
+    this.uploadForm = this.formBuilder.group({
+      logoImage: ['']
+    });
   }
 
   addCompany(form1: NgForm) {
@@ -66,23 +86,38 @@ export class CompanyComponent implements OnInit {
     }
    else if (form1.value.company_phone== "" || form1.value.company_phone== undefined) {
       this.inValidAddCompany = true;
-      this.message = "Please enter company phone";
-      
+      this.message = "Please enter company phone";      
     }
-   
-  
+    else if (this.uploadForm.get('logoImage').value== "" || this.uploadForm.get('logoImage').value== undefined) {
+      this.inValidAddCompany = true;
+      this.message = "Please select your comapany logo";      
+    }
     else {
-      console.log("work response");
       this.inValidAddCompany = false;
-      this.service.addCompanyDetails(form1.value).subscribe(data => {
-        var status = data["response_code"];
-        if (status == 200) {
-          this.validAddCompany = true;
-          this.message = data["response_message"];
-          this.service.filter('Register click');
-          this.resetForm();
+      const formData = new FormData();
+      formData.append('logoimage', this.uploadForm.get('logoImage').value);
+      this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(data =>
+        {           
+          var status = data["response_code"];
+         if(status==200){ 
+          console.log("work response");
+          var logourl=data["response_body"]["logo_url"];
+          this.inValidAddCompany = false;
+          this.service.addCompanyDetails(form1.value,logourl).subscribe(data => {
+            var status = data["response_code"];
+            if (status == 200) {
+              this.validAddCompany = true;
+              this.message = data["response_message"];
+              this.service.filter('Register click');
+              this.resetForm();
+            }
+          })         
+        }
+        else{
+          console.log("not working");
         }
       })
+      
     }
   }
 
@@ -93,6 +128,7 @@ export class CompanyComponent implements OnInit {
       company_name: "",
       company_address:"",
       company_city:"",
+      logo_url:"",
       company_state_province:"",
       company_postal_code:"",
       company_country:"",

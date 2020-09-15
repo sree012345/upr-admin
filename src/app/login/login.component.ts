@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         if(status==200){
           localStorage.setItem('loggedinAdminUser', JSON.stringify(res['response_body']));
           this.message="";
-          this.router.navigateByUrl('productDetails');
+          this.router.navigateByUrl('dashboard');
         }else{
           this.validLogin=false;
           this.inValidLogin=true;

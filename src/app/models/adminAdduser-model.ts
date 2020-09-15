@@ -13,4 +13,5 @@ export class adminAdduser{
     country:string;
     user_role:number;
     is_active:boolean;
+    logo_url:string;
 }

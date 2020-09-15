@@ -30,4 +30,5 @@ export class ProductInfo {
     company_website: string;
     serial_number: string;
     is_authentic_product:boolean;
+    is_registerd:boolean;
 }

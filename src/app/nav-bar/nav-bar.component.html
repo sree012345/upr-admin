@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top menubase">
 <div class="container">
     <a class="navbar-brand" href="#">
-          <img src="assets/img/UPR_Logo_Blue.png" alt="" class="nav-bar_img">
+          <img src="{{logoUrl}}" alt="" class="nav-bar_img">
     </a>
     <div class="topbar">
 			<ul class="navbar-nav ml-auto pull-right">
@@ -21,12 +21,12 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">DASHBOARD
+          <a class="nav-link" routerLink="../dashboard" routerLinkActive="active">DASHBOARD
                 <span class="sr-only"></span>
           </a>
         </li>
         
-        <li class="nav-item dropdown" *ngIf="PowerUserPrivilage || Adminprivilege">
+        <li class="nav-item dropdown" *ngIf="PowerUserPrivilage || Adminprivilege || otherPrivilags">
           <!-- <a class="nav-link" href="#">PRODUCTS</a> -->
           <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             PRODUCTS
@@ -35,15 +35,15 @@
           <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Items</a></li>
           <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Serial Numbers</a></li>
           <li class="dropdown-submenu">
-            <a class="dropdown-item submenu" tabindex="-1" href="#">Import</a>
+            <a class="dropdown-item submenu" tabindex="-1" >Import</a>
             <ul class="dropdown-menu">
-              <li class="dropdown-item"><a tabindex="-1" href="#">Import Items</a></li>
-              <li class="dropdown-item"><a href="#">Import Serial Numbers</a></li>
+              <li class="dropdown-item"><a tabindex="-1" routerLink="../load" routerLinkActive="active">Import Items</a></li>
+              <li class="dropdown-item"><a tabindex="-1"  routerLink="../importSerial" routerLinkActive="active">Import Serial Numbers</a></li>
             </ul>
           </li>
         </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="otherPrivilags">
           <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             MODULE
         </a>
@@ -56,35 +56,35 @@
           <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="../serviceBulletin" routerLinkActive="active">Service Bulletin</a></li>
           <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="" routerLinkActive="active">Form Mangement</a></li>
           <li class="dropdown-submenu" *ngIf="PowerUserPrivilage || Adminprivilege">
-            <a class="dropdown-item submenu" tabindex="-1" href="#">Import</a>
+            <a class="dropdown-item submenu" tabindex="-1" >Import</a>
             <ul class="dropdown-menu">
-              <li class="dropdown-item"><a tabindex="-1" href="#">Import Brand Protection Rule</a></li>
-              <li class="dropdown-item"><a href="#">Import Product Information</a></li>
-              <li class="dropdown-item"><a tabindex="-1" href="#">Import Recalls</a></li>
-              <li class="dropdown-item"><a href="#">Import Service Bulletins</a></li>
+              <li class="dropdown-item"><a tabindex="-1" routerLink="../importBrandProtection" routerLinkActive="active">Import Brand Protection Rule</a></li>
+              <li class="dropdown-item"><a tabindex="-1" routerLink="../importDocumentLink" routerLinkActive="active">Import Product Information</a></li>
+              <li class="dropdown-item"><a tabindex="-1" routerLink="../importRecall" routerLinkActive="active">Import Recalls</a></li>
+              <li class="dropdown-item"><a tabindex="-1" routerLink="../importServiceBulletin" routerLinkActive="active">Import Service Bulletins</a></li>
             </ul>
           </li>
         </ul>
         </li>
         
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="otherPrivilags">
             <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               SUPPORT
           </a>
           <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-            <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Documentation</a></li>
-            <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Support Portal</a></li>
-            <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Contact Us</a></li>
+            <li class="dropdown-item"><a >Documentation</a></li>
+            <li class="dropdown-item"><a>Support Portal</a></li>
+            <li class="dropdown-item"><a routerLink="../contactUs" routerLinkActive="active">Contact Us</a></li>
             
           </ul>
           </li>
-          <li class="nav-item dropdown" *ngIf="Adminprivilege">
+          <li class="nav-item dropdown" *ngIf="Adminprivilege || devoloperPrivilage">
             <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               ADMINISTRATION
           </a>
           <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
             <li class="dropdown-item"><a routerLink="../adminAdduser" routerLinkActive="active">Add User</a></li>
-            <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Add Company</a></li>
+            <li class="dropdown-item" *ngIf= "devoloperPrivilage"><a routerLink="../company" routerLinkActive="active">Add Company</a></li>
              
           </ul>
           </li>

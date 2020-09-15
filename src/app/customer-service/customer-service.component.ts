@@ -27,6 +27,8 @@ export class CustomerServiceComponent implements OnInit {
   infoMessage: string;
   recallMessage: string;
   bulletinMessage: string;
+  is_registerd: boolean;
+  SectionsDisplay1: boolean;
   constructor(public service:CustomerServiceService) { }
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class CustomerServiceComponent implements OnInit {
   addCustomer(form1: NgForm) {
     this.validAddCustomer=false;
     this.SectionsDisplay=false;
+    this.SectionsDisplay1=false; 
     if (form1.value.company_id == "" || form1.value.company_id == undefined) {
       this.invalidAddCustomer= true;
       this.message = "Please select company.";
@@ -65,6 +68,9 @@ export class CustomerServiceComponent implements OnInit {
         if (status == 200) {
           this.validAddCustomer = true;
         this.productInfoDetails=(data ["response_body"]["product_details"]);
+        this.is_registerd= this.productInfoDetails.is_registerd;
+        if(this.is_registerd!=false)
+        {
         this.productrecalldetails=(data ["response_body"]["product_recall_details"])
         this. productbulletindetails=(data ["response_body"]["product_builtin_details"])
         this. productinformationdetails=(data ["response_body"]["product_information"])
@@ -89,7 +95,9 @@ export class CustomerServiceComponent implements OnInit {
         else{
           this.bulletinMessage="There are " +this.productbulletindetails.length+ " different service bullitin issued on this product";
         }
-        this.SectionsDisplay=true;  
+        this.SectionsDisplay1=true;  
+        }
+         this.SectionsDisplay=true;  
         this.message = data["response_message"];
           this.service.filter('Register click');
           this.resetForm();

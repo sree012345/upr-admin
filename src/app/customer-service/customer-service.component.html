@@ -3,7 +3,7 @@
 
 <div class="container">
     <h1 class="itemsLeft">Customer Service<span class="pull-right productRight">Modules / <span style="color: #3498db;"
-                class="productRight">Customer Service</span></span></h1>
+         class="productRight">Customer Service</span></span></h1>
 </div>
 <hr>
 <div class="container-fluid">
@@ -45,7 +45,12 @@
                             </div>
 
                         </div>
-
+                        <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCustomer">
+                            <div class="successMessages">{{message}}</div>
+                        </div>
+                        <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddCustomer">
+                            <div class="errorMessages">{{message}}</div>
+                        </div>
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-default btn1" data-dismiss="modal"
@@ -55,12 +60,7 @@
                     </form>
                 </div>
 
-                <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddCustomer">
-                    <div class="successMessages">{{message}}</div>
-                </div>
-                <div class="col-lg-12 text-left text-danger mr-top" *ngIf="invalidAddCustomer">
-                    <div class="errorMessages">{{message}}</div>
-                </div>
+               
 
             </div>
             <!-- Product Details -->
@@ -99,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="row productdetails" *ngIf="SectionsDisplay">
+            <div class="row productdetails" *ngIf="SectionsDisplay && SectionsDisplay1">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -128,7 +128,7 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 productdetails1" *ngIf="SectionsDisplay">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 productdetails1" *ngIf="SectionsDisplay && SectionsDisplay1">
                             <div class="product-content">
                                 <div class="modal-header1">
                                     <h4 class="product-title">Recall Information</h4>
@@ -144,7 +144,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 productdetails1" *ngIf="SectionsDisplay">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 productdetails1" *ngIf="SectionsDisplay && SectionsDisplay1">
                             <div class="product-content">
                                 <div class="modal-header1">
                                     <h4 class="product-title">Service Bulletin Information</h4>

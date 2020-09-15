@@ -24,7 +24,10 @@ export class ImportloadComponent implements OnInit {
     profile:any;
     fileName: string;
     file: File;
-    filename: string = null;
+    filename: string = null; 
+    logedin=localStorage.getItem('loggedinAdminUser');
+  companyId: any;
+  adminUserDetails: any;
     constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) { }
     uploadedFile(event) {
      
@@ -40,12 +43,13 @@ export class ImportloadComponent implements OnInit {
    
     }
     onSubmit() {
+      this.adminUserDetails=JSON.parse(this.logedin|| '{}');
+      this.companyId= this.adminUserDetails.company_id;
       const formData = new FormData();
       formData.append('file_data', this.uploadForm.get('profile').value);
-      formData.append("company_id",'1');
+      formData.append("company_id",this.companyId);
       this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(data =>
-        { 
-          
+        {           
           console.log("submit");
           console.log(data);
           console.log(formData)
@@ -55,8 +59,7 @@ export class ImportloadComponent implements OnInit {
          console.log("working");
           this.validAddBrand=true;
           this.invalidAddBrand=false;
-          this.message = data["response_message"];
-          
+          this.message = data["response_message"];          
         }
         else{
           console.log("not working");

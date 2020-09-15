@@ -19,7 +19,7 @@ export class AppComponent {
     
 // if(this.loggedin !=null && this.rememberMe=="true")
 // {
-//   this.router.navigateByUrl("productDetails");
+//   this.router.navigateByUrl("dashboard");
 // }
 // else{
 //   this.router.navigateByUrl("login");

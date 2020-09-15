@@ -51,7 +51,6 @@ const routes: Routes = [
   {path:'importDocumentLink',component:ImportDocumentAndLinkComponent},
   {path:'importBrandProtection',component:ImportBrandProtectionComponent}
 
-  
 ];
 
 @NgModule({
