@@ -23,6 +23,7 @@ import { ImportRecallComponent } from './importload/import-recall/import-recall.
 import {ImportServiceBulletinComponent} from './importload/import-service-bulletin/import-service-bulletin.component';
 import { ImportDocumentAndLinkComponent } from './importload/import-document-and-link/import-document-and-link.component';
 import { ImportBrandProtectionComponent } from './importload/import-brand-protection/import-brand-protection.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -49,8 +50,9 @@ const routes: Routes = [
   {path:'importRecall',component:ImportRecallComponent},
   {path:'importServiceBulletin',component:ImportServiceBulletinComponent},
   {path:'importDocumentLink',component:ImportDocumentAndLinkComponent},
-  {path:'importBrandProtection',component:ImportBrandProtectionComponent}
-
+  {path:'importBrandProtection',component:ImportBrandProtectionComponent},
+  {path:'settings',component:SettingsComponent}
+  
 ];
 
 @NgModule({
