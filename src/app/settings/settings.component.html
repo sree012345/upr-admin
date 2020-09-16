@@ -30,18 +30,18 @@
     <div class="tab-pane fade show  active" id="edit_profile" role="tabpanel" class="profile-edit tab-pane fade">
         <h2>Manage Your Profile</h2>
         <br>
-        <form class="form form-horizontal">
+        <form #form="ngForm" (submit)="editProfile(form)" autocomplete="off"class="form form-horizontal">
             <div class="row form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="firstName" class="col-lg-4 control-label">First Name </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="Andy">
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name"  name="first_name" #first_name="ngModel"  [(ngModel)]="profileDetails.first_name">
                     </div>			
                 </div>
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="lastName" class="col-lg-4 control-label">Last Name </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="lastName" placeholder="Rachmiel">
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="last_name" #last_name="ngModel"  [(ngModel)]="profileDetails.last_name">
                     </div>
                 </div>
             </div>
@@ -49,13 +49,13 @@
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="firstName" class="col-lg-4 control-label">Email Address </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="Andy@sampleco.com">
+                        <input type="text" class="form-control" id="firstName" placeholder="Email Address"  name="email" #email="ngModel"  [(ngModel)]="profileDetails.email">
                     </div>			
                 </div>
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="lastName" class="col-lg-4 control-label">Phone Number </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="630-635-5000">
+                        <input type="text" class="form-control"  placeholder="Phone Number"  name="phone" #phone="ngModel"  [(ngModel)]="profileDetails.phone">
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
            <label  class="col-lg-2 control-label">Street Address </label>
            
            <div class="set col-lg-10 col-md-10">
-               <input type="text" class="form-control" id="currentPass" placeholder="115 West Lake Drive, Suite 300">
+               <input type="text" class="form-control" id="currentPass" placeholder="Street Address"  name="address" #address="ngModel"  [(ngModel)]="profileDetails.address">
            </div>
                 </div>
             </div>
@@ -72,13 +72,13 @@
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="firstName" class="col-lg-4 control-label">City </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="Glendale Heights">
+                        <input type="text" class="form-control" id="firstName" placeholder="City"  name="city" #city="ngModel"  [(ngModel)]="profileDetails.city">
                     </div>			
                 </div>
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="lastName" class="col-lg-4 control-label">State / Provice </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="Illinois">
+                        <input type="text" class="form-control"  placeholder="State / Provice"  name="state_province" #state_province="ngModel"  [(ngModel)]="profileDetails.state_province">
                     </div>
                 </div>
             </div>
@@ -86,18 +86,21 @@
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="firstName" class="col-lg-4 control-label">Zip / Postal Code </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="60139">
+                        <input type="text" class="form-control" id="firstName" placeholder="Zip / Postal Code"  name="postal_code" #postal_code="ngModel"  [(ngModel)]="profileDetails.postal_code">
                     </div>			
                 </div>
                 <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label for="lastName" class="col-lg-4 control-label">Country </label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="United States">
+                        <input type="text" class="form-control"  placeholder="Country"  name="country" #country="ngModel"  [(ngModel)]="profileDetails.country">
                     </div>
                 </div>
             </div>
-            <div style="text-align:right">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div  class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <div class="successMessages">{{message}}</div>
+                   </div>
+                <div style="text-align:right" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <button type="button" class="btn btn-default rounded" style="border-color:#ccc" data-dismiss="modal">Cancel</button>
                     <input type="submit" class="btn btn-secondary rounded align" value="Submit" name="submit" id="submit">
                 </div>
@@ -109,12 +112,12 @@
  <div class="tab-pane" id="Change_Password" role="tabpanel" class="profile-edit tab-pane fade">
      <h2>Manage Your Password</h2>
      <br>
-     <form class="form form-horizontal">
+     <form #form1="ngForm" (submit)="changePassword(form1)" autocomplete="off" class="form1 form-horizontal">
          <div class="form-group">
              <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <label  class="col-lg-2  control-label">Current Password </label>
         <div class="col-lg-10">
-            <input type="email" class="form-control" id="currentPass" placeholder="">
+            <input type="password" class="form-control" id="currentPass" placeholder="" name="oldpassword" #oldpassword="ngModel"  [(ngModel)]="chngePasswrd.oldpassword">
         </div>
              </div>
          </div>
@@ -122,7 +125,7 @@
             <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
        <label  class="col-lg-2  control-label">New Password </label>
        <div class="col-lg-10">
-           <input type="email" class="form-control" id="currentPass" placeholder="">
+           <input type="password" class="form-control" id="currentPass" placeholder="" name="newpassword" #newpassword="ngModel"  [(ngModel)]="chngePasswrd.newpassword">
        </div>
             </div>
         </div>
@@ -130,12 +133,16 @@
             <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
        <label  class="col-lg-2  control-label">Confirm Password</label>
        <div class="col-lg-10">
-           <input type="email" class="form-control" id="currentPass" placeholder="">
+           <input type="password" class="form-control" id="currentPass" placeholder="" name="confirmpswd" #confirmpswd="ngModel"  [(ngModel)]=ConFirmPswd>
        </div>
             </div>
         </div>
-        <div style="text-align:right">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                   <div class="errorMessages" *ngIf="inValidChangePassword">{{message}}</div>
+            <div class="successMessages" *ngIf="validChangePassword">{{message}}</div>
+           </div>
+        <div style="text-align:right" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <button type="button" class="btn btn-default rounded" style="border-color:#ccc" data-dismiss="modal">Cancel</button>
                 <input type="submit" class="btn btn-secondary rounded" value="Submit" name="submit" id="submit">
             </div>
@@ -146,7 +153,7 @@
  <div class="tab-pane" id="Notification_Settings" role="tabpanel" class="profile-edit tab-pane fade">
     <h2>Manage Your Notifications</h2>
     <br>
-    <form action="#" class="sky-form">
+    <form #form2="ngForm" (submit)="manageSettings(form2)" autocomplete="off" class="form2 form-horizontal">
         <div class="form-group">
             <br>
 
@@ -157,7 +164,7 @@
                </div>
                <div class="col-lg-1">
                <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox"  name="auth" #auth="ngModel"  [(ngModel)]=Auth>
                 <span class="slider"></span>
               </label>
             </div>

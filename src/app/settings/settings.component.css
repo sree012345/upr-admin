@@ -297,6 +297,8 @@ label {
     content:'ON';
     margin-left: 3px;
   }
+
+ 
  
  
   /* Hide default HTML checkbox */
@@ -354,3 +356,11 @@ opacity: 1;
     transform: translateX(26px);
   }
   
+.successMessages
+{
+    color: #17b115;
+}
+.errorMessages
+{
+    color: #dc3545;
+}
