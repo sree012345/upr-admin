@@ -18,4 +18,9 @@ export class SettingsService {
     console.log(this.APIBaseUrl+'AdminUser/change_password',changePassword);
     return this.http.post<any>(this.APIBaseUrl+'AdminUser/change_password',changePassword);
   }
+  notificationSettings(settings)
+  {
+    console.log(this.APIBaseUrl+'AdminUser/update_notification_settings',settings);
+    return this.http.post<any>(this.APIBaseUrl+'AdminUser/update_notification_settings',settings);
+  }
 }

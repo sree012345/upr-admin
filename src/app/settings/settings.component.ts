@@ -113,7 +113,17 @@ export class SettingsComponent implements OnInit {
 
   manageSettings(form2?: NgForm)
   {
-    console.log(form2.value)
-
+    this.settingDetails=new NotificationSettings()
+    this.settingDetails.user_id=Number(this.loginDetails.admin_user_id);
+    this.settingDetails.scan_alert=form2.value.scan_alert;
+    this.settingDetails.counterfeit_alert=form2.value.counterfeit_alert;
+    this.settingDetails.recal_alert=form2.value.recal_alert;
+    this.service.notificationSettings(this.settingDetails).subscribe(data => {
+      console.log(data)
+      var status = data["response_code"];
+      if (status == 200) {
+        this.message =data["message"];
+      }
+    })
   }
 }
