@@ -17,3 +17,10 @@ export class ChangePassword{
     oldpassword:string;
     newpassword:string;
 }
+
+export class NotificationSettings{
+    user_id:number;
+    scan_alert:boolean;
+    counterfeit_alert:boolean;
+    recal_alert:boolean;
+}

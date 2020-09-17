@@ -164,7 +164,7 @@
                </div>
                <div class="col-lg-1">
                <label class="switch">
-                <input type="checkbox"  name="auth" #auth="ngModel"  [(ngModel)]=Auth>
+                <input type="checkbox"  name="scan_alert" #scan_alert="ngModel"  [(ngModel)]=settingDetails.scan_alert>
                 <span class="slider"></span>
               </label>
             </div>
@@ -180,7 +180,7 @@
                    </div>
                    <div class="col-lg-1">
                    <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox"  name="counterfeit_alert" #counterfeit_alert="ngModel"  [(ngModel)]=settingDetails.counterfeit_alert>
                     <span class="slider"></span>
                   </label>
                 </div>
@@ -195,7 +195,7 @@
                        </div>
                        <div class="col-lg-1">
                        <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox"  name="recal_alert" #recal_alert="ngModel"  [(ngModel)]=settingDetails.recal_alert>
                         <span class="slider"></span>
                       </label>
                     </div>

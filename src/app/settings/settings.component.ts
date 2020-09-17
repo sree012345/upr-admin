@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ChangePassword, EditProfile } from '../models/settings_model';
+import { ChangePassword, EditProfile, NotificationSettings } from '../models/settings_model';
 import { SettingsService } from '../services/settings.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class SettingsComponent implements OnInit {
   validChangePassword:boolean=false;
   Auth:string;
   ConFirmPswd:string;
+  settingDetails:NotificationSettings=new NotificationSettings();
   profileDetails:EditProfile= new EditProfile(); 
   chngePasswrd:ChangePassword= new ChangePassword();
   logedin=localStorage.getItem('loggedinAdminUser');
