@@ -16,6 +16,7 @@ export class PushNotificationService {
 
   sendPushNotification(notificationData)
   {
+    console.log(notificationData);
     console.log(this.APIBaseUrl+'pushnotification/send_push_notification',notificationData)
     return this.http.post<any>(this.APIBaseUrl+'pushnotification/send_push_notification',notificationData);
   }

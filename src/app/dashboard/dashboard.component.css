@@ -319,3 +319,18 @@ i.icon-bg-u {
        padding: 20px;
       }
     
+      @media(max-width:767px){
+        .productRight
+      {
+        font-size: 11px;
+        
+      }
+      
+      .itemsLeft
+      {
+       
+        font-size: 14px;
+       
+      }
+      
+      }

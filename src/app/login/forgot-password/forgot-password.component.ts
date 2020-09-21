@@ -20,9 +20,12 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(form: NgForm){
+    this.resetForm();
+    this.validForgotPassword=false;
     if(form.invalid==true){
       console.log(form.invalid)
       this.message1="*Please Enter Email Id";
+      
      }
      else{
       this.service.forgotPassword(form.value.email_id).subscribe((res) => {
@@ -38,6 +41,17 @@ export class ForgotPasswordComponent implements OnInit {
       })
      }
       
+    }
+
+    resetForm(form?: NgForm) {
+      if (form = null)
+        form.resetForm();
+      this.service.formData = {
+        email:null,
+        password:""
+        
+      }
+  
     }
     cancel(){
       this.dialogz.closeAll()

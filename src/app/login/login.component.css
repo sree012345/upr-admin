@@ -87,9 +87,14 @@ border-radius: 42px;;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 32px !important;
-    padding-right: 32px !important;
+    /* padding-left: 32px !important;
+    padding-right: 32px !important; */
     margin-top: 50px;
+    
+}
+.row{
+  margin-left:0px;
+  margin-right:0px;
 }
 
 .icons
@@ -101,7 +106,9 @@ border-radius: 42px;;
     width: 18px;
     color:#3498db;
 }
-
+.remember{
+  margin-left:8px;
+}
 .input-icons
 {
     width: 100%;
@@ -568,4 +575,14 @@ h2{
 .loginError
 {
   height: 20px;
+}
+@media(max-width:768px){
+  .row{
+    margin-left:0px;
+    margin-right:0px;
+  }
+  .remember{
+    margin-left:2px;
+  }
+
 }

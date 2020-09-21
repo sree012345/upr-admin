@@ -5,7 +5,8 @@ import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { Router } from '@angular/router';
-import { ForgotPassword, SignUp } from '../models/Login-model';
+import {  SignUp } from '../models/Login-model';
+import {ForgotPassword} from '../models/forgotpassword-model';
 import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
 
 
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   show: boolean;
   visible:boolean=false;
   signUpData:SignUp=new SignUp();
+  forgotPassword:ForgotPassword=new ForgotPassword();
   emailId:string='';
   validForgotPassword:boolean=false;
   inValidForgotPassword:boolean=false;
@@ -30,7 +32,9 @@ export class LoginComponent implements OnInit {
   inValidLogin:boolean=false;
   validLogin:boolean=false;
   message2: string;
-  constructor(private router: Router,public service:AdminloginService,private dialog: MatDialog) { }
+  constructor(private router: Router,public service:AdminloginService,private dialog: MatDialog) { 
+   
+  }
 
   ngOnInit(): void {
   }
@@ -79,21 +83,28 @@ export class LoginComponent implements OnInit {
 
   
 
-  ForgotPassword(email)
+  ForgotPassword(form2: NgForm)
   {
-   
+    console.log(form2.value.email);
+    console.log("password");
+    this.inValidForgotPassword=false;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if(email.match(mailformat))
+    // console.log(form1.value.email);
+    if(form2.value.email.match(mailformat))
     {
       
-    this.service.forgotPassword(email).subscribe((res) => {
+    this.service.forgotPassword(form2.value.email).subscribe((res) => {
       var status = res["response_code"];
      if(status==200){
         this.validForgotPassword=true;
         this.inValidForgotPassword=false;
         this.message1=res["response_message"];
+        this.resetForm();
+
+      
      }
      else{
+      this.resetForm();
       this.validForgotPassword=false;
       this.inValidForgotPassword=true;
       this.message1="Email is is not registerd with us.";
@@ -102,10 +113,14 @@ export class LoginComponent implements OnInit {
     }
     else
     {
+      this.resetForm();
       this.inValidForgotPassword=true;
       this.message1="* Invalid email Address";
     }
   }
+
+
+
 
   SignUp()
   {
@@ -121,18 +136,44 @@ export class LoginComponent implements OnInit {
   }
 
   openModal(){
+    this.resetForm();
     this.signUpData=new SignUp
+    this.forgotPassword=new ForgotPassword
     this.validForgotPassword=false;
     this.inValidForgotPassword=false;
     this.validSignUp=false;
     this.inValidSignUp=false;
+   
     // const buttonModal = document.getElementById("openModalButton")
     // console.log('buttonModal', buttonModal)
     // buttonModal.click()
   }
+
+  //   resetForm(form1?: NgForm) {
+  //   if (form1 = null)
+  //     form1.resetForm();
+  //     this.service.formData1 = {
+  //     email:""
+      
+  
+      
+  //   }
+
+  // }
+  resetForm(form2?: NgForm) {
+   
+    if (form2 = null)
+      form2.resetForm();
+    this.service.formData1 = {
+     email:""
+      
+    }
+
+  }
+
  modelClose()
  {
-  this.emailId='';
+  this.resetForm();
   this.validForgotPassword=false;
   this.inValidForgotPassword=false;
  }
@@ -196,4 +237,5 @@ export class LoginComponent implements OnInit {
        }
      
     }
+
 }

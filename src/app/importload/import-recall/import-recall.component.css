@@ -378,3 +378,24 @@ input[type="file" i] {
     margin-bottom:20px;
 }
 
+@media(max-width:767px){
+
+.pull-right
+  {
+    font-size: 15px !important;
+    
+  }
+  
+h1
+  {
+   
+    font-size: 16px;
+   
+  }
+  hr{
+      margin-top:2rem;
+      margin-bottom:2rem;
+  }
+  
+  }
+

@@ -19,6 +19,7 @@ export class SettingsComponent implements OnInit {
   logedin=localStorage.getItem('loggedinAdminUser');
   loginDetails: any;
   message: any;
+  message1:any;
   constructor(public service: SettingsService) { }
 
   ngOnInit(): void {
@@ -49,7 +50,7 @@ export class SettingsComponent implements OnInit {
     this.service.editProfile(this.profileDetails).subscribe(data => {
       var status = data["response_code"];
       if (status == 200) {
-        this.message ="User profile updated successfully";
+        this.message1 ="User profile updated successfully";
       }
     })
   }

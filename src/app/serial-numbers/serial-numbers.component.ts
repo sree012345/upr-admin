@@ -44,7 +44,6 @@ export class SerialNumbersComponent implements OnInit {
     this.adminUserDetails.company_id= this.adminUserDetails.company_id;
     this.loadserialNumberlist();
     this.service.get_productlist(this.adminUserDetails.company_id).subscribe(data => {
-      console.log(data)
       this.productlist = (data["response_body"]["products_details"]);
     });
   }
@@ -64,7 +63,11 @@ export class SerialNumbersComponent implements OnInit {
     this.listData.filter = filtervalue.trim().toLocaleLowerCase();
   }
   addSerialNumber(form1:NgForm)
+ 
   {
+  
+    this.validAddSerialNumber=false;
+    
     if(form1.value.product_id=="" || form1.value.product_id==undefined)
     {
       this.inValidAddSerialNumber=true;
@@ -89,6 +92,8 @@ export class SerialNumbersComponent implements OnInit {
         this.validAddSerialNumber=true;
         this.message=data["response_message"]
         this.service.filter('Register click');
+        this.resetForm();
+      
       }
       
       
@@ -97,10 +102,30 @@ export class SerialNumbersComponent implements OnInit {
   }
   addSerialButtonClicked()
   {
+    console.log("serial");
+    this.resetForm();
+    this.validAddSerialNumber=false;
+    this.inValidAddSerialNumber=false;
+
+
     // const dialogConfig = new MatDialogConfig();
     // dialogConfig.autoFocus = false;
     // dialogConfig.width = "100%";
     // this.dialog.open(AddSerialNumberComponent);
+  }
+  resetForm(form?: NgForm) {
+    if (form = null)
+      form.resetForm();
+    this.service.formData = {
+      serial_number:"",
+      product_id:null
+    }
+
+  }
+  CloseModel() {
+   this.resetForm();
+    this.service.filter('Register click');
+    
   }
   updateSerialButtonClicked()
   {
@@ -123,5 +148,7 @@ export class SerialNumbersComponent implements OnInit {
       }
     })
   }
+
+
   
 }

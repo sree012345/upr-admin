@@ -553,7 +553,8 @@ font-size: 13px;
 .Search
 {
 display: flex;
-margin-bottom: 1rem !important;
+margin-bottom: 2rem !important;
+margin-top:2rem !important;
 padding-right: 0px;
 }
 .searchLabel
@@ -634,5 +635,21 @@ border-right: 0px !important;
 .pd-top
 {
   padding: 40px 0px 40px 0px;
+
+}
+
+@media(max-width:767px){
+  .productRight
+{
+  font-size: 11px;
+  
+}
+
+.itemsLeft
+{
+ 
+  font-size: 15px;
+ 
+}
 
 }

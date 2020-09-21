@@ -292,3 +292,19 @@ input[type="file" i] {
   position: relative;
   z-index: 2;
 }
+
+@media(max-width:767px){
+  .productRight
+{
+  font-size: 11px;
+  
+}
+
+.itemsLeft
+{
+ 
+  font-size: 14px;
+ 
+}
+
+}

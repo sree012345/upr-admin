@@ -605,3 +605,19 @@ mat-form-field-wrapper
     opacity: 0.54 !important;
     color: #f70b0b!important;
 }
+
+@media(max-width:767px){
+  .productRight
+{
+  font-size: 11px;
+  
+}
+
+.itemsLeft
+{
+ 
+  font-size: 14px;
+ 
+}
+
+}

@@ -80,7 +80,7 @@ style="display: none;" aria-hidden="true">
 
         <h4 class="modal-title" style="text-align: center;">Add a New Serial Number</h4>
 
-        <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close">&times;</span>
+        <span aria-hidden="true" class="close" data-dismiss="modal" aria-label="Close" (click)="CloseModel()">&times;</span>
 
       </div>
 
@@ -90,7 +90,7 @@ style="display: none;" aria-hidden="true">
           <div class="input-icons">
             <label class="labelColor" for="Product">Item Name</label>
             <select class="form-control1 select-name" name="product_id" placeholder="Select Item Name"
-                #product_id="ngModel" [(ngModel)]="productId">
+                #product_id="ngModel" [(ngModel)]="service.formData.product_id">
                 <option disabled [selected]="true" value="">Item Name</option>
                 <option *ngFor="let option of productlist" [value]="option['product_id']">
                     {{option['product_name']}}</option>
@@ -100,7 +100,7 @@ style="display: none;" aria-hidden="true">
         <div class="input-icons1">
           <label class="labelColor" for="serial number">Serial Number</label>
           <input dobMask class="form-control1" type="text" placeholder="Enter Serial Number"
-              name="serial_number" #serial_number="ngModel" [ngModel]="serialNumber"
+              name="serial_number" #serial_number="ngModel" [ngModel]="service.formData.serial_number"
               required>
       </div>
           <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddSerialNumber">

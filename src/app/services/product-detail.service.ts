@@ -38,8 +38,8 @@ export class ProductDetailService {
     prod.product_reference_number=add.product_reference_number;
     prod.content_management_req=Boolean(add.content_management_req);
     prod.counterfeit_req=Boolean(add.counterfeit_req)
-    prod.forms_req=Boolean(add.forms_req)
     prod.recall_req=Boolean(add.recall_req);
+    prod.forms_req=Boolean(add.forms_req)
     console.log(this.APIBaseUrl+'admin/add_product',prod);
     return this.http.post<any>(this.APIBaseUrl+'admin/add_product',prod);
   }
@@ -56,8 +56,8 @@ export class ProductDetailService {
     }
     prod.content_management_req=Boolean(add.content_management_req);
     prod.counterfeit_req=Boolean(add.counterfeit_req)
-    prod.forms_req=Boolean(add.forms_req)
     prod.recall_req=Boolean(add.recall_req);
+    prod.forms_req=Boolean(add.forms_req)
     console.log(this.APIBaseUrl+'admin/update_product',prod);
     return this.http.post<any>(this.APIBaseUrl+'admin/update_product',prod);
   }

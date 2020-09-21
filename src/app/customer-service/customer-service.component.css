@@ -244,3 +244,19 @@
 {
     color: #dc3545;
 }
+
+@media(max-width:767px){
+  .productRight
+{
+  font-size: 11px;
+  
+}
+
+.itemsLeft
+{
+ 
+  font-size: 14px;
+ 
+}
+
+}
