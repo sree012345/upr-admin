@@ -9,7 +9,7 @@ import { adminAdduser } from '../models/adminAdduser-model';
   styleUrls: ['./admin-adduser.component.css']
 })
 export class AdminAdduserComponent implements OnInit {
-  validAddUser:boolean=false;
+  validAddUser:boolean=true;
   invalidAdduser:boolean=false;
   message:any;
   message1:any;
@@ -112,19 +112,18 @@ export class AdminAdduserComponent implements OnInit {
   
     else {
       console.log(form1.value.company_id);
-      debugger
       this.invalidAdduser = false;
       this.service.addAdmiuser(form1.value).subscribe(data => {
         var status = data["response_code"];
         if (status == 200) {
           this.validAddUser = true;
           this.invalidAdduser=false;
-          this.message = data["response_message"];
+          this.message1 = data["response_message"];
           this.service.filter('Register click');
           this.resetForm();
         }
-        else (status == 201)
-        console.log("201");
+        else 
+       
         {
           this.invalidAdduser=true;
           this.validAddUser=false;

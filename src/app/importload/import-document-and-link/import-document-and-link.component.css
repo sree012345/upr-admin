@@ -377,4 +377,23 @@ input[type="file" i] {
     margin-top:20px;
     margin-bottom:20px;
 }
+@media(max-width:767px){
+    .productRight
+  {
+    font-size: 11px;
+    
+  }
+  
+h1
+  {
+   
+    font-size: 15px;
+   
+  }
+  hr{
+      margin-top:2rem;
+      margin-bottom:2rem;
+  }
+  
+  }
 

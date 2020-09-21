@@ -4,9 +4,7 @@ export class login{
    
 }
 
-export class ForgotPassword{
-    email:string;
-}
+
 
 
 export class SignUp{

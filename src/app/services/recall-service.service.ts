@@ -12,8 +12,8 @@ export class RecallServiceService {
   constructor(public http: HttpClient) { }
   formData = new addRecall()
   recallList(companyId) {
-    console.log(this.APIBaseUrl + 'admin/get_all_recall_list', { company_id: companyId });
-    return this.http.post<any>(this.APIBaseUrl + 'admin/get_all_recall_list', { company_id: companyId });
+    console.log(this.APIBaseUrl + 'admin/recall_submit_details', { company_id: companyId });
+    return this.http.post<any>(this.APIBaseUrl + 'admin/recall_submit_details', { company_id: companyId });
   }
   addrecalldetails(add: addRecall) {
     var recall = new addRecall();

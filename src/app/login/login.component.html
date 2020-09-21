@@ -56,8 +56,8 @@
         </div>
 
         <div class="row col-md-6 col-sm-6 form-block equal-height-column">
-            <div class="col-md-2 col-sm-2"></div>
-            <div class="col-md-8 col-sm-8 loginSection">
+            <div class="col-sm-2"></div>
+            <div class="col-lg-8 col-md-10 col-sm-8 col-xs-8 loginSection">
                 <div>
                 <form #form="ngForm" (submit)="onSubmit(form)" class="form" autocomplete="off">
                     <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 d-flex justify-content-center logo">
@@ -88,7 +88,7 @@
                             <div class="">
 
                                 <input class="input-field" type="checkbox" (click)="toggleVisibility($event)"><span
-                                    style="margin-left:8px;">Remember me?</span>
+                                    class="remember">Remember me?</span>
                             </div>
                             <a href="javascript:void(0)" type="button"  class="text-dark font-14 ml-auto lineundr fnt-18" data-toggle="modal" data-target="#openModal" (click)="openModal()">
                                 Forgot password?
@@ -124,7 +124,7 @@
               </form>
             </div>
             </div>
-            <div class="col-md-2 col-sm-2"></div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 </div>
@@ -139,14 +139,14 @@
                 <span aria-hidden="true" class="close" data-dismiss="modal" (click)="modelClose()" aria-label="Close">&times;</span>
              
             </div>
-             <!-- <form #form="ngForm" (submit)="submit(form)" class="form"> -->
+             <form #form2="ngForm" (submit)="ForgotPassword(form2)" autocomplete="off" class="form2">
             <div class="modal-body">
                 Enter the email for your sign in below. We'll send you a link and instructions to reset your password.
               
                 <div class="form-group"> 
                     <div class= input-icons>             
                      
-                    <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email Address"  name="email_id" #email_id="ngModel" [ngModel]="emailId"
+                    <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email Address"  name="email" #email="ngModel" [ngModel]="service.formData1.email"
                     required class="form-control1"   autocomplete="off" >
                 </div>               
                 </div>
@@ -161,9 +161,9 @@
             
             <div class="modal-footer">  
               <button type="button" data-dismiss="modal" (click)="modelClose()" class="btn btn-default">Cancel</button>
-              <button type="button" class="btn btn-primary" (click)="ForgotPassword(email_id.value)">Submit</button>
+              <button type="text" class="btn btn-primary">Submit</button>
             </div>
-        <!-- </form> -->
+        </form>
 
     </div>
   </div>

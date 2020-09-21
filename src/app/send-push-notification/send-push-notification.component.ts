@@ -23,7 +23,7 @@ export class SendPushNotificationComponent implements OnInit {
   loader_enable: boolean;
   message1: any;
   message: string;
-   constructor(public service: PushNotificationService) { }
+  constructor(public service: PushNotificationService) { }
   displayedColumns: string[] = ['select', 'user_id', 'email_id', 'platform'];
   selection = new SelectionModel<PeriodicElement>(true, []);
   listData: MatTableDataSource<PeriodicElement> | undefined;
@@ -54,58 +54,62 @@ export class SendPushNotificationComponent implements OnInit {
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.user_id + 1}`;
   }
- applyFilter(filtervalue : string){
+  applyFilter(filtervalue: string) {
     this.listData.filter = filtervalue.trim().toLocaleLowerCase();
   }
-  SendPushNotification(title,description)
-  {
-    if(title==""|| title==undefined)
-    {
-      this.errorMessageView=true;
-      this.message="Please enter notification title.";
+  SendPushNotification(title, description) {
+    this.errorMessageView = false;
+    if (title == "" || title == undefined) {
+      this.errorMessageView = true;
+      this.message = "Please enter notification title.";
     }
-    else if(description==""|| description==undefined)
-    {
-      this.errorMessageView=true;
-      this.message="Please enter notification description.";
-    }else
-    {
-    
-    this.sendPushNotificationData = new SendPushNotification();
-    this.selection.selected.forEach(item => {
-      let data={
-        token:item["token"],
-        type:item["platform"]
-      }
-      let userid=item["user_id"];
-      let emailid=item["email_id"];
-      this.sendPushNotificationData.token.push(data);
-      this.sendPushNotificationData.user_id.push(userid);
+    else if (description == "" || description == undefined) {
+      this.errorMessageView = true;
+      this.message = "Please enter notification description.";
+    } else {
+      console.log("work");
 
-    });
-    if (this.sendPushNotificationData.hasValues()) {
-      this.sendPushNotificationData.message_titile = title;
-      this.sendPushNotificationData.message_description = description;
-      console.log(this.sendPushNotificationData);
-       this.service.sendPushNotification(this.sendPushNotificationData).subscribe(res => {
-         console.log(res);
-         var status=res["status"];
-         var Responce_message=res["message"];
-         if(status==200)
-         {
-          this.messageTitle="";
-          this.messageDescription=""
-          this.errorMessageView=false;
-          this.successMessageView=true;
-          this.loader_enable=false;
-          this.message1=Responce_message;
-         }
-       });
+      this.sendPushNotificationData = new SendPushNotification();
+      this.selection.selected.forEach(item => {
+        let data = {
+          token: item["token"],
+          type: item["platform"]
+        }
+        let userid = item["user_id"];
+        let emailid = item["email_id"];
+        this.sendPushNotificationData.token.push(data);
+        this.sendPushNotificationData.user_id.push(userid);
+
+      });
+      if (this.sendPushNotificationData.hasValues()) {
+        this.sendPushNotificationData.message_titile = title;
+        this.sendPushNotificationData.message_description = description;
+        console.log(this.sendPushNotificationData);
+        this.service.sendPushNotification(this.sendPushNotificationData).subscribe(res => {
+           console.log("working");
+          //  console.log(res);
+          //  var status=res["status"];
+          //  var Responce_message=res["message"];
+          //  if(status==200)
+          //  {
+          //   this.messageTitle="";
+          //   this.messageDescription=""
+          //   this.errorMessageView=false;
+          //   this.successMessageView=true;
+          //   this.loader_enable=false;
+          //   this.message1="success";
+          //  }
+          //  else
+          //  {
+
+          //  }
+        });
+      }
+      else {
+        console.log("push");
+        this.errorMessageView = true;
+        this.message = "Please select atleast one customer.";
+      }
     }
-    else{
-      this.errorMessageView=true;
-      this.message="Please select atleast one customer.";
-    }
-  }
   }
 }

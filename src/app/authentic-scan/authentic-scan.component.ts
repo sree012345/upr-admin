@@ -45,6 +45,7 @@ pageEvents(event: any) {
   displaydata=['Item_Name','Serial_Number'];
   documentdata=['Item_Name','Document','url','Begin_Date','End_Date'];
   registerdProduct = ['Item_Name','serial_number','first_name','last_name','phone','email',"address"];
+  registerdRecall= ['Item_Name','serial_number','first_name','last_name','phone','email',"address"];
   userSecurity = ['first_name','last_name','email',"user_type","active"];
   
   constructor(matIconRegistry: MatIconRegistry,public service:SerialNumberService,public service1:ReportsService,public service2: ContentManagementService,public service3: RecallServiceService) { 
@@ -134,16 +135,16 @@ recallList()
     this.recallDetailsList = new MatTableDataSource(data["response_body"]["recall_details"]);
     this.recallDetails = data["response_body"]["recall_details"];
 
-    this.recallDetails.forEach(element => {
-      if (element.begin_date != null) {
-        let MailedDate = moment.utc(element.begin_date).format("MM-DD-YYYY");
-        element.begin_date = MailedDate;
-      }
-      if (element.end_date != null) {
-        let LastAppealDate = moment.utc(element.end_date).format("MM-DD-YYYY");
-        element.end_date = LastAppealDate;
-      }
-    });
+    // this.recallDetails.forEach(element => {
+    //   if (element.begin_date != null) {
+    //     let MailedDate = moment.utc(element.begin_date).format("MM-DD-YYYY");
+    //     element.begin_date = MailedDate;
+    //   }
+    //   if (element.end_date != null) {
+    //     let LastAppealDate = moment.utc(element.end_date).format("MM-DD-YYYY");
+    //     element.end_date = LastAppealDate;
+    //   }
+    // });
   });
 }
 
@@ -182,6 +183,11 @@ userSecurityList()
   {
     this.counter="User Security"
     this.userSecurityList();
+  }
+  if(s=="Recall")
+  {
+    this.counter="Recall"
+    this.recallList();
   }
 }
   applyFilter1(filtervalue : string){

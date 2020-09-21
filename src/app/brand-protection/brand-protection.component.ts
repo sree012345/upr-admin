@@ -121,6 +121,7 @@ toggleVisibility2(e){
  
 
   resetForm(form?: NgForm) {
+   
     if (form = null)
       form.resetForm();
     this.service.formData = {
@@ -138,6 +139,7 @@ toggleVisibility2(e){
   }
 
   openBrand(){
+    
     this.resetForm();
     this.validAddBrand=false;
     this.inValidAddBrand=false;
