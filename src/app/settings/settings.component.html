@@ -1,206 +1,424 @@
 <app-nav-bar></app-nav-bar>
 <div class="breadcrumbs">
-<div class="container">
-    <h1 class="itemsLeft">Settings<span class="pull-right productRight"><span class="productRight">Profile and Notification</span></span></h1>
+  <div class="container">
+    <h1 class="itemsLeft">
+      Settings<span class="pull-right productRight"
+        ><span class="productRight">Profile and Notification</span></span
+      >
+    </h1>
   </div>
 </div>
 <div class="container content profile">
-    <div class="shadow-wrapper">
-        <div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
-            <p >The settings page allows users to modify profile information and enable and disable a variety of notifications and alerts.</p>
-        </div>
+  <div class="shadow-wrapper">
+    <div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+      <p>
+        The settings page allows users to modify profile information and enable
+        and disable a variety of notifications and alerts.
+      </p>
     </div>
+  </div>
 
-    <ul class="nav nav-pills" id="pills-tab" role="tablist">
-        <li class="nav-item  col-lg-4 col-md-4 col-xs-12 col-sm-12">
-          <a class="nav-link active"  data-toggle="pill" href="#edit_profile" role="tab" aria-selected="true">Edit Profile</a>
-        </li>
-        <li class="nav-item col-lg-4 col-md-4 col-xs-12 col-sm-12">
-          <a class="nav-link"  data-toggle="pill" href="#Change_Password" role="tab"  aria-selected="false">Change Password</a>
-        </li>
-        <li class="nav-item col-lg-4 col-md-4 col-xs-12 col-sm-12">
-          <a class="nav-link"  data-toggle="pill" href="#Notification_Settings" role="tab"  aria-selected="false">Notification Settings</a>
-        </li>
-      </ul>
-      
-    <div class="tag-box-v1">
-    </div>
-    <div class="tab-content" id="pills-tabContent">
-    <!-----------------------Edit Profile-------------------------->  
-    <div class="tab-pane fade show  active" id="edit_profile" role="tabpanel">
-        <h2>Manage Your Profile</h2>
-        <br>
-        <form #form="ngForm" (submit)="editProfile(form)" autocomplete="off"class="form form-horizontal">
-            <div class="row form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="firstName" class="col-lg-4 control-label">First Name </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="First Name"  name="first_name" #first_name="ngModel"  [(ngModel)]="profileDetails.first_name">
-                    </div>			
-                </div>
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="lastName" class="col-lg-4 control-label">Last Name </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="last_name" #last_name="ngModel"  [(ngModel)]="profileDetails.last_name">
-                    </div>
-                </div>
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <li class="nav-item col-lg-4 col-md-4 col-xs-12 col-sm-12">
+      <a
+        class="nav-link active"
+        data-toggle="pill"
+        href="#edit_profile"
+        role="tab"
+        aria-selected="true"
+        >Edit Profile</a
+      >
+    </li>
+    <li class="nav-item col-lg-4 col-md-4 col-xs-12 col-sm-12">
+      <a
+        class="nav-link"
+        data-toggle="pill"
+        href="#Change_Password"
+        role="tab"
+        aria-selected="false"
+        >Change Password</a
+      >
+    </li>
+    <li class="nav-item col-lg-4 col-md-4 col-xs-12 col-sm-12">
+      <a
+        class="nav-link"
+        data-toggle="pill"
+        href="#Notification_Settings"
+        role="tab"
+        aria-selected="false"
+        >Notification Settings</a
+      >
+    </li>
+  </ul>
+
+  <div class="tag-box-v1"></div>
+  <div class="tab-content" id="pills-tabContent">
+    <!-----------------------Edit Profile-------------------------->
+    <div class="tab-pane fade show active" id="edit_profile" role="tabpanel">
+      <h2>Manage Your Profile</h2>
+      <br />
+      <form
+        #form="ngForm"
+        (submit)="editProfile(form)"
+        autocomplete="off"
+        class="form form-horizontal"
+      >
+        <div class="row form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="firstName" class="col-lg-4 control-label"
+              >First Name
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="First Name"
+                name="first_name"
+                #first_name="ngModel"
+                [(ngModel)]="profileDetails.first_name"
+              />
             </div>
-            <div class="row form-group  col-md-12 col-sm-12 col-xs-12">
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="firstName" class="col-lg-4 control-label">Email Address </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="Email Address"  name="email" #email="ngModel"  [(ngModel)]="profileDetails.email">
-                    </div>			
-                </div>
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="lastName" class="col-lg-4 control-label">Phone Number </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="Phone Number"  name="phone" #phone="ngModel"  [(ngModel)]="profileDetails.phone">
-                    </div>
-                </div>
+          </div>
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="lastName" class="col-lg-4 control-label"
+              >Last Name
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Last Name"
+                name="last_name"
+                #last_name="ngModel"
+                [(ngModel)]="profileDetails.last_name"
+              />
             </div>
-           
-            <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                
-           <label  class="col-lg-2  control-label">Street Address </label>
-           <div class="col-lg-10">
-            <input type="text" class="form-control" id="currentPass" placeholder="Street Address"  name="address" #address="ngModel"  [(ngModel)]="profileDetails.address">
-           </div>
-           
-            </div>
-            <div class="row form-group  col-md-12 col-sm-12 col-xs-12">
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="firstName" class="col-lg-4 control-label">City </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="City"  name="city" #city="ngModel"  [(ngModel)]="profileDetails.city">
-                    </div>			
-                </div>
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="lastName" class="col-lg-4 control-label">State / Provice </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="State / Provice"  name="state_province" #state_province="ngModel"  [(ngModel)]="profileDetails.state_province">
-                    </div>
-                </div>
-            </div>
-            <div class="row form-group  col-md-12 col-sm-12 col-xs-12">
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="firstName" class="col-lg-4 control-label">Zip / Postal Code </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control" id="firstName" placeholder="Zip / Postal Code"  name="postal_code" #postal_code="ngModel"  [(ngModel)]="profileDetails.postal_code">
-                    </div>			
-                </div>
-                <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label for="lastName" class="col-lg-4 control-label">Country </label>
-                    <div class="col-lg-8">
-                        <input type="text" class="form-control"  placeholder="Country"  name="country" #country="ngModel"  [(ngModel)]="profileDetails.country">
-                    </div>
-                </div>
-            </div>
-            <div  class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                    <div class="successMessages">{{message1}}</div>
-                   </div>
-                <div style="text-align:right" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <button type="button" class="btn btn-default rounded" style="border-color:#ccc" data-dismiss="modal">Cancel</button>
-                    <input type="submit" class="btn btn-secondary rounded align" value="Submit" name="submit" id="submit">
-                </div>
-            </div>
-            </form>   
+          </div>
         </div>
-    
- <!-----------------------Change Password-------------------------->
- <div class="tab-pane" id="Change_Password" role="tabpanel" class="profile-edit tab-pane fade">
-     <h2>Manage Your Password</h2>
-     <br>
-     <form #form1="ngForm" (submit)="changePassword(form1)" autocomplete="off" class="form1 form-horizontal">
-         <div class="form-group">
-             <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <label  class="col-lg-2  control-label">Current Password </label>
-        <div class="col-lg-10">
-            <input type="password" class="form-control" id="currentPass" placeholder="" name="oldpassword" #oldpassword="ngModel"  [(ngModel)]="chngePasswrd.oldpassword">
-        </div>
-             </div>
-         </div>
-         <div class="form-group">
-            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-       <label  class="col-lg-2  control-label">New Password </label>
-       <div class="col-lg-10">
-           <input type="password" class="form-control" id="currentPass" placeholder="" name="newpassword" #newpassword="ngModel"  [(ngModel)]="chngePasswrd.newpassword">
-       </div>
+        <div class="row form-group col-md-12 col-sm-12 col-xs-12">
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="firstName" class="col-lg-4 control-label"
+              >Email Address
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="Email Address"
+                name="email"
+                #email="ngModel"
+                [(ngModel)]="profileDetails.email"
+              />
             </div>
-        </div>
-        <div class="form-group">
-            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-       <label  class="col-lg-2  control-label">Confirm Password</label>
-       <div class="col-lg-10">
-           <input type="password" class="form-control" id="currentPass" placeholder="" name="confirmpswd" #confirmpswd="ngModel"  [(ngModel)]=ConFirmPswd>
-       </div>
+          </div>
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="lastName" class="col-lg-4 control-label"
+              >Phone Number
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone Number"
+                name="phone"
+                #phone="ngModel"
+                [(ngModel)]="profileDetails.phone"
+              />
             </div>
+          </div>
+        </div>
+
+        <div class="form-group row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <label class="col-lg-2 control-label">Street Address </label>
+          <div class="col-lg-10">
+            <input
+              type="text"
+              class="form-control"
+              id="currentPass"
+              placeholder="Street Address"
+              name="address"
+              #address="ngModel"
+              [(ngModel)]="profileDetails.address"
+            />
+          </div>
+        </div>
+        <div class="row form-group col-md-12 col-sm-12 col-xs-12">
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="firstName" class="col-lg-4 control-label">City </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="City"
+                name="city"
+                #city="ngModel"
+                [(ngModel)]="profileDetails.city"
+              />
+            </div>
+          </div>
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="lastName" class="col-lg-4 control-label"
+              >State / Provice
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="State / Provice"
+                name="state_province"
+                #state_province="ngModel"
+                [(ngModel)]="profileDetails.state_province"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row form-group col-md-12 col-sm-12 col-xs-12">
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="firstName" class="col-lg-4 control-label"
+              >Zip / Postal Code
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="Zip / Postal Code"
+                name="postal_code"
+                #postal_code="ngModel"
+                [(ngModel)]="profileDetails.postal_code"
+              />
+            </div>
+          </div>
+          <div class="row col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label for="lastName" class="col-lg-4 control-label"
+              >Country
+            </label>
+            <div class="col-lg-8">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Country"
+                name="country"
+                #country="ngModel"
+                [(ngModel)]="profileDetails.country"
+              />
+            </div>
+          </div>
         </div>
         <div class="row">
-             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                   <div class="errorMessages" *ngIf="inValidChangePassword">{{message}}</div>
-            <div class="successMessages" *ngIf="validChangePassword">{{message}}</div>
-           </div>
-        <div style="text-align:right" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <button type="button" class="btn btn-default rounded" style="border-color:#ccc" data-dismiss="modal">Cancel</button>
-                <input type="submit" class="btn btn-secondary rounded" value="Submit" name="submit" id="submit">
-            </div>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="successMessages">{{ message1 }}</div>
+          </div>
+          <div
+            style="text-align: right"
+            class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+          >
+            <button
+              type="button"
+              class="btn btn-default rounded"
+              style="border-color: #ccc"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <input
+              type="submit"
+              class="btn btn-secondary rounded align"
+              value="Submit"
+              name="submit"
+              id="submit"
+            />
+          </div>
         </div>
-     </form>
-     </div>
-      <!-----------------------Notification Settings-------------------------->
- <div class="tab-pane" id="Notification_Settings" role="tabpanel" class="profile-edit tab-pane fade">
-    <h2>Manage Your Notifications</h2>
-    <br>
-    <form #form2="ngForm" (submit)="manageSettings(form2)" autocomplete="off" class="form2 form-horizontal">
-        <div class="form-group">
-            <br>
+      </form>
+    </div>
 
-            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="col-lg-11">
-               <b>UPR Scan Status</b>
-                <p>Send me email notifications each time a UPR Code is scanned.</p>
-               </div>
-               <div class="col-lg-1">
-               <label class="switch">
-                <input type="checkbox"  name="scan_alert" #scan_alert="ngModel"  [(ngModel)]=settingDetails.scan_alert>
+    <!-----------------------Change Password-------------------------->
+    <div
+      class="tab-pane"
+      id="Change_Password"
+      role="tabpanel"
+      class="profile-edit tab-pane fade"
+    >
+      <h2>Manage Your Password</h2>
+      <br />
+      <form
+        #form1="ngForm"
+        (submit)="changePassword(form1)"
+        autocomplete="off"
+        class="form1 form-horizontal"
+      >
+        <div class="form-group">
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label class="col-lg-2 control-label">Current Password </label>
+            <div class="col-lg-10">
+              <input
+                type="password"
+                class="form-control"
+                id="currentPass"
+                placeholder=""
+                name="oldpassword"
+                #oldpassword="ngModel"
+                [(ngModel)]="chngePasswrd.oldpassword"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label class="col-lg-2 control-label">New Password </label>
+            <div class="col-lg-10">
+              <input
+                type="password"
+                class="form-control"
+                id="currentPass"
+                placeholder=""
+                name="newpassword"
+                #newpassword="ngModel"
+                [(ngModel)]="chngePasswrd.newpassword"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label class="col-lg-2 control-label">Confirm Password</label>
+            <div class="col-lg-10">
+              <input
+                type="password"
+                class="form-control"
+                id="currentPass"
+                placeholder=""
+                name="confirmpswd"
+                #confirmpswd="ngModel"
+                [(ngModel)]="ConFirmPswd"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="errorMessages" *ngIf="inValidChangePassword">
+              {{ message }}
+            </div>
+            <div class="successMessages" *ngIf="validChangePassword">
+              {{ message }}
+            </div>
+          </div>
+          <div
+            style="text-align: right"
+            class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+          >
+            <button
+              type="button"
+              class="btn btn-default rounded"
+              style="border-color: #ccc"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <input
+              type="submit"
+              class="btn btn-secondary rounded"
+              value="Submit"
+              name="submit"
+              id="submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-----------------------Notification Settings-------------------------->
+    <div
+      class="tab-pane"
+      id="Notification_Settings"
+      role="tabpanel"
+      class="profile-edit tab-pane fade"
+    >
+      <h2>Manage Your Notifications</h2>
+      <br />
+      <form
+        #form2="ngForm"
+        (submit)="manageSettings(form2)"
+        autocomplete="off"
+        class="form2 form-horizontal"
+      >
+        <div class="form-group">
+          <br />
+
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-11">
+              <b>UPR Scan Status</b>
+              <p>
+                Send me email notifications each time a UPR Code is scanned.
+              </p>
+            </div>
+            <div class="col-lg-1">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  name="scan_alert"
+                  #scan_alert="ngModel"
+                  [(ngModel)]="settingDetails.scan_alert"
+                />
                 <span class="slider"></span>
               </label>
             </div>
-            </div>
+          </div>
         </div>
-            <div class="form-group">
-                <br>
-    
-                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="col-lg-11">
-                        <b>Counterfeit Scans</b>
-                   <p>Send me email notifications each time a potential counterfeit is detected.</p>
-                   </div>
-                   <div class="col-lg-1">
-                   <label class="switch">
-                    <input type="checkbox"  name="counterfeit_alert" #counterfeit_alert="ngModel"  [(ngModel)]=settingDetails.counterfeit_alert>
-                    <span class="slider"></span>
-                  </label>
-                </div>
-                </div></div>
-                <div class="form-group">
-                    <br>
-        
-                    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-lg-11">
-                            <b>Location Scans</b>
-                            <p>Send me email notifications each time a UPR Code is scanned outside of the United States.</p>
-                       </div>
-                       <div class="col-lg-1">
-                       <label class="switch">
-                        <input type="checkbox"  name="recal_alert" #recal_alert="ngModel"  [(ngModel)]=settingDetails.recal_alert>
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                    </div></div>
-        
+        <div class="form-group">
+          <br />
+
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-11">
+              <b>Counterfeit Scans</b>
+              <p>
+                Send me email notifications each time a potential counterfeit is
+                detected.
+              </p>
+            </div>
+            <div class="col-lg-1">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  name="counterfeit_alert"
+                  #counterfeit_alert="ngModel"
+                  [(ngModel)]="settingDetails.counterfeit_alert"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <br />
+
+          <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-11">
+              <b>Location Scans</b>
+              <p>
+                Send me email notifications each time a UPR Code is scanned
+                outside of the United States.
+              </p>
+            </div>
+            <div class="col-lg-1">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  name="recal_alert"
+                  #recal_alert="ngModel"
+                  [(ngModel)]="settingDetails.recal_alert"
+                />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
         <!-- <div class="form-group">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <label class="toggle"><input type="checkbox" checked="" name="checkbox-toggle2"><i class="no-rounded"></i></label>
@@ -215,13 +433,36 @@
             </div>
         </div>
          -->
-        <div style="text-align:right">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <button type="button" class="btn btn-default rounded" data-dismiss="modal">Cancel</button>
-                <input type="submit" class="btn btn-secondary rounded" value="Submit" name="submit" id="submit">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="errorMessages" *ngIf="inValidChangePassword">
+              {{ message }}
             </div>
+            <div class="successMessages">
+              {{ message }}
+            </div>
+          </div>
+          <div
+            style="text-align: right"
+            class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          >
+            <button
+              type="button"
+              class="btn btn-default rounded"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <input
+              type="submit"
+              class="btn btn-secondary rounded"
+              value="Submit"
+              name="submit"
+              id="submit"
+            />
+          </div>
         </div>
-    </form>
-     </div>
-     </div>
+      </form>
+    </div>
+  </div>
 </div>

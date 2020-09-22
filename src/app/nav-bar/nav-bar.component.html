@@ -1,94 +1,284 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top menubase">
-<div class="container">
+  <div class="container">
     <a class="navbar-brand" href="#">
-          <img src="{{logoUrl}}" alt="" class="nav-bar_img">
+      <img src="{{ logoUrl }}" alt="" class="nav-bar_img" />
     </a>
     <div class="topbar">
-			<ul class="navbar-nav ml-auto pull-right">
-				<li><a routerLink="../settings" ><i class="fa fa-cog"></i> Settings</a></li>
-				<li class="topbar-devider"></li>
-				<li><a class="signOut" (click)="logout()"><i class="fa fa-sign-out"></i> Sign Out</a></li>
-			</ul>
+      <ul class="navbar-nav ml-auto pull-right">
+        <li>
+          <a routerLink="../settings"><i class="fa fa-cog"></i> Settings</a>
+        </li>
+        <li class="topbar-devider"></li>
+        <li>
+          <a class="signOut" (click)="logout()"
+            ><i class="fa fa-sign-out"></i> Sign Out</a
+          >
+        </li>
+      </ul>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="fa fa-bars"></span>
-</button>
-</div>
+    </button>
+  </div>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top menulist">
   <div class="container">
-    
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="../dashboard" routerLinkActive="active">DASHBOARD
-                <span class="sr-only"></span>
+          <a
+            class="nav-link"
+            routerLink="../dashboard"
+            routerLinkActive="active"
+            >DASHBOARD
+            <span class="sr-only"></span>
           </a>
         </li>
-        
-        <li class="nav-item dropdown" *ngIf="PowerUserPrivilage || Adminprivilege || otherPrivilags">
+
+        <li
+          class="nav-item dropdown"
+          *ngIf="PowerUserPrivilage || Adminprivilege || otherPrivilags"
+        >
           <!-- <a class="nav-link" href="#">PRODUCTS</a> -->
-          <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            tabindex="-1"
+            href="#"
+            id="dropdownMenu1"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             PRODUCTS
-        </a>
-        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-          <li class="dropdown-item"><a routerLink="../productDetails" routerLinkActive="active">Items</a></li>
-          <li class="dropdown-item"><a routerLink="../serialNumber" routerLinkActive="active">Serial Numbers</a></li>
-          <li class="dropdown-submenu">
-            <a class="dropdown-item submenu" tabindex="-1" >Import</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item"><a tabindex="-1" routerLink="../load" routerLinkActive="active">Import Items</a></li>
-              <li class="dropdown-item"><a tabindex="-1"  routerLink="../importSerial" routerLinkActive="active">Import Serial Numbers</a></li>
-            </ul>
-          </li>
-        </ul>
+          </a>
+          <ul
+            class="dropdown-menu multi-level"
+            role="menu"
+            aria-labelledby="dropdownMenu"
+          >
+            <li class="dropdown-item">
+              <a routerLink="../productDetails" routerLinkActive="active"
+                >Items</a
+              >
+            </li>
+            <li class="dropdown-item">
+              <a routerLink="../serialNumber" routerLinkActive="active"
+                >Serial Numbers</a
+              >
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item submenu" tabindex="-1">Import</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <a
+                    tabindex="-1"
+                    routerLink="../load"
+                    routerLinkActive="active"
+                    >Import Items</a
+                  >
+                </li>
+                <li class="dropdown-item">
+                  <a
+                    tabindex="-1"
+                    routerLink="../importSerial"
+                    routerLinkActive="active"
+                    >Import Serial Numbers</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li class="nav-item dropdown" *ngIf="otherPrivilags">
-          <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            tabindex="-1"
+            href="#"
+            id="dropdownMenu1"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             MODULE
-        </a>
-        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege  || ReportingUserPrivialge"><a routerLink="../reporting" routerLinkActive="active">Reporting</a></li>
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege || CustomerServieUserPrivilage"><a routerLink="../customerService" routerLinkActive="active">Customer Service</a></li>
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="../brandProtection" routerLinkActive="active">Brand Protection</a></li>
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="../contentManagement" routerLinkActive="active">Content Management</a></li>
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="../recall" routerLinkActive="active">Recall Management</a></li>
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="../serviceBulletin" routerLinkActive="active">Service Bulletin</a></li>
-          <li class="dropdown-item" *ngIf="PowerUserPrivilage || Adminprivilege"><a routerLink="" routerLinkActive="active">Form Mangement</a></li>
-          <li class="dropdown-submenu" *ngIf="PowerUserPrivilage || Adminprivilege">
-            <a class="dropdown-item submenu" tabindex="-1" >Import</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item"><a tabindex="-1" routerLink="../importBrandProtection" routerLinkActive="active">Import Brand Protection Rule</a></li>
-              <li class="dropdown-item"><a tabindex="-1" routerLink="../importDocumentLink" routerLinkActive="active">Import Product Information</a></li>
-              <li class="dropdown-item"><a tabindex="-1" routerLink="../importRecall" routerLinkActive="active">Import Recalls</a></li>
-              <li class="dropdown-item"><a tabindex="-1" routerLink="../importServiceBulletin" routerLinkActive="active">Import Service Bulletins</a></li>
-            </ul>
-          </li>
-        </ul>
+          </a>
+          <ul
+            class="dropdown-menu multi-level"
+            role="menu"
+            aria-labelledby="dropdownMenu"
+          >
+            <li
+              class="dropdown-item"
+              *ngIf="
+                PowerUserPrivilage || Adminprivilege || ReportingUserPrivialge
+              "
+            >
+              <a routerLink="../reporting" routerLinkActive="active"
+                >Reporting</a
+              >
+            </li>
+            <li
+              class="dropdown-item"
+              *ngIf="
+                PowerUserPrivilage ||
+                Adminprivilege ||
+                CustomerServieUserPrivilage
+              "
+            >
+              <a routerLink="../customerService" routerLinkActive="active"
+                >Customer Service</a
+              >
+            </li>
+            <li
+              class="dropdown-item"
+              *ngIf="PowerUserPrivilage || Adminprivilege"
+            >
+              <a routerLink="../brandProtection" routerLinkActive="active"
+                >Brand Protection</a
+              >
+            </li>
+            <li
+              class="dropdown-item"
+              *ngIf="PowerUserPrivilage || Adminprivilege"
+            >
+              <a routerLink="../contentManagement" routerLinkActive="active"
+                >Content Management</a
+              >
+            </li>
+            <li
+              class="dropdown-item"
+              *ngIf="PowerUserPrivilage || Adminprivilege"
+            >
+              <a routerLink="../recall" routerLinkActive="active"
+                >Recall Management</a
+              >
+            </li>
+            <li
+              class="dropdown-item"
+              *ngIf="PowerUserPrivilage || Adminprivilege"
+            >
+              <a routerLink="../serviceBulletin" routerLinkActive="active"
+                >Service Bulletin</a
+              >
+            </li>
+            <li
+              class="dropdown-item"
+              *ngIf="PowerUserPrivilage || Adminprivilege"
+            >
+              <a>Form Mangement</a>
+            </li>
+            <li
+              class="dropdown-submenu"
+              *ngIf="PowerUserPrivilage || Adminprivilege"
+            >
+              <a class="dropdown-item submenu" tabindex="-1">Import</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <a
+                    tabindex="-1"
+                    routerLink="../importBrandProtection"
+                    routerLinkActive="active"
+                    >Import Brand Protection Rule</a
+                  >
+                </li>
+                <li class="dropdown-item">
+                  <a
+                    tabindex="-1"
+                    routerLink="../importDocumentLink"
+                    routerLinkActive="active"
+                    >Import Product Information</a
+                  >
+                </li>
+                <li class="dropdown-item">
+                  <a
+                    tabindex="-1"
+                    routerLink="../importRecall"
+                    routerLinkActive="active"
+                    >Import Recalls</a
+                  >
+                </li>
+                <li class="dropdown-item">
+                  <a
+                    tabindex="-1"
+                    routerLink="../importServiceBulletin"
+                    routerLinkActive="active"
+                    >Import Service Bulletins</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
-        
-          <li class="nav-item dropdown" *ngIf="otherPrivilags">
-            <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              SUPPORT
+
+        <li class="nav-item dropdown" *ngIf="otherPrivilags">
+          <a
+            class="nav-link dropdown-toggle"
+            tabindex="-1"
+            href="#"
+            id="dropdownMenu1"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            SUPPORT
           </a>
-          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-            <li class="dropdown-item"><a >Documentation</a></li>
+          <ul
+            class="dropdown-menu multi-level"
+            role="menu"
+            aria-labelledby="dropdownMenu"
+          >
+            <li class="dropdown-item"><a>Documentation</a></li>
             <li class="dropdown-item"><a>Support Portal</a></li>
-            <li class="dropdown-item"><a routerLink="../contactUs" routerLinkActive="active">Contact Us</a></li>
-            
+            <li class="dropdown-item">
+              <a routerLink="../contactUs" routerLinkActive="active"
+                >Contact Us</a
+              >
+            </li>
           </ul>
-          </li>
-          <li class="nav-item dropdown" *ngIf="Adminprivilege || devoloperPrivilage">
-            <a class="nav-link dropdown-toggle" tabindex="-1" href="#" id="dropdownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ADMINISTRATION
+        </li>
+        <li
+          class="nav-item dropdown"
+          *ngIf="Adminprivilege || devoloperPrivilage"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            tabindex="-1"
+            href="#"
+            id="dropdownMenu1"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            ADMINISTRATION
           </a>
-          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-            <li class="dropdown-item"><a routerLink="../adminAdduser" routerLinkActive="active">Add User</a></li>
-            <li class="dropdown-item" *ngIf= "devoloperPrivilage"><a routerLink="../company" routerLinkActive="active">Add Company</a></li>
-             
+          <ul
+            class="dropdown-menu multi-level"
+            role="menu"
+            aria-labelledby="dropdownMenu"
+          >
+            <li class="dropdown-item">
+              <a routerLink="../adminAdduser" routerLinkActive="active"
+                >Add User</a
+              >
+            </li>
+            <li class="dropdown-item" *ngIf="devoloperPrivilage">
+              <a routerLink="../company" routerLinkActive="active"
+                >Add Company</a
+              >
+            </li>
           </ul>
-          </li>
-         
+        </li>
       </ul>
     </div>
   </div>
