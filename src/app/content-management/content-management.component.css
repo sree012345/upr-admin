@@ -623,3 +623,10 @@ mat-form-field-wrapper
 }
 
 }
+
+::ng-deep .cdk-overlay-container {   
+   z-index:2000 !important;
+   position:fixed !important;
+
+  }
+

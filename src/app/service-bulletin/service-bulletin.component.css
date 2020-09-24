@@ -574,3 +574,9 @@ mat-form-field-wrapper {
     font-size: 14px;
   }
 }
+
+::ng-deep .cdk-overlay-container {   
+  z-index:2000 !important;
+  position:fixed !important;
+
+ }

@@ -13,6 +13,7 @@ export class AdminAdduserComponent implements OnInit {
   invalidAdduser:boolean=false;
   message:any;
   message1:any;
+  ConFirmPswd:string;
   invalidAdduser1:boolean=false;
   companyName:string;
   companyId:number;  
@@ -113,6 +114,16 @@ export class AdminAdduserComponent implements OnInit {
       this. invalidAdduser = true;
       this.message = "Please enter Password";
     }
+
+    else if (form1.value.password== "" || form1.value.confirmpswd== undefined) {
+      this. invalidAdduser = true;
+      this.message = "Please enter Confirm Password";
+    }
+    else if(form1.value.password != form1.value.confirmpswd){
+      this. invalidAdduser = true;
+      this.message="password and confirm passwor is not match";
+    }
+
     else if (form1.value.user_role== "" || form1.value.user_role== undefined) {
       this. invalidAdduser = true;
       this.message = "Please enter User Role";
@@ -126,6 +137,7 @@ export class AdminAdduserComponent implements OnInit {
       this.service.addAdmiuser(form1.value).subscribe(data => {
         var status = data["response_code"];
         if (status == 200) {
+          this.ConFirmPswd = '';
           this.validAddUser = true;
           this.invalidAdduser=false;
           this.message1 = data["response_message"];
@@ -135,6 +147,7 @@ export class AdminAdduserComponent implements OnInit {
         else 
        
         {
+          this.ConFirmPswd = '';
           this.invalidAdduser=true;
           this.validAddUser=false;
           this.message = data["response_message"];

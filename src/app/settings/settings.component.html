@@ -45,9 +45,9 @@
         data-toggle="pill"
         href="#Notification_Settings"
         role="tab"
-        aria-selected="false"
-        >Notification Settings</a
-      >
+        aria-selected="false" (click)="toggle()"
+        >Notification Settings</a>
+      
     </li>
   </ul>
 
@@ -317,7 +317,7 @@
               type="button"
               class="btn btn-default rounded"
               style="border-color: #ccc"
-              data-dismiss="modal"
+              data-dismiss="modal" (click)="CloseModel()"
             >
               Cancel
             </button>
@@ -358,9 +358,9 @@
               </p>
             </div>
             <div class="col-lg-1 togglebtn">
-              <input type="checkbox" id="toggle-button-checkbox" name="scan_alert" #scan_alert="ngModel" [(ngModel)]="settingDetails.scan_alert">
-            <label class="toggle-button-switch"  
-              for="toggle-button-checkbox"></label>
+              <input type="checkbox" id="toggle-button-checkbox3" name="scan_alert" #scan_alert="ngModel" [(ngModel)]="settingDetails.scan_alert">
+            <label class="toggle-button-switch"
+              for="toggle-button-checkbox3"></label>
             <div class="toggle-button-text">
               <div class="toggle-button-text-on">YES</div>
               <div class="toggle-button-text-off">NO</div>
@@ -443,7 +443,8 @@
             <button
               type="button"
               class="btn btn-default rounded"
-              data-dismiss="modal" 
+              style="border-color: #ccc"
+              data-dismiss="modal" (click)="CloseNotify()"
             >
               Cancel
             </button>

@@ -213,7 +213,7 @@
             <div class="col-lg-12 col-sm-12">
             <div class="input-icons1">
         
-                <input class="input-field" type="checkbox" (click)="toggleVisibility1($event)"><span
+                <input class="input-field" type="checkbox" (click)="toggleVisibility1($event)" name="iscompanycheck" #iscompanycheck="ngModel" [(ngModel)]="isCompanyCheck"><span
                     style="margin-left:8px;">Does you have a Company Id?</span>
             </div>
         </div>

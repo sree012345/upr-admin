@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   inValidLogin:boolean=false;
   validLogin:boolean=false;
   message2: string;
+  isCompanyCheck:string;
   constructor(private router: Router,public service:AdminloginService,private dialog: MatDialog) { 
    
   }
@@ -141,6 +142,7 @@ export class LoginComponent implements OnInit {
 
   openModal(){
     this.resetForm();
+    this.isCompanyCheck='';
     this.visible=false;
     this.signUpData=new SignUp
     this.forgotPassword=new ForgotPassword
@@ -227,10 +229,10 @@ export class LoginComponent implements OnInit {
         this.inValidSignUp=true;
           this.message2="Please enter your company name.";
        }
-      //  else if(form1.value.company_id=="" || form1.value.company_id==undefined){
-      //   this.inValidSignUp=true;
-      //     this.message2="Please enter your company id.";
-      //  }
+       else if(form1.value.iscompanycheck== true && (form1.value.company_id=="" || form1.value.company_id==undefined)){
+        this.inValidSignUp=true;
+          this.message2="Please enter your company id.";
+       }
 
        else if(form1.value.address=="" || form1.value.address==undefined){
         this.inValidSignUp=true;
@@ -255,6 +257,7 @@ export class LoginComponent implements OnInit {
         this.service.signUpUser(this.signUpData).subscribe((res) => {
           var status = res["response_code"];
          if(status==200){
+           
            this.validSignUp=true
            this.message2 = "Successfully submitted your request. Thank you";
            this.resetForm();

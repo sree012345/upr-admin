@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   ChangePassword,
   EditProfile,
@@ -28,7 +29,11 @@ export class SettingsComponent implements OnInit {
   message1: any;
   message2:any;
   message3:any;
-  constructor(public service: SettingsService) {}
+  scan_alert:boolean=false;
+  counterfeit_alert:boolean=false;
+  recal_alert:boolean=false;
+
+  constructor(public service: SettingsService,private router: Router) {}
 
   ngOnInit(): void {
     this.loginDetails = JSON.parse(this.logedin || '{}');
@@ -66,7 +71,7 @@ export class SettingsComponent implements OnInit {
   }
 
   changePassword(form1: NgForm) {
-    debugger
+
     console.log("working");
     this.inValidChangePassword = false;
     this.validChangePassword = false;
@@ -125,7 +130,14 @@ export class SettingsComponent implements OnInit {
     this.ConFirmPswd = '';
     this.resetForm();
   }
-
+  CloseNotify(){
+    this.router.navigateByUrl('dashboard');
+  }
+ toggle(){
+  this.settingDetails.scan_alert=true;
+  this.settingDetails.counterfeit_alert=false;
+  this.settingDetails.recal_alert=false;
+ }
   manageSettings(form2?: NgForm) {
    
     // this.invalidNotifiction = false;
@@ -135,6 +147,9 @@ export class SettingsComponent implements OnInit {
     this.settingDetails.scan_alert = form2.value.scan_alert;
     this.settingDetails.counterfeit_alert = form2.value.counterfeit_alert;
     this.settingDetails.recal_alert = form2.value.recal_alert;
+    console.log(form2.value.scan_alert);
+    console.log(form2.value.counterfeit_alert);
+    console.log(form2.value.recal_alert);
     this.service.notificationSettings(this.settingDetails).subscribe((data) => {
       console.log(data);
       var status = data['response_code'];
