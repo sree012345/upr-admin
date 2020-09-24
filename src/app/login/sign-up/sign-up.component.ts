@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { SignUp } from 'src/app/models/Login-model';
+import { SignUp } from 'src/app/models/signup-model';
 import { AdminloginService } from 'src/app/services/Adminlogin.service';
 import { PopupmessageComponent } from 'src/app/popupmessage/popupmessage.component';
 

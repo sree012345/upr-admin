@@ -30,6 +30,7 @@ export class ProductComponent implements OnInit {
   product_id:any;
   message:string;
   message1:string;
+  counterfeitCheck:boolean=false;
   displayedColumns = ['product_name', 'ref_no',"counterfeit_radius","Counterfeit",'content_management_required','recall_required',"Forms",'Options'];
   adminUserDetails:adminAdduser;  
   logedin=localStorage.getItem('loggedinAdminUser');
@@ -81,6 +82,8 @@ export class ProductComponent implements OnInit {
     else {      
       this.inValidAddProduct=false;
       this.service.addproduct(form1.value,this.adminUserDetails.company_id).subscribe(data => {
+        console.log(this.service.formData.counterfeit_req);
+        console.log(this.service.formData.is_upc_code);
         var status = data["response_code"];
             console.log(status)
             if(status==200){
@@ -94,6 +97,8 @@ export class ProductComponent implements OnInit {
   }
   updateproduct(pro:product,product_id)
   {
+    this.validUpdateProduct=false;
+    this.inValidUpdateProduct=false;
     this.service.formData = pro;
     console.log(pro)
     this.product_id=product_id;
@@ -136,6 +141,7 @@ this.product_id=product_id;
     })
   }
   toggleVisibility(e){
+
     this.visible=e.target.checked;
     console.log(this.visible);
       }
@@ -163,9 +169,13 @@ this.product_id=product_id;
     }  
   } 
   openModal(){
+    this.visible=false;
+    this.visit=false;
     this.validAddProduct=false;
     this.inValidAddProduct=false;
     this.resetForm();
+    // this.toggleVisibility1(e);
+ 
   } 
   CloseModel()
   {

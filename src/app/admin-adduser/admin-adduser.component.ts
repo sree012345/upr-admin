@@ -52,6 +52,7 @@ export class AdminAdduserComponent implements OnInit {
   addCompany(form1: NgForm) {
     this.validAddUser=false;
     console.log("working");
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
  
     if (form1.value.first_name == "" || form1.value.first_name == undefined) {
       this. invalidAdduser = true;
@@ -69,6 +70,11 @@ export class AdminAdduserComponent implements OnInit {
       this. invalidAdduser = true;
       this.message = "Please enter Email";
       
+    }
+    else if(!form1.value.email.match(mailformat))
+    {
+      this.invalidAdduser=true;
+      this.message="Please enter a valid email id."
     }
     else if (form1.value.phone== "" || form1.value.phone== undefined) {
       this. invalidAdduser = true;
@@ -102,6 +108,10 @@ export class AdminAdduserComponent implements OnInit {
     else if (form1.value.country== "" || form1.value.country== undefined) {
       this. invalidAdduser = true;
       this.message = "Please enter Country";
+    }
+    else if (form1.value.password== "" || form1.value.password== undefined) {
+      this. invalidAdduser = true;
+      this.message = "Please enter Password";
     }
     else if (form1.value.user_role== "" || form1.value.user_role== undefined) {
       this. invalidAdduser = true;

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { login} from '../models/Login-model';
 import {ForgotPassword} from '../models/forgotpassword-model';
+import {SignUp} from '../models/signup-model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AdminloginService {
   formData = new login();
   formData1 = new ForgotPassword();
+  formData2 = new SignUp();
   constructor(private http: HttpClient) { }
   readonly APIBaseUrl = "http://34.204.86.142:3002/uprserver/api/v1/";
   adminlogin(log: login) {
@@ -23,9 +25,9 @@ export class AdminloginService {
     var fp = new ForgotPassword()
     fp.email = forgotpassword.email;
     console.log(this.APIBaseUrl + 'AdminUser/forgot_password', fp);
-    return this.http.post<login[]>(this.APIBaseUrl + 'AdminUser/forgot_password', fp);
+    return this.http.post<ForgotPassword[]>(this.APIBaseUrl + 'AdminUser/forgot_password', fp);
   }
-  signUpUser(signUpData)
+  signUpUser(signUpData:SignUp)
   {
     console.log(this.APIBaseUrl + 'AdminUser/register_admin_user', signUpData);
     return this.http.post<any>(this.APIBaseUrl + 'AdminUser/register_admin_user', signUpData);

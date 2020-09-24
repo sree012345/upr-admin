@@ -329,7 +329,7 @@
 
               </div>
               <div class="input-icons1">
-                <input class="input-field" (click)="toggleVisibility1($event)" readonly type="checkbox" name="counterfeit_req"
+                <input class="input-field" (click)="toggleVisibility1($event)" [disabled]="true" type="checkbox" name="counterfeit_req" 
                   #counterfeit_req="ngModel" [(ngModel)]="service.formData.counterfeit_req"><span
                   style="margin-left:8px;" class="labelColor">Enable counterfeit detection module.</span>
               </div>

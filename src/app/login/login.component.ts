@@ -5,7 +5,7 @@ import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { Router } from '@angular/router';
-import {  SignUp } from '../models/Login-model';
+import { SignUp} from '../models/signup-model';
 import {ForgotPassword} from '../models/forgotpassword-model';
 import { PopupmessageComponent } from '../popupmessage/popupmessage.component';
 
@@ -86,37 +86,41 @@ export class LoginComponent implements OnInit {
   ForgotPassword(form2: NgForm)
   {
     console.log(form2.value.email);
-    console.log("password");
     this.inValidForgotPassword=false;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    // console.log(form1.value.email);
     if(form2.value.email.match(mailformat))
     {
-      
-    this.service.forgotPassword(form2.value.email).subscribe((res) => {
+      this.service.forgotPassword(form2.value).subscribe((res) => {
+      console.log(form2.value);
       var status = res["response_code"];
+      console.log(res);
+  
      if(status==200){
         this.validForgotPassword=true;
-        this.inValidForgotPassword=false;
         this.message1=res["response_message"];
-        this.resetForm();
-
-      
+        this.resetForm1();
+     
      }
-     else{
-      this.resetForm();
+     else
+     {
       this.validForgotPassword=false;
       this.inValidForgotPassword=true;
-      this.message1="Email is is not registerd with us.";
+      this.message1="*Email is not registered with us"
      }
-    })
+
+})
     }
     else
     {
-      this.resetForm();
+      this.resetForm1();
+      this.validForgotPassword=false;
       this.inValidForgotPassword=true;
-      this.message1="* Invalid email Address";
+      this.message1="*Invalid email Address";
     }
+
+ 
+
+
   }
 
 
@@ -137,6 +141,7 @@ export class LoginComponent implements OnInit {
 
   openModal(){
     this.resetForm();
+    this.visible=false;
     this.signUpData=new SignUp
     this.forgotPassword=new ForgotPassword
     this.validForgotPassword=false;
@@ -149,27 +154,18 @@ export class LoginComponent implements OnInit {
     // buttonModal.click()
   }
 
-  //   resetForm(form1?: NgForm) {
-  //   if (form1 = null)
-  //     form1.resetForm();
-  //     this.service.formData1 = {
-  //     email:""
-      
-  
-      
-  //   }
 
-  // }
-  resetForm(form2?: NgForm) {
-   
+
+
+  resetForm1(form2?: NgForm) {
     if (form2 = null)
       form2.resetForm();
     this.service.formData1 = {
-     email:""
-      
-    }
+      email:'',
 
-  }
+      
+}  
+}
 
  modelClose()
  {
@@ -182,41 +178,74 @@ export class LoginComponent implements OnInit {
   console.log(this.visible);
     }
 
-    submit(form: NgForm){
+    resetForm(form1?: NgForm) {
+      if (form1 = null)
+        form1.resetForm();
+      this.service.formData2 = {
+        first_name:'',
+        last_name:'',
+        email:'',
+        company_name:'',
+        company_id:null,
+        address:'',
+        city:'',
+        state_province:'',
+        postal_code:'',
+        country:'',
+        phone:'',
+      
+        
+  }  
+} 
+
+
+
+
+    submit(form1: NgForm){
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if(this.signUpData.first_name=="" || this.signUpData.first_name==undefined){
+    if(form1.value.first_name=="" || form1.value.first_name==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your first name.";
        }
-       else if(this.signUpData.last_name=="" || this.signUpData.last_name==undefined){
+       else if(form1.value.last_name=="" || form1.value.last_name==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your last name.";
        }
-       else if(this.signUpData.email=="" || this.signUpData.email==undefined){
+       else if(form1.value.email=="" || form1.value.email==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your email id.";
        }
-       else if(!this.signUpData.email.match(mailformat)){
+       else if(!form1.value.email.match(mailformat)){
         this.inValidSignUp=true;
           this.message2="Please enter a valid email id.";
        }
-       else if(this.signUpData.phone=="" || this.signUpData.phone==undefined){
+       else if(form1.value.phone=="" || form1.value.phone==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your phone number.";
        }
-       else if(this.signUpData.company_name=="" || this.signUpData.company_name==undefined){
+       else if(form1.value.company_name=="" || form1.value.company_name==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your company name.";
        }
-       else if(this.signUpData.city=="" || this.signUpData.city==undefined){
+      //  else if(form1.value.company_id=="" || form1.value.company_id==undefined){
+      //   this.inValidSignUp=true;
+      //     this.message2="Please enter your company id.";
+      //  }
+
+       else if(form1.value.address=="" || form1.value.address==undefined){
+        this.inValidSignUp=true;
+          this.message2="Please enter your address";
+       }
+
+       else if(form1.value.city=="" || form1.value.city==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your city";
        }
-       else if(this.signUpData.state_province=="" || this.signUpData.state_province==undefined){
+       else if(form1.value.state_province=="" || form1.value.state_province==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your state";
        }
-       else if(this.signUpData.postal_code=="" || this.signUpData.postal_code==undefined){
+       else if(form1.value.postal_code=="" || form1.value.postal_code==undefined){
         this.inValidSignUp=true;
           this.message2="Please enter your zip/postalcode";
        }
@@ -227,12 +256,14 @@ export class LoginComponent implements OnInit {
           var status = res["response_code"];
          if(status==200){
            this.validSignUp=true
-          this.message2 = "Successfully submitted your request. Thank you";
+           this.message2 = "Successfully submitted your request. Thank you";
+           this.resetForm();
          
          }
          else{
           
          }
+
         })
        }
      

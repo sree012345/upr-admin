@@ -47,7 +47,7 @@ export class BrandProtectionService {
 
   get_productlist(companyId)
   {
-    console.log(this.APIBaseUrl+'admin/get_all_products',companyId);
-    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',companyId);
+    console.log(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
+    return this.http.post<any>(this.APIBaseUrl+'admin/get_all_products',{company_id:companyId});
   }
 }

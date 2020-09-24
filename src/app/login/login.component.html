@@ -146,7 +146,7 @@
                 <div class="form-group"> 
                     <div class= input-icons>             
                      
-                    <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email Address"  name="email" #email="ngModel" [ngModel]="service.formData1.email"
+                    <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email Address"  name="email" #email="ngModel" [(ngModel)]="service.formData1.email"
                     required class="form-control1"   autocomplete="off" >
                 </div>               
                 </div>
@@ -161,7 +161,7 @@
             
             <div class="modal-footer">  
               <button type="button" data-dismiss="modal" (click)="modelClose()" class="btn btn-default">Cancel</button>
-              <button type="text" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
 
@@ -186,28 +186,28 @@
         
             <div class="col-lg-6 col-sm-6">
                 <div class=input-icons1>
-                    <input type="text" placeholder="First Name" required class="form-control1" name="first_name" #first_name="ngModel"  [(ngModel)]="signUpData.first_name">
+                    <input type="text" placeholder="First Name" required class="form-control1" name="first_name" #first_name="ngModel"  [(ngModel)]="service.formData2.first_name">
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6">
                 <div class=input-icons1>
-                    <input type="text" placeholder="Last Name" required class="form-control1" name="last_name" #last_name="ngModel"  [(ngModel)]="signUpData.last_name">
+                    <input type="text" placeholder="Last Name" required class="form-control1" name="last_name" #last_name="ngModel"  [(ngModel)]="service.formData2.last_name">
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6">
                 <div class=input-icons1>
                     <input type="text" email pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
-                        placeholder="Email Address" required class="form-control1" name="email" #email="ngModel"  [(ngModel)]="signUpData.email">
+                        placeholder="Email Address" required class="form-control1" name="email" #email="ngModel"  [(ngModel)]="service.formData2.email">
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6">
                 <div class=input-icons1>
-                    <input type="text" placeholder="Telephone Number" required class="form-control1"  name="phone" #phone="ngModel"  [(ngModel)]="signUpData.phone">
+                    <input type="text" placeholder="Telephone Number" required class="form-control1"  name="phone" #phone="ngModel"  [(ngModel)]="service.formData2.phone">
                 </div>
             </div>
             <div class="col-lg-12 col-sm-12">
                 <div class=input-icons1>
-                    <input type="text" placeholder="Company Name" required class="form-control1" name="company_name" #company_name="ngModel"  [(ngModel)]="signUpData.company_name">
+                    <input type="text" placeholder="Company Name" required class="form-control1" name="company_name" #company_name="ngModel"  [(ngModel)]="service.formData2.company_name">
                 </div>
             </div>
             <div class="col-lg-12 col-sm-12">
@@ -221,29 +221,29 @@
             
             <div class="input-icons1">
                 <input class="form-control1 input-field" [disabled]="!visible" type="text"
-                    placeholder="Company Id" name="company_id" #company_id="ngModel"  [(ngModel)]="signUpData.company_id">
+                    placeholder="Company Id" name="company_id" #company_id="ngModel"  [(ngModel)]="service.formData2.company_id">
         
             </div>
             </div>
         
             <div class="col-lg-12 col-sm-12">
                 <div class=input-icons1>
-                    <input type="text" placeholder="Street Address" required class="form-control1" name="address" #address="ngModel"  [(ngModel)]="signUpData.address">
+                    <input type="text" placeholder="Street Address" required class="form-control1" name="address" #address="ngModel"  [(ngModel)]="service.formData2.address">
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4">
                 <div class=input-icons1>
-                    <input type="text" placeholder="City" required class="form-control1" name="city" #city="ngModel"  [(ngModel)]="signUpData.city">
+                    <input type="text" placeholder="City" required class="form-control1" name="city" #city="ngModel"  [(ngModel)]="service.formData2.city">
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4">
                 <div class=input-icons1>
-                    <input type="text" placeholder="State / Province" required class="form-control1" name="state_province" #state_province="ngModel"  [(ngModel)]="signUpData.state_province">
+                    <input type="text" placeholder="State / Province" required class="form-control1" name="state_province" #state_province="ngModel"  [(ngModel)]="service.formData2.state_province">
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4">
                 <div class=input-icons1>
-                    <input type="text" placeholder="Zip / Postal Code" required class="form-control1" name="postal_code" #postal_code="ngModel"  [(ngModel)]="signUpData.postal_code">
+                    <input type="text" placeholder="Zip / Postal Code" required class="form-control1" name="postal_code" #postal_code="ngModel"  [(ngModel)]="service.formData2.postal_code">
                 </div>
             </div>
             <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validSignUp">

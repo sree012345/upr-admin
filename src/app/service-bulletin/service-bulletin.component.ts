@@ -16,7 +16,7 @@ import { adminAdduser } from '../models/adminAdduser-model';
 export class ServiceBulletinComponent implements OnInit {
   productist: any;
   listData: MatTableDataSource<any>
-  displayedColumns = ['product_name', 'begin_date', 'end_date', 'first_sn', 'last_sn', 'bulletin_message', 'edit', 'delete'];
+  displayedColumns = ['product_name','title', 'begin_date', 'end_date', 'first_sn', 'last_sn', 'bulletin_message', 'edit', 'delete'];
   inValidbulletin:boolean=false;
   validBulletin:boolean=false;
   inValidUpdatebulletin:boolean=false;

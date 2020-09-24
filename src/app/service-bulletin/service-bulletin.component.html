@@ -37,6 +37,10 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Item Name </th>
             <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
           </ng-container>
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef > Service Bulletin Title  </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
           <ng-container matColumnDef="begin_date">
             <th mat-header-cell *matHeaderCellDef> Begin Date</th>
             <td mat-cell *matCellDef="let element"> {{element.begin_date}} </td>

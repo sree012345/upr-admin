@@ -15,7 +15,7 @@ export class RecallComponent implements OnInit {
   inValidRecall: boolean = false;
   validRecall: boolean = false;
   listData: MatTableDataSource<any>
-  displayedColumns = ['product_name', 'begin_date', 'end_date', 'first_sn', 'last_sn', 'recall_message', 'edit', 'delete'];
+  displayedColumns = ['product_name','title', 'begin_date', 'end_date', 'first_sn', 'last_sn', 'recall_message', 'edit', 'delete'];
   recallDetails: any;
   message: string;
   recalllist: any;
@@ -61,7 +61,7 @@ export class RecallComponent implements OnInit {
   }
 
   addRecall(form1: NgForm) {
-    console.log(form1.value.begin_date);
+     this.validRecall=false;
     if (form1.value.product_id == "" || form1.value.product_id == undefined) {
       this.inValidRecall = true;
       this.message = "Please select item.";
@@ -125,6 +125,8 @@ export class RecallComponent implements OnInit {
   }
   openModel() {
     this.resetForm();
+     this.inValidRecall = false;
+     this.inValidRecall = false;
   }
   CloseModel() {
     this.service.filter('Register click');
@@ -132,6 +134,8 @@ export class RecallComponent implements OnInit {
   }
 
   updateRecall(pro: addRecall, recall_id) {
+    this.validUpdateRecall=false;
+    this.inValidUpdateRecall=false;
     console.log(pro);
     this.service.formData = pro;
     this.service.formData.begin_date = new Date(pro.begin_date)
@@ -154,6 +158,8 @@ export class RecallComponent implements OnInit {
 
   deleteRecall(recall_id)
   {
+    this.validDeleteRecall = false;
+    this.inValidDeleteRecall = false;
     this.recall_id = recall_id;
   }
   Recalldelete()

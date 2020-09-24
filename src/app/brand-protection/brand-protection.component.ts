@@ -139,7 +139,8 @@ toggleVisibility2(e){
   }
 
   openBrand(){
-    
+    debugger
+    this.visit=false;
     this.resetForm();
     this.validAddBrand=false;
     this.inValidAddBrand=false;

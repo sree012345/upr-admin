@@ -13,8 +13,10 @@ import { SettingsService } from '../services/settings.service';
   styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent implements OnInit {
-  inValidChangePassword: boolean = false;
-  validChangePassword: boolean = false;
+  inValidChangePassword: boolean=false;
+  validChangePassword: boolean=false;
+  validNotification:boolean=false;
+  invalidNotifiction:boolean=false;
   Auth: string;
   ConFirmPswd: string;
   settingDetails: NotificationSettings = new NotificationSettings();
@@ -24,6 +26,8 @@ export class SettingsComponent implements OnInit {
   loginDetails: any;
   message: any;
   message1: any;
+  message2:any;
+  message3:any;
   constructor(public service: SettingsService) {}
 
   ngOnInit(): void {
@@ -62,28 +66,30 @@ export class SettingsComponent implements OnInit {
   }
 
   changePassword(form1: NgForm) {
+    debugger
+    console.log("working");
     this.inValidChangePassword = false;
     this.validChangePassword = false;
     if (form1.value.oldpassword == '' || form1.value.oldpassword == undefined) {
       this.inValidChangePassword = true;
-      this.message = 'Please enter current password.';
+      this.message2 = 'Please enter current password.';
     } else if (
       form1.value.newpassword == '' ||
       form1.value.newpassword == undefined
     ) {
       this.inValidChangePassword = true;
-      this.message = 'Please enter new password.';
+      this.message2 = 'Please enter new password.';
     } else if (
       form1.value.confirmpswd == '' ||
       form1.value.confirmpswd == undefined
     ) {
       this.inValidChangePassword = true;
-      this.message = 'Please enter confirm password.';
+      this.message2 = 'Please enter confirm password.';
     } else if (form1.value.newpassword != form1.value.confirmpswd) {
       this.inValidChangePassword = true;
-      this.message = 'password and confirm passwor is not match';
+      this.message2 = 'password and confirm passwor is not match';
     } else {
-      this.inValidChangePassword = false;
+      // this.inValidChangePassword = false;
       this.chngePasswrd = new ChangePassword();
       this.chngePasswrd.user_id = Number(this.loginDetails.admin_user_id);
       this.chngePasswrd.oldpassword = form1.value.oldpassword;
@@ -95,11 +101,13 @@ export class SettingsComponent implements OnInit {
           this.ConFirmPswd = '';
           this.inValidChangePassword = false;
           this.validChangePassword = true;
-          this.message = 'Password chnaged successfully';
+          this.message2 = 'Password chnaged successfully';
         } else {
+          this.resetForm();
+          this.ConFirmPswd = '';
           this.inValidChangePassword = true;
           this.validChangePassword = false;
-          this.message = 'please enter the correct password';
+          this.message2 = 'please enter the correct password';
         }
       });
     }
@@ -113,8 +121,15 @@ export class SettingsComponent implements OnInit {
       user_id: null,
     };
   }
+  CloseModel() {
+    this.ConFirmPswd = '';
+    this.resetForm();
+  }
 
   manageSettings(form2?: NgForm) {
+   
+    // this.invalidNotifiction = false;
+    // this.validNotification = false;
     this.settingDetails = new NotificationSettings();
     this.settingDetails.user_id = Number(this.loginDetails.admin_user_id);
     this.settingDetails.scan_alert = form2.value.scan_alert;
@@ -124,8 +139,16 @@ export class SettingsComponent implements OnInit {
       console.log(data);
       var status = data['response_code'];
       if (status == 200) {
-        this.message = data['response_message'];
+        this.invalidNotifiction=false;
+        this.validNotification=true;
+        this.message3 = data['response_message'];
       }
+      else{
+        this.invalidNotifiction=true;
+        this.validNotification=false;
+        this.message3="invalid fields"
+      }
+
     });
   }
 }

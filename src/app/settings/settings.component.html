@@ -303,10 +303,10 @@
         <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
             <div class="errorMessages" *ngIf="inValidChangePassword">
-              {{ message }}
+              {{ message2 }}
             </div>
             <div class="successMessages" *ngIf="validChangePassword">
-              {{ message }}
+              {{ message2 }}
             </div>
           </div>
           <div
@@ -357,16 +357,14 @@
                 Send me email notifications each time a UPR Code is scanned.
               </p>
             </div>
-            <div class="col-lg-1">
-              <label class="switch">
-                <input
-                  type="checkbox"
-                  name="scan_alert"
-                  #scan_alert="ngModel"
-                  [(ngModel)]="settingDetails.scan_alert"
-                />
-                <span class="slider"></span>
-              </label>
+            <div class="col-lg-1 togglebtn">
+              <input type="checkbox" id="toggle-button-checkbox" name="scan_alert" #scan_alert="ngModel" [(ngModel)]="settingDetails.scan_alert">
+            <label class="toggle-button-switch"  
+              for="toggle-button-checkbox"></label>
+            <div class="toggle-button-text">
+              <div class="toggle-button-text-on">YES</div>
+              <div class="toggle-button-text-off">NO</div>
+            </div>
             </div>
           </div>
         </div>
@@ -381,16 +379,14 @@
                 detected.
               </p>
             </div>
-            <div class="col-lg-1">
-              <label class="switch">
-                <input
-                  type="checkbox"
-                  name="counterfeit_alert"
-                  #counterfeit_alert="ngModel"
-                  [(ngModel)]="settingDetails.counterfeit_alert"
-                />
-                <span class="slider"></span>
-              </label>
+            <div class="col-lg-1 togglebtn">
+              <input type="checkbox" id="toggle-button-checkbox1" name="counterfeit_alert" #counterfeit_alert="ngModel" [(ngModel)]="settingDetails.counterfeit_alert">
+              <label class="toggle-button-switch"  
+                for="toggle-button-checkbox1"></label>
+              <div class="toggle-button-text">
+                <div class="toggle-button-text-on">YES</div>
+                <div class="toggle-button-text-off">NO</div>
+              </div>
             </div>
           </div>
         </div>
@@ -405,16 +401,14 @@
                 outside of the United States.
               </p>
             </div>
-            <div class="col-lg-1">
-              <label class="switch">
-                <input
-                  type="checkbox"
-                  name="recal_alert"
-                  #recal_alert="ngModel"
-                  [(ngModel)]="settingDetails.recal_alert"
-                />
-                <span class="slider"></span>
-              </label>
+            <div class="col-lg-1 togglebtn">
+              <input type="checkbox" id="toggle-button-checkbox2" name="recal_alert" #recal_alert="ngModel" [(ngModel)]="settingDetails.recal_alert">
+              <label class="toggle-button-switch"  
+                for="toggle-button-checkbox2"></label>
+              <div class="toggle-button-text">
+                <div class="toggle-button-text-on">YES</div>
+                <div class="toggle-button-text-off">NO</div>
+              </div>
             </div>
           </div>
         </div>
@@ -435,11 +429,11 @@
          -->
         <div class="row">
           <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-            <div class="errorMessages" *ngIf="inValidChangePassword">
-              {{ message }}
+            <div class="errorMessages" *ngIf="invalidNotifiction">
+              {{ message3 }}
             </div>
-            <div class="successMessages">
-              {{ message }}
+            <div class="successMessages" *ngIf="validNotification" >
+              {{ message3 }}
             </div>
           </div>
           <div
@@ -449,7 +443,7 @@
             <button
               type="button"
               class="btn btn-default rounded"
-              data-dismiss="modal"
+              data-dismiss="modal" 
             >
               Cancel
             </button>

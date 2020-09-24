@@ -26,19 +26,28 @@ export class ContactUsComponent implements OnInit {
   addRequest(form1: NgForm) {
     this.validDetails=false;
     console.log("working");
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
  
     if (form1.value.first_name == "" || form1.value.first_name == undefined) {
       this.invalidDetails = true;
       this.message = "Please enter first name";
       
     }
-    else if (form1.value.last_name== "" || form1.value.last_name == undefined) {
-      this.invalidDetails = true;
-      this.message = "Please enter last name";
-    }
+
     else if (form1.value.email == "" || form1.value.email == undefined) {
       this.invalidDetails  = true;
       this.message = "Please enter  email";
+    }
+
+    else if(!form1.value.email.match(mailformat))
+    {
+      this.invalidDetails=true;
+      this.message="Please enter a valid email id."
+    }
+
+    else if (form1.value.last_name== "" || form1.value.last_name == undefined) {
+      this.invalidDetails = true;
+      this.message = "Please enter last name";
     }
 
     else if (form1.value.subject == "" || form1.value.subject == undefined) {

@@ -100,7 +100,7 @@ style="display: none;" aria-hidden="true">
         <div class="input-icons1">
           <label class="labelColor" for="serial number">Serial Number</label>
           <input dobMask class="form-control1" type="text" placeholder="Enter Serial Number"
-              name="serial_number" #serial_number="ngModel" [ngModel]="service.formData.serial_number"
+              name="serial_number" #serial_number="ngModel" [(ngModel)]="service.formData.serial_number"
               required>
       </div>
           <div class="col-lg-12 text-left text-danger mr-top" *ngIf="validAddSerialNumber">

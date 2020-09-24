@@ -95,8 +95,24 @@ export class SerialNumbersComponent implements OnInit {
         this.resetForm();
       
       }
+
+      else 
+      {
+        this.inValidAddSerialNumber=true;
+        this.validAddSerialNumber=false;
+        this.message = "duplicate entry";
+        this.service.filter('Register click');
+        this.resetForm();
+      }
+    
       
       
+    },error=>{
+      if(error.status==400){
+        this.inValidAddSerialNumber=true;
+        this.message="Duplicate entry of serial number.please check"
+       
+      }
     });
   }
   }
@@ -117,7 +133,7 @@ export class SerialNumbersComponent implements OnInit {
     if (form = null)
       form.resetForm();
     this.service.formData = {
-      serial_number:"",
+      serial_number:'',
       product_id:null
     }
 
